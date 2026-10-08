@@ -13,19 +13,15 @@ Workflows combine Markdown instructions with YAML metadata describing tasks, dep
 
 You need an agent that supports Agent Skills, Python 3.11 or later, [uv](https://docs.astral.sh/uv/), and Node.js with `npx` for installation. The helper declares its PyYAML dependency inline; uv installs it when needed.
 
-From the project where you want to use the skills, install from a local checkout:
+From your project directory, install with the [skills.sh CLI](https://skills.sh/docs/cli):
 
 ```sh
-npx skills add /absolute/path/to/this/repository --skill define-workflow execute-workflow -a codex -y
+npx skills add tclasen/sparkle --skill define-workflow execute-workflow
 ```
 
-Or install from the upstream repository:
+Choose your agent when prompted. This follows development on main. To pin a release, use the tagged URL shown in that [release's installation command](https://github.com/tclasen/sparkle/releases). The [official CLI source-format documentation](https://github.com/vercel-labs/skills#source-formats) explains GitHub tree URLs.
 
-```sh
-npx skills add tclasen/sparkle --skill define-workflow execute-workflow -a codex -y
-```
-
-These commands install into the target project. Other supported agents can replace `codex`. Each skill includes its own instructions, helper, references, and templates; neither needs its sibling or the source checkout at runtime.
+Each skill includes its own instructions, helper, references, and templates; neither needs its sibling at runtime.
 
 ## Use it conversationally
 

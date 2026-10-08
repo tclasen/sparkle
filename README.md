@@ -11,19 +11,13 @@ It provides two independent skills:
 
 Use the [skills.sh CLI](https://skills.sh/docs/cli) from your project directory. You need Node.js, Python 3.11+, and [uv](https://docs.astral.sh/uv/).
 
-Install a published version (starting with `v0.1.0`):
-
-```sh
-npx skills add https://github.com/tclasen/sparkle/tree/v0.1.0 --skill define-workflow execute-workflow
-```
-
-Choose your agent when prompted. Each [release](https://github.com/tclasen/sparkle/releases) includes its exact installation command. Before 1.0, releases may introduce breaking changes.
-
-For the latest development version instead:
-
 ```sh
 npx skills add tclasen/sparkle --skill define-workflow execute-workflow
 ```
+
+Choose your agent when prompted. This installs the current development version from main.
+
+To pin a release, use its version tag in a GitHub tree URL. See the [official skills CLI source-format documentation](https://github.com/vercel-labs/skills#source-formats); each [sparkle release](https://github.com/tclasen/sparkle/releases) provides the exact pinned command. Before 1.0, releases may introduce breaking changes.
 
 ## Use
 
