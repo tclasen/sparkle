@@ -1,0 +1,7 @@
+{
+  "assessment": "Explain how each acceptance criterion was assessed.",
+  "evidence": ["artifacts/result.md"],
+  "external_actions": [],
+  "blockers": [],
+  "handoff": "Deliverables and next safe action."
+}
