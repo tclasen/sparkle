@@ -102,6 +102,64 @@ def metadata(path):
     return data, text[match.end():]
 
 
+def markdown_headings(prose):
+    """Scan level 2–6 headings outside Markdown fenced code blocks."""
+    fence = None
+    offset = 0
+    for line in prose.splitlines(keepends=True):
+        text = line.rstrip('\r\n')
+        marker = re.match(r'^ {0,3}(`{3,}|~{3,})(.*)$', text)
+        if fence:
+            if marker and marker[1][0] == fence[0] and len(marker[1]) >= len(fence) and not marker[2].strip():
+                fence = None
+        elif marker and (marker[1][0] == '~' or '`' not in marker[2]):
+            fence = marker[1]
+        else:
+            heading = re.match(r'^(#{2,6}) (.*)$', text)
+            if heading:
+                yield (offset, offset + len(text), len(heading[1]), heading[2])
+        offset += len(line)
+
+
+class WorkflowProse:
+    def __init__(self, prose, steps):
+        self.prose = prose
+        self.headings = list(markdown_headings(prose))
+        self.ids = set()
+
+        def collect(nodes):
+            if isinstance(nodes, list):
+                for node in nodes:
+                    if isinstance(node, dict):
+                        if isinstance(node.get('id'), str):
+                            self.ids.add(node['id'])
+                        collect(node.get('steps'))
+        collect(steps)
+
+    def is_step(self, heading):
+        words = heading[3].split()
+        return bool(words) and words[0] in self.ids
+
+    def section(self, heading):
+        end = next((h[0] for h in self.headings if h[0] > heading[0]
+                    and (h[2] <= heading[2] or self.is_step(h))), len(self.prose))
+        return self.prose[heading[1]:end]
+
+    def step(self, sid):
+        matches = [h for h in self.headings if h[3].split()[:1] == [sid]]
+        need(len(matches) == 1, f'exactly one prose heading required for {sid}')
+        return self.section(matches[0])
+
+    def preamble(self):
+        end = next((h[0] for h in self.headings if self.is_step(h)), len(self.prose))
+        return self.prose[:end]
+
+    def completion(self):
+        heading = next((h for h in self.headings if h[2] == 2 and h[3].rstrip() == 'Completion criteria'), None)
+        need(heading is not None, 'Completion criteria heading required')
+        return self.section(heading)
+
+
 def definition(path):
     data, prose = metadata(path)
     fields(data, 'schema id inputs steps', 'workflow')
@@ -113,8 +171,9 @@ def definition(path):
         ident(name)
         fields(spec, 'required default', f'input {name}')
         need(isinstance(spec, dict) and isinstance(spec.get('required', False), bool), f'invalid input {name}')
-    need(re.search(r'^## Completion criteria\s*$', prose, re.M), 'Completion criteria heading required')
     steps = data.get('steps')
+    sections = WorkflowProse(prose, steps)
+    sections.completion()
     seen = set()
 
     def graph(nodes):
@@ -127,7 +186,7 @@ def definition(path):
             sid = step['id']
             need(sid not in seen, f'duplicate step ID: {sid}')
             seen.add(sid)
-            need(len(re.findall(r'^#{2,6} ' + re.escape(sid) + r'(?:\s|$)', prose, re.M)) == 1, f'exactly one prose heading required for {sid}')
+            section = sections.step(sid)
             kind = step.get('type')
             extra = {'decision': 'branches selection', 'subworkflow': 'workflow inputs', 'iteration': 'max_iterations steps'}.get(kind, '')
             fields(step, 'id type depends_on when join selected_dependencies skills capabilities ' + extra, sid)
@@ -151,9 +210,6 @@ def definition(path):
                     selected = step.get('selected_dependencies')
                     need(isinstance(selected, list) and selected and len(set(selected)) == len(selected) and set(selected) <= set(deps), f'invalid selected dependencies: {sid}')
             need(isinstance(step.get('skills', []), list), f'invalid skills list: {sid}')
-            heading = re.search(r'^#{2,6} ' + re.escape(sid) + r'(?:\s|$).*$', prose, re.M)
-            tail = prose[heading.end():]
-            section = re.split(r'^#{2,6} ', tail, maxsplit=1, flags=re.M)[0]
             for label in ('Task', 'Inputs', 'Outputs', 'Acceptance'):
                 need(re.search(r'(?m)^'+label+r':', section), f'{sid}: missing {label} prose')
             for skill in step.get('skills', []):
@@ -967,21 +1023,19 @@ def main():
                 return
         elif cmd == 'context':
             pointer, step, rec, peers, inputs, path, active = locate(args.run, state, args.step)
-            _, prose = metadata(path)
-            heading = re.search(r'^#{2,6} '+re.escape(step['id'])+r'(?:\s|$).*$', prose, re.M)
-            tail = prose[heading.end():]
-            section = re.split(r'^#{2,6} ', tail, maxsplit=1, flags=re.M)[0]
-            preamble = re.split(r'^#{2,6} '+re.escape(definition(path)['steps'][0]['id'])+r'(?:\s|$)', prose, maxsplit=1, flags=re.M)[0]
+            data, prose = metadata(path)
+            sections = WorkflowProse(prose, data['steps'])
+            section = sections.step(step['id'])
+            preamble = sections.preamble()
             ancestors = []
             for parent_path, parent_step, parent_rec, parent_peers, _, parent_file, _ in scopes(args.run, state):
                 if not pointer.startswith(parent_path + '/'):
                     continue
-                _, parent_prose = metadata(parent_file)
-                parent_heading = re.search(r'^#{2,6} ' + re.escape(parent_step['id']) + r'(?:\s|$).*$', parent_prose, re.M)
-                parent_section = re.split(r'^#{2,6} ', parent_prose[parent_heading.end():], maxsplit=1, flags=re.M)[0]
+                parent_data, parent_prose = metadata(parent_file)
+                parent_section = WorkflowProse(parent_prose, parent_data['steps']).step(parent_step['id'])
                 ancestors.append({'path': parent_path, 'metadata': parent_step, 'prose': parent_section,
                                   'predecessors': {d: parent_peers[d] for d in parent_step.get('depends_on', [])}})
-            result = {'ancestors': ancestors, 'path': pointer, 'revision': state['revision'], 'metadata': step, 'workflow_context': preamble, 'step_prose': section, 'completion_criteria': prose.split('## Completion criteria', 1)[-1], 'inputs': inputs, 'project': (Path(args.run)/'project-snapshot.md').read_text(), 'predecessors': {d: peers[d] for d in step.get('depends_on', [])}, 'record': rec}
+            result = {'ancestors': ancestors, 'path': pointer, 'revision': state['revision'], 'metadata': step, 'workflow_context': preamble, 'step_prose': section, 'completion_criteria': sections.completion(), 'inputs': inputs, 'project': (Path(args.run)/'project-snapshot.md').read_text(), 'predecessors': {d: peers[d] for d in step.get('depends_on', [])}, 'record': rec}
         else:
             supplied = read_json(args.result) if getattr(args, 'result', None) else {}
             def apply(new):
