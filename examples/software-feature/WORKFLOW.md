@@ -18,9 +18,6 @@ steps:
   capabilities:
   - repository-write
   - shell
-  skills:
-  - name: feature-development
-    required: true
 - id: quality
   type: subworkflow
   depends_on:
@@ -61,11 +58,11 @@ Acceptance: clear before/after behavior, mutation boundaries, and no unresolved 
 
 ## implement — Implement the feature
 
-Task: Use the required installed feature-development skill in the repository work area.
+Task: Implement the agreed feature directly in the repository work area. Read repository instructions and the relevant code and tests first. Define a small set of observable before/after cases, including important edge cases and invalid inputs, using the design assessment. Make the smallest focused change that satisfies those cases and repository conventions. Add or update meaningful behavioral tests, run the relevant checks, and resolve failures before handing the change to quality review. Save the exact diff, commands, exit codes, and remaining limitations as evidence. Preserve unrelated changes. If behavior or scope is unresolved, or a required tool is unavailable, block with a handoff rather than inventing a requirement or claiming success. This procedure is part of this workflow and requires no external implementation skill.
 
 Inputs: Frozen run inputs and predecessor results.
 Outputs: Local artifacts and a structured result with evidence and handoff.
-Acceptance: code implements agreed behavior and is locally reviewable. Capture diff and any external actions before a handoff. Missing required skill blocks this step; do not silently substitute another procedure.
+Acceptance: code implements agreed behavior and is locally reviewable; focused checks cover the agreed cases and their observed results are saved. Capture diff and any external actions before a handoff. Missing required tools or unresolved requirements block this step.
 
 ## quality — Review and test
 
