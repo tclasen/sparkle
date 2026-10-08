@@ -15,3 +15,18 @@ Set `stable` to `true` in [release.json](../release.json) through a reviewed PR 
 The stable public contract includes the documented helper CLI, workflow/project metadata, run records and recovery behavior, and standalone skill resources. Starting with 1.0.0, changes must assess backwards compatibility against that contract and run the behavioral regression suite. The 1.0 milestone must define supported compatibility boundaries and add fixtures for the stable formats; passing a version-number check alone does not prove compatibility. Existing 0.x formats do not acquire a retroactive support promise.
 
 Published versions, tags and assets must never be replaced. Correct mistakes in a new release. A retry may complete an interrupted publication only when the existing target and content match exactly.
+
+## Local commit and version checks
+
+Use Python 3.11+ and a full Git checkout with all release tags. Project release tags have the form `vMAJOR.MINOR.PATCH`; prerelease suffixes and build metadata are not used by this release channel. Other tags may exist, but names starting with `v` are reserved for project releases. Versions are ordered numerically and checked against their commit history, not inferred from tag creation dates.
+
+```sh
+git fetch upstream --tags
+python3 scripts/release.py lint --base upstream/main
+python3 scripts/release.py plan
+python3 tests/test_releases.py
+```
+
+Planning reads committed `release.json` at HEAD. Commit local changes before previewing the exact release. Accepted commit types are `feat`, `fix`, `perf`, `docs`, `refactor`, `style`, `test`, `build`, `ci`, `chore`, and `revert`, with optional scope and `!`. Bodies follow a blank line; breaking-change footers need explanations. A revert does not automatically cancel another commit's bump: use `fix` or a breaking marker when the revert itself needs a release. Only actual merge commits are exempt from message linting. PR titles are not used to calculate versions.
+
+`plan` is read-only and reports no version for a documentation-only interval after the initial release. Planning on an existing release tag reproduces that version for publication recovery. Invalid versions, incorrect bumps, divergent release tags and shallow history fail closed. The helper validates structure and declared change type; contributors still assess whether a change is actually breaking.
