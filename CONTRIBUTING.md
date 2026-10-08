@@ -6,12 +6,7 @@ Start with [README.md](README.md) for the product and [INTENT.md](INTENT.md) for
 
 Use a local checkout with Python 3.11 or later and uv installed. Node.js and npx are also needed for installation verification. There is no application server to start. Python scripts declare their dependencies inline for uv.
 
-Run the baseline checks from the repository root:
-
-```sh
-python3 scripts/bundle.py --check
-uv run tests/test_workflows.py
-```
+The complete local counterpart of CI is `python3 scripts/check.py --base upstream/main` after committing changes and fetching main/tags. See [the workflow diagrams and tool prerequisites](docs/WORKFLOWS.md) and [release commands](docs/RELEASING.md). This command checks current validity at every version; the product regression suite becomes mandatory only at/after 1.0.0.
 
 ## Find the right source
 
