@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Locally reproducible project release planning; no external writes by default."""
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import re
 import subprocess
 import sys
+import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 VERSION = re.compile(r'(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\Z')
@@ -119,14 +121,94 @@ def plan(head='HEAD', root=ROOT):
             'stable': settings['stable'], 'replay': replay, 'commits': changes}
 
 
+def files_at(prefix, head, root=ROOT):
+    paths = git('ls-tree', '-r', '--name-only', head, '--', prefix, root=root).splitlines()
+    result = {}
+    for path in paths:
+        mode = git('ls-tree', head, '--', path, root=root).split()[0]
+        need(mode in {'100644', '100755'}, f'unsupported release file mode: {path}')
+        result[path] = subprocess.check_output(['git', 'show', f'{head}:{path}'], cwd=root)
+    return result
+
+
+def check_bundles(head, root=ROOT):
+    for name in ('define-workflow', 'execute-workflow'):
+        skill = files_at(f'skills/{name}/', head, root)
+        need(f'skills/{name}/SKILL.md' in skill, f'missing skill entry: {name}')
+        for area in ('scripts', 'references', 'assets'):
+            source_prefix = f'shared/{area}/'
+            target_prefix = f'skills/{name}/{area}/'
+            source = {p[len(source_prefix):]: data for p, data in files_at(source_prefix, head, root).items()}
+            target = {p[len(target_prefix):]: data for p, data in skill.items() if p.startswith(target_prefix)}
+            need(source and source == target, f'stale or incomplete bundle: {name}/{area}')
+
+
+def notes(tag, head, changes):
+    lines = [f'## {tag}', '', f'Source: `{head}`', '']
+    if version(tag[1:])[0] == 0:
+        lines += ['Initial development: backwards compatibility and regression testing are not required.', '']
+    for title, selected in (
+        ('Breaking changes', [c for c in changes if c['breaking']]),
+        ('Features', [c for c in changes if not c['breaking'] and c['type'] == 'feat']),
+        ('Fixes and performance', [c for c in changes if not c['breaking'] and c['type'] in {'fix', 'perf'}]),
+        ('Other changes', [c for c in changes if not c['breaking'] and c['type'] not in {'feat', 'fix', 'perf'}]),
+    ):
+        if selected:
+            lines += [f'### {title}', '']
+            for c in selected:
+                subject = re.sub(r'([\\`*_{}\[\]()<>!#|])', r'\\\1', c['subject'])
+                lines.append(f"- {subject} ([{c['sha'][:12]}](https://github.com/tclasen/sparkle/commit/{c['sha']}))")
+            lines.append('')
+    return '\n'.join(lines)
+
+
+def build(output, root=ROOT):
+    need(not git('status', '--porcelain', '--untracked-files=no', root=root), 'commit tracked changes before building a release')
+    selected = plan(root=root)
+    need(selected['version'], 'no releasable changes')
+    head, tag = selected['head'], selected['tag']
+    check_bundles(head, root)
+    output = Path(output).resolve()
+    need(not output.exists(), 'output directory already exists; choose a fresh directory')
+    output.mkdir(parents=True)
+    metadata = {'version': selected['version'], 'tag': tag, 'commit': head}
+    for name in ('define-workflow', 'execute-workflow'):
+        source = files_at(f'skills/{name}/', head, root)
+        with zipfile.ZipFile(output/f'{name}-{tag}.zip', 'w', compression=zipfile.ZIP_STORED) as archive:
+            members = {path.removeprefix('skills/'): data for path, data in source.items()}
+            entry = f'{name}/SKILL.md'
+            text = members[entry].decode()
+            text, count = re.subn(r'(?m)^  version: "unreleased"$', f'  version: "{selected["version"]}"', text)
+            need(count == 1, f'{name}: expected one unreleased skill version marker')
+            members[entry] = text.encode()
+            members[f'{name}/RELEASE.json'] = (json.dumps(metadata, indent=2, sort_keys=True) + '\n').encode()
+            for path, data in sorted(members.items()):
+                info = zipfile.ZipInfo(path, date_time=(1980, 1, 1, 0, 0, 0))
+                info.create_system = 3
+                info.external_attr = 0o100644 << 16
+                archive.writestr(info, data)
+    current = notes(tag, head, selected['commits'])
+    previous = [item for item in history(head, root) if item['tag'] != tag]
+    changelog = '# Changelog\n\n' + current + ''.join('\n' + notes(item['tag'], item['sha'], item['changes']) for item in reversed(previous))
+    (output/'RELEASE_NOTES.md').write_text(current)
+    (output/'CHANGELOG.md').write_text(changelog)
+    (output/'release.json').write_text(json.dumps(metadata, indent=2, sort_keys=True) + '\n')
+    checksums = {path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(output.iterdir())}
+    (output/'SHA256SUMS.json').write_text(json.dumps(checksums, indent=2, sort_keys=True) + '\n')
+    return selected
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='command', required=True)
     p = sub.add_parser('lint'); p.add_argument('--base'); p.add_argument('--head', default='HEAD')
     p = sub.add_parser('plan'); p.add_argument('--head', default='HEAD')
+    p = sub.add_parser('build'); p.add_argument('--output', required=True)
     args = parser.parse_args()
     if args.command == 'lint':
         result = {'valid': True, 'commits': len(commits(args.base, args.head))}
+    elif args.command == 'build':
+        result = build(args.output)
     else:
         result = plan(args.head)
     print(json.dumps(result, indent=2))

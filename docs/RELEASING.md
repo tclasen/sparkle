@@ -30,3 +30,13 @@ python3 tests/test_releases.py
 Planning reads committed `release.json` at HEAD. Commit local changes before previewing the exact release. Accepted commit types are `feat`, `fix`, `perf`, `docs`, `refactor`, `style`, `test`, `build`, `ci`, `chore`, and `revert`, with optional scope and `!`. Bodies follow a blank line; breaking-change footers need explanations. A revert does not automatically cancel another commit's bump: use `fix` or a breaking marker when the revert itself needs a release. Only actual merge commits are exempt from message linting. PR titles are not used to calculate versions.
 
 `plan` is read-only and reports no version for a documentation-only interval after the initial release. Planning on an existing release tag reproduces that version for publication recovery. Invalid versions, incorrect bumps, divergent release tags and shallow history fail closed. The helper validates structure and declared change type; contributors still assess whether a change is actually breaking.
+
+## Reproducible release packages
+
+```sh
+python3 scripts/release.py build --output /tmp/sparkle-release-preview
+```
+
+Use a fresh output directory and a clean tracked working tree. Builds read committed Git blobs, not untracked files. Each release contains two standalone skill ZIPs, `RELEASE_NOTES.md`, a cumulative `CHANGELOG.md`, `release.json` identifying the source commit, and `SHA256SUMS.json`. ZIP entries use fixed timestamps and no compression so reruns produce identical bytes across supported systems. Each skill carries a `RELEASE.json` receipt and the calculated version in its metadata.
+
+Source skill metadata says `unreleased`; Git tags and release receipts are the authoritative project version. Only release artifacts are stamped. The automation does not create version-bump or changelog commits on protected main. Cumulative changelogs are generated release assets, and GitHub release bodies contain the release-specific notes. This avoids needing bot commits, signing keys, or a branch-protection bypass for release bookkeeping.

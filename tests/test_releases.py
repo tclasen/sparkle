@@ -2,6 +2,8 @@
 """Release policy checks using temporary Git histories and no provider writes."""
 import importlib.util
 import json
+import shutil
+import zipfile
 from pathlib import Path
 import subprocess
 import tempfile
@@ -38,6 +40,47 @@ class Releases(unittest.TestCase):
 
     def plan(self):
         return r.plan(root=self.root)
+
+    def package_fixture(self):
+        source = Path(__file__).resolve().parents[1]
+        for folder in ('skills', 'shared'):
+            shutil.copytree(source/folder, self.root/folder, ignore=shutil.ignore_patterns('__pycache__'))
+        self.commit('feat: package skills')
+
+    def test_reproducible_packages_and_metadata(self):
+        self.package_fixture()
+        with tempfile.TemporaryDirectory() as temp:
+            first, second = Path(temp)/'first', Path(temp)/'second'
+            selected = r.build(first, self.root)
+            r.build(second, self.root)
+            for path in first.iterdir():
+                self.assertEqual(path.read_bytes(), (second/path.name).read_bytes())
+            for name in ('define-workflow', 'execute-workflow'):
+                with zipfile.ZipFile(first/f'{name}-v0.1.0.zip') as archive:
+                    self.assertIn('version: "0.1.0"', archive.read(f'{name}/SKILL.md').decode())
+                    self.assertEqual(json.loads(archive.read(f'{name}/RELEASE.json'))['commit'], selected['head'])
+                    self.assertIn(f'{name}/scripts/workflow.py', archive.namelist())
+            checksums = json.loads((first/'SHA256SUMS.json').read_text())
+            self.assertEqual(len(checksums), 5)
+            self.assertIn('package skills', (first/'CHANGELOG.md').read_text())
+            self.git('tag', 'v0.1.0')
+            third = Path(temp)/'third'
+            r.build(third, self.root)
+            self.assertEqual((first/'SHA256SUMS.json').read_bytes(), (third/'SHA256SUMS.json').read_bytes())
+            self.commit('fix: correct package')
+            fourth = Path(temp)/'fourth'
+            r.build(fourth, self.root)
+            log = (fourth/'CHANGELOG.md').read_text()
+            self.assertLess(log.index('## v0.1.1'), log.index('## v0.1.0'))
+
+    def test_dirty_or_stale_packages_rejected(self):
+        self.package_fixture()
+        (self.root/'skills/define-workflow/scripts/workflow.py').write_text('stale')
+        with self.assertRaisesRegex(ValueError, 'commit tracked'):
+            r.build(self.root/'dist', self.root)
+        self.commit('fix: change one copy')
+        with self.assertRaisesRegex(ValueError, 'stale'):
+            r.build(self.root/'dist', self.root)
 
     def test_initial_and_bumps(self):
         self.assertEqual(self.plan()['version'], '0.1.0')
