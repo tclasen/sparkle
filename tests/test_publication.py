@@ -5,6 +5,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
 import publish as p
@@ -57,7 +58,18 @@ class Publication(unittest.TestCase):
         self.remote = Remote()
 
     def publish(self, verify=lambda: None):
-        return p.publish_bundle(self.selected, self.output, copy.deepcopy(self.remote.release), self.remote, verify)
+        return p.publish_bundle(self.selected, self.output, copy.deepcopy(self.remote.release), self.remote, verify,
+                                lambda tag, path, rid: self.remote('POST', f'/releases/{rid}/assets?name={path.name}', path.read_bytes()))
+
+    def test_upload_uses_sized_file_without_clobber(self):
+        path = self.output/'skill.zip'
+        receipt = {'id': 42, 'name': path.name}
+        with mock.patch.object(p.subprocess, 'run') as command, mock.patch.object(p, 'api', return_value={'assets': [receipt]}):
+            self.assertEqual(p.upload('v0.1.0', path, 1), receipt)
+        args = command.call_args.args[0]
+        self.assertEqual(args, ['gh', 'release', 'upload', 'v0.1.0', str(path), '--repo', p.REPO])
+        self.assertNotIn('input', command.call_args.kwargs)
+        self.assertNotIn('--clobber', args)
 
     def test_publish_then_read_only_retry(self):
         self.assertTrue(self.publish()['published'])
