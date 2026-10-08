@@ -75,6 +75,69 @@ class WorkflowTests(unittest.TestCase):
         (run/'artifacts/proof.txt').write_text('Simulated external observation, not provider evidence')
         return run
 
+    def test_complete_step_sections_in_context(self):
+        steps = [{'id':'loop','type':'iteration','max_iterations':1,
+                  'steps':[{'id':'child','type':'task',
+                            'skills':[{'name':'optional','required':False}]},
+                           {'id':'sibling','type':'task'}]}]
+        doc = self.document(steps)
+        front = doc.read_text().split('# Fixture', 1)[0]
+        policy = "# Fixture\n## Policy\nKeep this policy.\n"
+        # Shorter and mismatched closing fences must not expose example headings.
+        policy += "````markdown\n## loop\n## Completion criteria\n```\n## child\n~~~~\n````\n"
+        policy += "   ~~~markdown\n## loop\n## Completion criteria\n   ~~~~\n"
+        parent = "\nTask: Repeat.\n### Guidance\nInputs: Parent inputs.\nOutputs: Parent result.\nAcceptance: Parent requirement.\n"
+        child = "\nTask: Child work.\n##### Details\nInputs: Child inputs.\nOutputs: Child result.\n###### Requirements\nAcceptance: Child requirement.\nFallback: Work locally.\n"
+        sibling = "\nTask: Sibling work.\nInputs: None.\nOutputs: Sibling result.\nAcceptance: Sibling requirement.\n"
+        final = "\nFinal requirement.\n### Evidence\nFinal evidence.\n"
+        doc.write_text(front + policy + '## loop' + parent + '#### child' + child
+                       + '#### sibling' + sibling + '## Completion criteria' + final
+                       + '## Appendix\nOutside final criteria.\n')
+        self.call('validate', doc)
+        self.call('publish', doc, '--root', self.root, '--version', '1.0.0')
+        run = self.call('start', 'sample', 'fixture', '--root', self.root,
+                        '--environment', self.env, '--owner', 'one')['run']
+        context = self.call('context', run, '/steps/loop')
+        self.assertEqual(context['workflow_context'], '\n' + policy)
+        self.assertEqual(context['step_prose'], parent)
+        self.assertEqual(context['completion_criteria'], final)
+        self.mutate(run, 'step', '/steps/loop', 'begin')
+        self.mutate(run, 'round', '/steps/loop', 'open')
+        paths = {row['path'].rsplit('/', 1)[-1]: row['path']
+                 for row in self.call('ready', run)['steps'] if '/rounds/' in row['path']}
+        context = self.call('context', run, paths['child'])
+        self.assertEqual(context['step_prose'], child)
+        self.assertEqual(context['ancestors'][0]['prose'], parent)
+        self.assertEqual(self.call('context', run, paths['sibling'])['step_prose'], sibling)
+
+    def test_required_prose_cannot_cross_step_boundaries(self):
+        for label in ('Task', 'Inputs', 'Outputs', 'Acceptance', 'Fallback'):
+            for nested in (False, True):
+                with self.subTest(label=label, nested=nested):
+                    other = {'id':'other','type':'task'}
+                    step = {'id':'work','type':'task',
+                            'skills':[{'name':'optional','required':False}]}
+                    if nested:
+                        step.update(type='iteration', max_iterations=1, steps=[other])
+                    doc = self.document([step] if nested else [step, other])
+                    text = doc.read_text()
+                    text = text.replace('Inputs: Frozen inputs.', '### Details\nInputs: Frozen inputs.', 1)
+                    lines = text.splitlines(keepends=True)
+                    index = next(i for i, line in enumerate(lines) if line.startswith(label + ':'))
+                    del lines[index]
+                    text = ''.join(lines).replace('## other — Task', '#### other' if nested else '## other')
+                    doc.write_text(text)
+                    error = self.call('validate', doc, ok=False)
+                    self.assertIn('Fallback' if label == 'Fallback' else 'missing ' + label, error['explanation'])
+
+    def test_fenced_headings_do_not_satisfy_validation(self):
+        for heading in ('## work — Task', '## Completion criteria'):
+            for fence in ('```', '~~~'):
+                with self.subTest(heading=heading, fence=fence):
+                    doc = self.document([{'id':'work','type':'task'}])
+                    doc.write_text(doc.read_text().replace(heading, fence + '\n' + heading + '\n' + fence))
+                    self.assertIn('heading', self.call('validate', doc, ok=False)['explanation'])
+
     def test_coordination_binding_isolation(self):
         a = self.coordinated()
         b = self.coordinated('T-2', 'claim-b')
