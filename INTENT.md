@@ -59,6 +59,13 @@ Agents decide what prose means and whether work meets its criteria. The helper e
 - Require result publication before coordinated completion; preserve recoverable uncertainty and allow cancellation despite failed release notifications.
 - Claims are advisory, not exclusive locks. No central dispatcher, provider SDK, automatic takeover or exactly-once guarantee is introduced. Serial foreground execution remains the default.
 
+### Project releases
+
+- Start project releases at v0.1.0, with Conventional Commits determining semantic version increments. Project versions are separate from published workflow definitions.
+- Before 1.0, do not require backwards compatibility or regression testing. Continue validating current structure, installation and release tooling.
+- Require explicit reviewed promotion to 1.0.0; at and after that milestone assess public-contract compatibility and require regression testing. Breaking changes before promotion remain within 0.x.
+- Preserve published tags and assets; release automation must remain locally verifiable and respect protected main without writing release commits to it.
+
 ### Portability and maintainability
 
 - Ship two self-contained Agent Skills. Each installed folder must work independently of the source repository and the other skill.

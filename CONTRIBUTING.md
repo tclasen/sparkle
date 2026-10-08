@@ -49,6 +49,8 @@ Use temporary repositories for experiments and test runs. Keep generated project
 
 ## Verify
 
+Follow [the project release policy](docs/RELEASING.md). Before 1.0, backwards compatibility and regression testing are not required; the behavioral suite below is available for focused verification. Starting with 1.0.0 it becomes a required regression check, along with a compatibility assessment. Current structural checks and installation checks for packaging changes remain required at every version.
+
 ```sh
 python3 scripts/bundle.py --check
 uv run tests/test_workflows.py

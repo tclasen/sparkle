@@ -42,7 +42,7 @@ These instructions apply to AI agents contributing to this project. They describ
 
 ## Verify and report
 
-- Follow `CONTRIBUTING.md` for check selection. Run `python3 scripts/bundle.py --check` and, for implementation changes, `uv run tests/test_workflows.py`.
+- Follow `CONTRIBUTING.md` for check selection. Run `python3 scripts/bundle.py --check` and follow [the release policy](docs/RELEASING.md): before 1.0, backwards compatibility and regression testing are not required; at and after 1.0, implementation changes require `uv run tests/test_workflows.py` and a compatibility assessment. Validate current structure, installation and release tooling at every version.
 - Run `uv run tests/verify_install.py` when changing packaging, dependencies, skill resources, or the execution interface. Report environmental blockers accurately.
 - Add meaningful behavioral coverage for changed contracts; avoid tests that merely duplicate implementation or test prose edits.
 - Use temporary directories for fixtures and experiments. Do not add real user run data or credentials to the repository.
