@@ -13,7 +13,7 @@ Use every combination below for each proposed skill or product change. Keep the 
 
 `gptoss:120b` in conversational requests means the installed Ollama model tag `gpt-oss:120b`. Luna uses subscription OAuth, not a paid OpenAI Platform API key. Do not silently substitute another model, authentication route, or harness when a cell fails. See [configuration and preflight evidence](EVAL_CONFIGURATION.md).
 
-This is a contributor evaluation policy, including before 1.0. It complements the structural, installation, and version-dependent regression checks in [Contributing](../CONTRIBUTING.md) and [the release policy](RELEASING.md); it does not change the installed skills' runtime contract. This initial documentation/configuration contribution establishes the procedure and validates connectivity and tools. The first usefulness comparison is still to be run; no benefit for the existing skills is claimed here.
+This is a contributor evaluation policy, including before 1.0. It complements the structural, installation, and version-dependent regression checks in [Contributing](../CONTRIBUTING.md) and [the release policy](RELEASING.md); it does not change the installed skills' runtime contract. The [initial 64-run screening](evals/2026-10-08-screening/README.md) is complete across all four cells. Its one-repeat artifact checks, mixed results, incomplete definition uptake, and scoring limitations do not establish overall net benefit. Formal repeated utility/adoption evaluation remains pending.
 
 ## Define the comparison before running it
 
@@ -57,4 +57,4 @@ Each comparison report must contain:
 
 ## Next evaluation
 
-Compare **no sparkle** with the currently accepted skills in all four cells, and separately assess the pre-authored workflows and proposed revisions. Evaluate each skill alone and the two-skill path. Usefulness screening with fewer than the default repeats must be explicitly identified as provisional and cannot establish a proven catalog or adoption decision. Record configuration preflight separately; a reusable automated evaluator is not implemented by this document.
+Version a corrected oracle and clarify ambiguous prompt/count scopes using the screening's recorded limitations. Compare **no sparkle** with the currently accepted skills in all four cells on held-out tasks, and separately assess the pre-authored workflows and proposed revisions. Evaluate each skill alone, the two-skill path, actual definition uptake, repeated reuse/recovery, and independently assessed utility with at least three repeats. Screening with fewer than the default repeats remains provisional and cannot establish a proven catalog or adoption decision. Record configuration preflight separately; the dated screening snapshots are evidence, not a general-purpose automated evaluator.

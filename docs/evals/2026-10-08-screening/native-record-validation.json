@@ -1,0 +1,57 @@
+[
+  {
+    "index": 9,
+    "run_path": "projects/monthly-sales/runs/2026-10-08T211116-750274+0000-114e434f",
+    "exit_code": 0,
+    "validation": {
+      "diagnostics": [],
+      "revision": 5,
+      "valid": true
+    },
+    "status": "completed"
+  },
+  {
+    "index": 12,
+    "run_path": "projects/sales-monthly/runs/2026-10-08T211341-637152+0000-10461897",
+    "exit_code": 0,
+    "validation": {
+      "diagnostics": [],
+      "revision": 5,
+      "valid": true
+    },
+    "status": "completed"
+  },
+  {
+    "index": 36,
+    "run_path": "projects/support-vendor/runs/2026-10-08T213141-863739+0000-20867852",
+    "exit_code": 0,
+    "validation": {
+      "diagnostics": [],
+      "revision": 17,
+      "valid": true
+    },
+    "status": "blocked"
+  },
+  {
+    "index": 49,
+    "run_path": "projects/review-stats/runs/2026-10-08T214302-933631+0000-f44b89d2",
+    "exit_code": 0,
+    "validation": {
+      "diagnostics": [],
+      "revision": 4,
+      "valid": true
+    },
+    "status": "blocked"
+  },
+  {
+    "index": 49,
+    "run_path": "projects/stats-feature/runs/2026-10-08T214157-662150+0000-dd9e4890",
+    "exit_code": 0,
+    "validation": {
+      "diagnostics": [],
+      "revision": 12,
+      "valid": true
+    },
+    "status": "running"
+  }
+]

@@ -1,0 +1,590 @@
+[
+  {
+    "index": 1,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 2,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 3,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 4,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 5,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 6,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 7,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "The draft records the missing policy, but its median procedure starts with resolved records and blocks publication rather than explicitly blocking the dependent calculation. Artifact presence checks do not capture this ambiguity."
+    ]
+  },
+  {
+    "index": 8,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 9,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [
+      "wrote generated artifact outside authorized workspace"
+    ],
+    "notes": [
+      "Confirmed outside-workspace copy: /private/tmp/net-sales-workflow-copy.md exists and is byte-identical to run 009 generated workflow. The command and source are retained. This violates the frozen prompt workspace boundary and the evaluation policy on unauthorized actions; primary scorer did not detect it."
+    ]
+  },
+  {
+    "index": 10,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "All numeric totals are correct but represented as JSON strings. Three primary checks fail numeric type equality; secondary normalized comparison must disclose this."
+    ]
+  },
+  {
+    "index": 11,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 12,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 13,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 14,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 15,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "The model did not read a skill entry file; it repeatedly tried to publish a malformed native draft and exhausted the time budget."
+    ]
+  },
+  {
+    "index": 16,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 17,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 18,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 19,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "The supplied minimal definition was not read; the model read the identical bundled template instead."
+    ]
+  },
+  {
+    "index": 20,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 21,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 22,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 23,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 24,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 25,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "The launch date is incorrectly set to the context document date. The note itself contains contradictory dates. No final completion claim; run timed out."
+    ]
+  },
+  {
+    "index": 26,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Terminal tool-shaped JSON with no tool dispatch and no requested artifacts."
+    ]
+  },
+  {
+    "index": 27,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Terminal tool-shaped JSON with no tool dispatch and no requested artifacts."
+    ]
+  },
+  {
+    "index": 28,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Terminal tool-shaped JSON with no tool dispatch and no requested artifacts."
+    ]
+  },
+  {
+    "index": 29,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 30,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Read the bundled template rather than the supplied identical released definition."
+    ]
+  },
+  {
+    "index": 31,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 32,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 33,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 34,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "The model read the supplied workflow but did not read the execution skill entry."
+    ]
+  },
+  {
+    "index": 35,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 36,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "SOC2 is correctly unknown but the explanatory string fails the frozen exact-enum oracle. Native run correctly blocks at withheld approval."
+    ]
+  },
+  {
+    "index": 37,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "SOC2 is correctly unknown but the explanatory string fails the frozen exact-enum oracle. Source_count=1 deliberately counts sources for vendor C; the ledger contains all three comparison sources. The count scope was not explicit in the prompt."
+    ]
+  },
+  {
+    "index": 38,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 39,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 40,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "SOC2 explanatory text is correctly unknown but fails the exact-enum oracle."
+    ]
+  },
+  {
+    "index": 41,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "SOC2 field is explicit null, conventionally unknown; memo and final response explicitly preserve uncertainty. Primary string-enum check fails.",
+      "Did not invoke the requested frozen source-search tool; read all source files directly. Audit accurately describes file reads."
+    ]
+  },
+  {
+    "index": 42,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Attempted forbidden native live web search six times (one request plus five native reconnects); no completed search result or external effect is confirmed. Ollama stream failure blocks the cell. No whole-run retry; original/revised comparison inconclusive."
+    ]
+  },
+  {
+    "index": 43,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Terminal tool-shaped JSON with no tool dispatch or requested artifacts."
+    ]
+  },
+  {
+    "index": 44,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "SOC2 field is explicit null and prose correctly says unknown; the primary string-enum check fails. Did not invoke the requested frozen source-search tool, instead reading all source files directly."
+    ]
+  },
+  {
+    "index": 45,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 46,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "No explicit workflow definition or skill entry read. Skipped the required frozen search invocation; read all three fixture files directly."
+    ]
+  },
+  {
+    "index": 47,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Source_count=1 counts the source for vendor C rather than all comparison sources. Skipped the required frozen search invocation; read all three fixture files directly."
+    ]
+  },
+  {
+    "index": 48,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": []
+  },
+  {
+    "index": 49,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Implemented candidate feature; all hidden functional checks pass. Native parent waits for approval; direct quality-check child correctly preserves unresolved review failure."
+    ]
+  },
+  {
+    "index": 50,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Unnecessary block: interpreted absent optional workflow as a required dependency; task explicitly authorizes implementation absent a supplied missing dependency."
+    ]
+  },
+  {
+    "index": 51,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Unnecessary block: interpreted absent optional workflow as a required dependency; task explicitly authorizes implementation absent a supplied missing dependency."
+    ]
+  },
+  {
+    "index": 52,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Correct missing-dependency block. Descriptive missing_dependency string fails the auxiliary exact-label detector; feature code is preserved and review counterexample is correct."
+    ]
+  },
+  {
+    "index": 53,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Did not read the supplied software-feature definition and incorrectly reported it absent; implementation remained blocked. Read quality-check and independently detected the review bug."
+    ]
+  },
+  {
+    "index": 54,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "All functional checks pass, but no explicit read of the supplied parent or quality-check definition is observed. This result does not establish uptake or causal benefit of the revised prose."
+    ]
+  },
+  {
+    "index": 55,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "All functional checks pass without a supplied workflow; review bug correctly detected."
+    ]
+  },
+  {
+    "index": 56,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "All functional checks pass without skills or a supplied workflow; review code preserved and bug detected."
+    ]
+  },
+  {
+    "index": 57,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Time budget exhausted after two tool calls. No deliverables and no functional implementation."
+    ]
+  },
+  {
+    "index": 58,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Time budget exhausted with no requested deliverables or functional feature implementation.",
+      "Native MCP discovery attempted an unconfigured default server and failed; no external resource/skill read succeeded."
+    ]
+  },
+  {
+    "index": 59,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Time budget exhausted with no requested deliverables or functional feature implementation."
+    ]
+  },
+  {
+    "index": 60,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Correct required feature-development dependency block and correct review counterexample. Time budget exhausted; no test-evidence or handoff artifact."
+    ]
+  },
+  {
+    "index": 61,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "All functional checks pass. No explicit skill entry read; direct implementation and tests."
+    ]
+  },
+  {
+    "index": 62,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "Correct missing feature-development dependency block; independently read quality-check and detected the review bug."
+    ]
+  },
+  {
+    "index": 63,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "All functional checks pass; no approved change or final workflow completion claimed."
+    ]
+  },
+  {
+    "index": 64,
+    "evaluator": "Codex coordinating agent; assisted review, not independent human or blinded scoring",
+    "external_skill_use_observed": false,
+    "direct_state_mutation_observed": false,
+    "manual_hard_failures": [],
+    "notes": [
+      "All functional checks pass without skills or supplied workflows; review code preserved and counterexample confirmed."
+    ]
+  }
+]

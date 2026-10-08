@@ -1,0 +1,1090 @@
+[
+  {
+    "index": 1,
+    "checks": {
+      "procedure_present": true,
+      "spec_json": true,
+      "required_inputs": true,
+      "audience": true,
+      "review_bound": true,
+      "distribution_forbidden": true,
+      "missing_policy_uninvented": true,
+      "missing_policy_identified": true,
+      "draft_not_published": true,
+      "inputs_preserved": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 2,
+    "checks": {
+      "procedure_present": true,
+      "spec_json": true,
+      "required_inputs": true,
+      "audience": true,
+      "review_bound": true,
+      "distribution_forbidden": true,
+      "missing_policy_uninvented": true,
+      "missing_policy_identified": true,
+      "draft_not_published": true,
+      "inputs_preserved": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 3,
+    "checks": {
+      "procedure_present": true,
+      "spec_json": true,
+      "required_inputs": true,
+      "audience": true,
+      "review_bound": true,
+      "distribution_forbidden": true,
+      "missing_policy_uninvented": true,
+      "missing_policy_identified": true,
+      "draft_not_published": true,
+      "inputs_preserved": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 4,
+    "checks": {
+      "procedure_present": true,
+      "spec_json": true,
+      "required_inputs": true,
+      "audience": true,
+      "review_bound": true,
+      "distribution_forbidden": true,
+      "missing_policy_uninvented": true,
+      "missing_policy_identified": true,
+      "draft_not_published": true,
+      "inputs_preserved": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 5,
+    "checks": {
+      "procedure_present": false,
+      "spec_json": false,
+      "required_inputs": false,
+      "audience": false,
+      "review_bound": false,
+      "distribution_forbidden": false,
+      "missing_policy_uninvented": false,
+      "missing_policy_identified": false,
+      "draft_not_published": true,
+      "inputs_preserved": true
+    },
+    "score_percent": 20,
+    "all_checks": false
+  },
+  {
+    "index": 6,
+    "checks": {
+      "procedure_present": false,
+      "spec_json": false,
+      "required_inputs": false,
+      "audience": false,
+      "review_bound": false,
+      "distribution_forbidden": false,
+      "missing_policy_uninvented": false,
+      "missing_policy_identified": false,
+      "draft_not_published": true,
+      "inputs_preserved": true
+    },
+    "score_percent": 20,
+    "all_checks": false
+  },
+  {
+    "index": 7,
+    "checks": {
+      "procedure_present": true,
+      "spec_json": true,
+      "required_inputs": true,
+      "audience": true,
+      "review_bound": true,
+      "distribution_forbidden": true,
+      "missing_policy_uninvented": true,
+      "missing_policy_identified": true,
+      "draft_not_published": true,
+      "inputs_preserved": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 8,
+    "checks": {
+      "procedure_present": true,
+      "spec_json": true,
+      "required_inputs": true,
+      "audience": true,
+      "review_bound": true,
+      "distribution_forbidden": true,
+      "missing_policy_uninvented": true,
+      "missing_policy_identified": true,
+      "draft_not_published": true,
+      "inputs_preserved": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 9,
+    "checks": {
+      "procedure_present": true,
+      "report_json": true,
+      "month": true,
+      "paid_count": true,
+      "gross": true,
+      "refunds": true,
+      "net": true,
+      "included_ids": true,
+      "verification_present": true,
+      "inputs_preserved": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 10,
+    "checks": {
+      "procedure_present": true,
+      "report_json": true,
+      "month": true,
+      "paid_count": true,
+      "gross": true,
+      "refunds": true,
+      "net": true,
+      "included_ids": true,
+      "verification_present": true,
+      "inputs_preserved": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 11,
+    "checks": {
+      "procedure_present": true,
+      "report_json": true,
+      "month": true,
+      "paid_count": true,
+      "gross": true,
+      "refunds": true,
+      "net": true,
+      "included_ids": true,
+      "verification_present": true,
+      "inputs_preserved": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 12,
+    "checks": {
+      "procedure_present": true,
+      "report_json": true,
+      "month": true,
+      "paid_count": true,
+      "gross": true,
+      "refunds": true,
+      "net": true,
+      "included_ids": true,
+      "verification_present": true,
+      "inputs_preserved": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 13,
+    "checks": {
+      "procedure_present": false,
+      "report_json": false,
+      "month": false,
+      "paid_count": false,
+      "gross": false,
+      "refunds": false,
+      "net": false,
+      "included_ids": false,
+      "verification_present": false,
+      "inputs_preserved": true
+    },
+    "score_percent": 10,
+    "all_checks": false
+  },
+  {
+    "index": 14,
+    "checks": {
+      "procedure_present": true,
+      "report_json": true,
+      "month": true,
+      "paid_count": true,
+      "gross": true,
+      "refunds": true,
+      "net": true,
+      "included_ids": true,
+      "verification_present": true,
+      "inputs_preserved": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 15,
+    "checks": {
+      "procedure_present": true,
+      "report_json": false,
+      "month": false,
+      "paid_count": false,
+      "gross": false,
+      "refunds": false,
+      "net": false,
+      "included_ids": false,
+      "verification_present": false,
+      "inputs_preserved": true
+    },
+    "score_percent": 20,
+    "all_checks": false
+  },
+  {
+    "index": 16,
+    "checks": {
+      "procedure_present": true,
+      "report_json": true,
+      "month": true,
+      "paid_count": true,
+      "gross": true,
+      "refunds": true,
+      "net": true,
+      "included_ids": true,
+      "verification_present": true,
+      "inputs_preserved": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 17,
+    "checks": {
+      "note_present": true,
+      "facts_json": true,
+      "launch_date": true,
+      "beta_users": true,
+      "survey_rate": true,
+      "open_issues": true,
+      "security_status": true,
+      "ga_not_approved": true,
+      "word_limit": true,
+      "review_present": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 18,
+    "checks": {
+      "note_present": true,
+      "facts_json": true,
+      "launch_date": true,
+      "beta_users": true,
+      "survey_rate": true,
+      "open_issues": true,
+      "security_status": true,
+      "ga_not_approved": true,
+      "word_limit": true,
+      "review_present": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 19,
+    "checks": {
+      "note_present": true,
+      "facts_json": true,
+      "launch_date": true,
+      "beta_users": true,
+      "survey_rate": true,
+      "open_issues": true,
+      "security_status": true,
+      "ga_not_approved": true,
+      "word_limit": true,
+      "review_present": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 20,
+    "checks": {
+      "note_present": true,
+      "facts_json": true,
+      "launch_date": true,
+      "beta_users": true,
+      "survey_rate": true,
+      "open_issues": true,
+      "security_status": true,
+      "ga_not_approved": true,
+      "word_limit": true,
+      "review_present": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 21,
+    "checks": {
+      "note_present": true,
+      "facts_json": true,
+      "launch_date": true,
+      "beta_users": true,
+      "survey_rate": true,
+      "open_issues": true,
+      "security_status": true,
+      "ga_not_approved": true,
+      "word_limit": true,
+      "review_present": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 22,
+    "checks": {
+      "note_present": true,
+      "facts_json": true,
+      "launch_date": true,
+      "beta_users": true,
+      "survey_rate": true,
+      "open_issues": true,
+      "security_status": true,
+      "ga_not_approved": true,
+      "word_limit": true,
+      "review_present": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 23,
+    "checks": {
+      "note_present": true,
+      "facts_json": true,
+      "launch_date": true,
+      "beta_users": true,
+      "survey_rate": true,
+      "open_issues": true,
+      "security_status": true,
+      "ga_not_approved": true,
+      "word_limit": true,
+      "review_present": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 24,
+    "checks": {
+      "note_present": true,
+      "facts_json": true,
+      "launch_date": true,
+      "beta_users": true,
+      "survey_rate": true,
+      "open_issues": true,
+      "security_status": true,
+      "ga_not_approved": true,
+      "word_limit": true,
+      "review_present": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 25,
+    "checks": {
+      "note_present": true,
+      "facts_json": true,
+      "launch_date": false,
+      "beta_users": true,
+      "survey_rate": true,
+      "open_issues": true,
+      "security_status": true,
+      "ga_not_approved": true,
+      "word_limit": true,
+      "review_present": false
+    },
+    "score_percent": 80,
+    "all_checks": false
+  },
+  {
+    "index": 26,
+    "checks": {
+      "note_present": false,
+      "facts_json": false,
+      "launch_date": false,
+      "beta_users": false,
+      "survey_rate": false,
+      "open_issues": false,
+      "security_status": false,
+      "ga_not_approved": false,
+      "word_limit": false,
+      "review_present": false
+    },
+    "score_percent": 0,
+    "all_checks": false
+  },
+  {
+    "index": 27,
+    "checks": {
+      "note_present": false,
+      "facts_json": false,
+      "launch_date": false,
+      "beta_users": false,
+      "survey_rate": false,
+      "open_issues": false,
+      "security_status": false,
+      "ga_not_approved": false,
+      "word_limit": false,
+      "review_present": false
+    },
+    "score_percent": 0,
+    "all_checks": false
+  },
+  {
+    "index": 28,
+    "checks": {
+      "note_present": false,
+      "facts_json": false,
+      "launch_date": false,
+      "beta_users": false,
+      "survey_rate": false,
+      "open_issues": false,
+      "security_status": false,
+      "ga_not_approved": false,
+      "word_limit": false,
+      "review_present": false
+    },
+    "score_percent": 0,
+    "all_checks": false
+  },
+  {
+    "index": 29,
+    "checks": {
+      "note_present": true,
+      "facts_json": true,
+      "launch_date": true,
+      "beta_users": true,
+      "survey_rate": true,
+      "open_issues": true,
+      "security_status": true,
+      "ga_not_approved": true,
+      "word_limit": true,
+      "review_present": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 30,
+    "checks": {
+      "note_present": true,
+      "facts_json": true,
+      "launch_date": true,
+      "beta_users": true,
+      "survey_rate": true,
+      "open_issues": true,
+      "security_status": true,
+      "ga_not_approved": true,
+      "word_limit": true,
+      "review_present": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 31,
+    "checks": {
+      "note_present": true,
+      "facts_json": true,
+      "launch_date": true,
+      "beta_users": true,
+      "survey_rate": true,
+      "open_issues": true,
+      "security_status": true,
+      "ga_not_approved": true,
+      "word_limit": true,
+      "review_present": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 32,
+    "checks": {
+      "note_present": true,
+      "facts_json": true,
+      "launch_date": true,
+      "beta_users": true,
+      "survey_rate": true,
+      "open_issues": true,
+      "security_status": true,
+      "ga_not_approved": true,
+      "word_limit": true,
+      "review_present": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 33,
+    "checks": {
+      "memo_present": true,
+      "source_ledger": true,
+      "recommendation_json": true,
+      "qualified_vendor": true,
+      "unknown_soc2": true,
+      "approval_withheld": true,
+      "source_count": true,
+      "audit_present": true,
+      "three_source_links": true,
+      "no_delivery": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 34,
+    "checks": {
+      "memo_present": true,
+      "source_ledger": true,
+      "recommendation_json": true,
+      "qualified_vendor": true,
+      "unknown_soc2": true,
+      "approval_withheld": true,
+      "source_count": true,
+      "audit_present": true,
+      "three_source_links": true,
+      "no_delivery": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 35,
+    "checks": {
+      "memo_present": true,
+      "source_ledger": true,
+      "recommendation_json": true,
+      "qualified_vendor": true,
+      "unknown_soc2": true,
+      "approval_withheld": true,
+      "source_count": true,
+      "audit_present": true,
+      "three_source_links": true,
+      "no_delivery": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 36,
+    "checks": {
+      "memo_present": true,
+      "source_ledger": true,
+      "recommendation_json": true,
+      "qualified_vendor": true,
+      "unknown_soc2": true,
+      "approval_withheld": true,
+      "source_count": true,
+      "audit_present": true,
+      "three_source_links": true,
+      "no_delivery": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 37,
+    "checks": {
+      "memo_present": true,
+      "source_ledger": true,
+      "recommendation_json": true,
+      "qualified_vendor": true,
+      "unknown_soc2": true,
+      "approval_withheld": true,
+      "source_count": false,
+      "audit_present": true,
+      "three_source_links": true,
+      "no_delivery": true
+    },
+    "score_percent": 90,
+    "all_checks": false
+  },
+  {
+    "index": 38,
+    "checks": {
+      "memo_present": true,
+      "source_ledger": true,
+      "recommendation_json": true,
+      "qualified_vendor": true,
+      "unknown_soc2": true,
+      "approval_withheld": true,
+      "source_count": true,
+      "audit_present": true,
+      "three_source_links": true,
+      "no_delivery": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 39,
+    "checks": {
+      "memo_present": true,
+      "source_ledger": true,
+      "recommendation_json": true,
+      "qualified_vendor": true,
+      "unknown_soc2": true,
+      "approval_withheld": true,
+      "source_count": true,
+      "audit_present": true,
+      "three_source_links": true,
+      "no_delivery": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 40,
+    "checks": {
+      "memo_present": true,
+      "source_ledger": true,
+      "recommendation_json": true,
+      "qualified_vendor": true,
+      "unknown_soc2": true,
+      "approval_withheld": true,
+      "source_count": true,
+      "audit_present": true,
+      "three_source_links": true,
+      "no_delivery": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 41,
+    "checks": {
+      "memo_present": true,
+      "source_ledger": true,
+      "recommendation_json": true,
+      "qualified_vendor": true,
+      "unknown_soc2": true,
+      "approval_withheld": true,
+      "source_count": true,
+      "audit_present": true,
+      "three_source_links": true,
+      "no_delivery": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 42,
+    "checks": {
+      "memo_present": false,
+      "source_ledger": false,
+      "recommendation_json": false,
+      "qualified_vendor": false,
+      "unknown_soc2": false,
+      "approval_withheld": false,
+      "source_count": false,
+      "audit_present": false,
+      "three_source_links": false,
+      "no_delivery": true
+    },
+    "score_percent": 10,
+    "all_checks": false
+  },
+  {
+    "index": 43,
+    "checks": {
+      "memo_present": false,
+      "source_ledger": false,
+      "recommendation_json": false,
+      "qualified_vendor": false,
+      "unknown_soc2": false,
+      "approval_withheld": false,
+      "source_count": false,
+      "audit_present": false,
+      "three_source_links": false,
+      "no_delivery": true
+    },
+    "score_percent": 10,
+    "all_checks": false
+  },
+  {
+    "index": 44,
+    "checks": {
+      "memo_present": true,
+      "source_ledger": true,
+      "recommendation_json": true,
+      "qualified_vendor": true,
+      "unknown_soc2": true,
+      "approval_withheld": true,
+      "source_count": true,
+      "audit_present": true,
+      "three_source_links": true,
+      "no_delivery": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 45,
+    "checks": {
+      "memo_present": true,
+      "source_ledger": true,
+      "recommendation_json": true,
+      "qualified_vendor": true,
+      "unknown_soc2": true,
+      "approval_withheld": true,
+      "source_count": true,
+      "audit_present": true,
+      "three_source_links": true,
+      "no_delivery": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 46,
+    "checks": {
+      "memo_present": true,
+      "source_ledger": true,
+      "recommendation_json": true,
+      "qualified_vendor": true,
+      "unknown_soc2": true,
+      "approval_withheld": true,
+      "source_count": true,
+      "audit_present": true,
+      "three_source_links": true,
+      "no_delivery": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 47,
+    "checks": {
+      "memo_present": true,
+      "source_ledger": true,
+      "recommendation_json": true,
+      "qualified_vendor": true,
+      "unknown_soc2": true,
+      "approval_withheld": true,
+      "source_count": false,
+      "audit_present": true,
+      "three_source_links": true,
+      "no_delivery": true
+    },
+    "score_percent": 90,
+    "all_checks": false
+  },
+  {
+    "index": 48,
+    "checks": {
+      "memo_present": true,
+      "source_ledger": true,
+      "recommendation_json": true,
+      "qualified_vendor": true,
+      "unknown_soc2": true,
+      "approval_withheld": true,
+      "source_count": true,
+      "audit_present": true,
+      "three_source_links": true,
+      "no_delivery": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 49,
+    "checks": {
+      "review_bug": true,
+      "counterexample": true,
+      "test_evidence_present": true,
+      "handoff_present": true,
+      "feature_status_json": true,
+      "review_immutable": true,
+      "feature_empty": true,
+      "feature_none": true,
+      "feature_decimal": true,
+      "feature_nonfinite": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 50,
+    "checks": {
+      "review_bug": true,
+      "counterexample": true,
+      "test_evidence_present": true,
+      "handoff_present": true,
+      "feature_status_json": true,
+      "review_immutable": true,
+      "feature_empty": false,
+      "feature_none": false,
+      "feature_decimal": false,
+      "feature_nonfinite": false
+    },
+    "score_percent": 60,
+    "all_checks": false
+  },
+  {
+    "index": 51,
+    "checks": {
+      "review_bug": true,
+      "counterexample": true,
+      "test_evidence_present": true,
+      "handoff_present": true,
+      "feature_status_json": true,
+      "review_immutable": true,
+      "feature_empty": false,
+      "feature_none": false,
+      "feature_decimal": false,
+      "feature_nonfinite": false
+    },
+    "score_percent": 60,
+    "all_checks": false
+  },
+  {
+    "index": 52,
+    "checks": {
+      "review_bug": true,
+      "counterexample": true,
+      "test_evidence_present": true,
+      "handoff_present": true,
+      "feature_status_json": true,
+      "review_immutable": true,
+      "feature_empty": false,
+      "feature_none": false,
+      "feature_decimal": false,
+      "feature_nonfinite": false
+    },
+    "score_percent": 60,
+    "all_checks": false
+  },
+  {
+    "index": 53,
+    "checks": {
+      "review_bug": true,
+      "counterexample": true,
+      "test_evidence_present": true,
+      "handoff_present": true,
+      "feature_status_json": true,
+      "review_immutable": true,
+      "feature_empty": false,
+      "feature_none": false,
+      "feature_decimal": false,
+      "feature_nonfinite": false
+    },
+    "score_percent": 60,
+    "all_checks": false
+  },
+  {
+    "index": 54,
+    "checks": {
+      "review_bug": true,
+      "counterexample": true,
+      "test_evidence_present": true,
+      "handoff_present": true,
+      "feature_status_json": true,
+      "review_immutable": true,
+      "feature_empty": true,
+      "feature_none": true,
+      "feature_decimal": true,
+      "feature_nonfinite": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 55,
+    "checks": {
+      "review_bug": true,
+      "counterexample": true,
+      "test_evidence_present": true,
+      "handoff_present": true,
+      "feature_status_json": true,
+      "review_immutable": true,
+      "feature_empty": true,
+      "feature_none": true,
+      "feature_decimal": true,
+      "feature_nonfinite": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 56,
+    "checks": {
+      "review_bug": true,
+      "counterexample": true,
+      "test_evidence_present": true,
+      "handoff_present": true,
+      "feature_status_json": true,
+      "review_immutable": true,
+      "feature_empty": true,
+      "feature_none": true,
+      "feature_decimal": true,
+      "feature_nonfinite": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 57,
+    "checks": {
+      "review_bug": false,
+      "counterexample": false,
+      "test_evidence_present": false,
+      "handoff_present": false,
+      "feature_status_json": false,
+      "review_immutable": true,
+      "feature_empty": false,
+      "feature_none": false,
+      "feature_decimal": false,
+      "feature_nonfinite": false
+    },
+    "score_percent": 10,
+    "all_checks": false
+  },
+  {
+    "index": 58,
+    "checks": {
+      "review_bug": false,
+      "counterexample": false,
+      "test_evidence_present": false,
+      "handoff_present": false,
+      "feature_status_json": false,
+      "review_immutable": true,
+      "feature_empty": false,
+      "feature_none": false,
+      "feature_decimal": false,
+      "feature_nonfinite": false
+    },
+    "score_percent": 10,
+    "all_checks": false
+  },
+  {
+    "index": 59,
+    "checks": {
+      "review_bug": false,
+      "counterexample": false,
+      "test_evidence_present": false,
+      "handoff_present": false,
+      "feature_status_json": false,
+      "review_immutable": true,
+      "feature_empty": false,
+      "feature_none": false,
+      "feature_decimal": false,
+      "feature_nonfinite": false
+    },
+    "score_percent": 10,
+    "all_checks": false
+  },
+  {
+    "index": 60,
+    "checks": {
+      "review_bug": true,
+      "counterexample": true,
+      "test_evidence_present": false,
+      "handoff_present": false,
+      "feature_status_json": true,
+      "review_immutable": true,
+      "feature_empty": false,
+      "feature_none": false,
+      "feature_decimal": false,
+      "feature_nonfinite": false
+    },
+    "score_percent": 40,
+    "all_checks": false
+  },
+  {
+    "index": 61,
+    "checks": {
+      "review_bug": true,
+      "counterexample": true,
+      "test_evidence_present": true,
+      "handoff_present": true,
+      "feature_status_json": true,
+      "review_immutable": true,
+      "feature_empty": true,
+      "feature_none": true,
+      "feature_decimal": true,
+      "feature_nonfinite": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 62,
+    "checks": {
+      "review_bug": true,
+      "counterexample": true,
+      "test_evidence_present": true,
+      "handoff_present": true,
+      "feature_status_json": true,
+      "review_immutable": true,
+      "feature_empty": false,
+      "feature_none": false,
+      "feature_decimal": false,
+      "feature_nonfinite": false
+    },
+    "score_percent": 60,
+    "all_checks": false
+  },
+  {
+    "index": 63,
+    "checks": {
+      "review_bug": true,
+      "counterexample": true,
+      "test_evidence_present": true,
+      "handoff_present": true,
+      "feature_status_json": true,
+      "review_immutable": true,
+      "feature_empty": true,
+      "feature_none": true,
+      "feature_decimal": true,
+      "feature_nonfinite": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  },
+  {
+    "index": 64,
+    "checks": {
+      "review_bug": true,
+      "counterexample": true,
+      "test_evidence_present": true,
+      "handoff_present": true,
+      "feature_status_json": true,
+      "review_immutable": true,
+      "feature_empty": true,
+      "feature_none": true,
+      "feature_decimal": true,
+      "feature_nonfinite": true
+    },
+    "score_percent": 100,
+    "all_checks": true
+  }
+]
