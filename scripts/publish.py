@@ -5,7 +5,6 @@ import json
 from pathlib import Path
 import subprocess
 import sys
-from urllib.parse import quote
 
 import release
 
@@ -68,7 +67,17 @@ def preflight(selected, resume=False, root=release.ROOT, request=api):
     return known.get(selected['tag'])
 
 
-def publish_bundle(selected, output, existing=None, request=api, verify_install=lambda: None):
+def upload(tag, path, release_id):
+    # The file-oriented CLI sets Content-Length; streamed gh api stdin does not.
+    # Never use --clobber: existing content must be inspected, not replaced.
+    subprocess.run(['gh', 'release', 'upload', tag, str(path), '--repo', REPO], check=True)
+    record = api('GET', f'{PREFIX}/releases/{release_id}')
+    matches = [asset for asset in record['assets'] if asset['name'] == path.name]
+    release.need(len(matches) == 1, f'upload receipt missing or ambiguous: {path.name}')
+    return matches[0]
+
+
+def publish_bundle(selected, output, existing=None, request=api, verify_install=lambda: None, uploader=upload):
     """Inspect every existing receipt before writing; never overwrite published content."""
     head, tag = selected['head'], selected['tag']
     output = Path(output)
@@ -101,8 +110,7 @@ def publish_bundle(selected, output, existing=None, request=api, verify_install=
             release.need(actual == path.read_bytes(), f'existing asset differs: {path.name}; refusing overwrite')
         else:
             release.need(record['draft'], 'published release has missing assets; refusing mutation')
-            url = f'https://uploads.github.com/{PREFIX}/releases/{record["id"]}/assets?name={quote(path.name)}'
-            receipt = request('POST', url, path.read_bytes())
+            receipt = uploader(tag, path, record['id'])
             actual = request('GET', f'{PREFIX}/releases/assets/{receipt["id"]}', binary=True)
             release.need(actual == path.read_bytes(), f'uploaded asset failed verification: {path.name}')
     if record['draft']:
