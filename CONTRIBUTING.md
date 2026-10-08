@@ -80,13 +80,13 @@ Keep repository delivery and environment guidance here and in `AGENTS.md`. Produ
 
 Use Conventional Commit messages for each unit, such as `fix: preserve run evidence` or `docs: clarify installation`. Explain the problem, resulting behavior, and validation performed in commits or pull requests. Call out changes to document formats, commands, approval semantics, or recovery behavior, including compatibility impact. Include updated generated bundles where applicable.
 
-Delivery uses a pull request to `main` and **rebase merging**. Preserve the individual unit commits; squash merges and merge commits are not allowed. GitHub may rewrite commit hashes during a rebase merge, so verify the resulting history and content rather than requiring feature-branch hashes to survive. Do not force-push, overwrite unrelated work, or substitute a direct push to `main` when a pull request merge fails.
+Delivery uses a pull request to `main` and **merge commits**. Preserve the individual signed unit commits and their hashes; the PR adds one integration commit. Squash and rebase merging are not allowed. GitHub rebase merging rewrites commits without preserving their signatures and cannot satisfy required signed commits. Do not force-push, overwrite unrelated work, or substitute a direct push to `main` when a pull request merge fails.
 
 ### Inspect the target before delivery
 
-Configuration verified on 2026-10-08: the default branch is `main`, and the repository ruleset applies to `main`, including required pull requests with rebase merging, signatures, linear history, and protection against deletion and force pushes. The earlier default of `docs/change-delivery-workflow` and the resulting absence of effective rules on `main` are resolved. The cause of that earlier setting was not established. Keep the checks below for detecting future configuration drift.
+The default branch is `main`. The earlier default of `docs/change-delivery-workflow` belonged to the previous repository and is historical; its cause was not established. Recheck the actual configuration below after repository recreation or settings changes.
 
-Fetch `upstream` and check the actual refs, repository settings, and effective rules. A ruleset's name does not determine its target. A ruleset named `main` that includes `~DEFAULT_BRANCH` protects whichever branch is currently the default, which may be a feature branch. A successful push or a clean PR does not prove `main` is protected. Repository merge settings and a ruleset's allowed merge methods must both permit rebase merging.
+Fetch `upstream` and check the actual refs, repository settings, and effective rules. A ruleset's name does not determine its target. A ruleset named `main` that includes `~DEFAULT_BRANCH` protects whichever branch is currently the default, which may be a feature branch. A successful push or a clean PR does not prove `main` is protected. Repository merge settings and a ruleset's allowed merge methods must both permit merge commits. Required linear history must be off because it prohibits merge commits.
 
 ```sh
 git fetch upstream
@@ -98,17 +98,17 @@ gh api repos/tclasen/sparkle/rules/branches/main
 
 Inspect an individual ruleset with `gh api repos/tclasen/sparkle/rulesets/RULESET_ID` when its conditions or allowed methods need checking. The classic branch-protection endpoint can return 404 while a ruleset exists; check rulesets and effective branch rules before concluding that protection is absent. If access is denied, report that uncertainty rather than treating it as an empty rule set.
 
-If PR creation reports missing head/base SHAs or no commits, verify remote branch existence and the intended base before retrying. If `main` is missing or settings conflict with the required rebase method, report the concrete configuration blocker. Do not create a replacement base, change repository settings, or bypass protections as an incidental delivery workaround.
+If PR creation reports missing head/base SHAs or no commits, verify remote branch existence and the intended base before retrying. If `main` is missing or settings conflict with the required merge-commit method, report the concrete configuration blocker. Do not create a replacement base, change repository settings, or bypass protections as an incidental delivery workaround.
 
-For maintainers, the intended configuration is default branch `main`, effective protection of `refs/heads/main`, and rebase as the allowed PR merge method. Retain the chosen review, signature, linear-history, deletion and force-push requirements. If signed commits are required, verify contributor signing support. Required checks need actual CI jobs; local test success does not create a GitHub status check. An empty check list means no checks were reported, not that CI passed.
+For maintainers, the intended configuration is default branch `main`, effective protection of `refs/heads/main`, and merge commits as the only allowed PR merge method. Disable squash/rebase merging and required linear history. Keep required signed commits, pull requests, resolved review threads, deletion protection and force-push protection. Choose human-review requirements deliberately: zero approvals permits autonomous delivery, while requiring an approval introduces a human review step. If signed commits are required, verify contributor signing support. Required checks need actual CI jobs; local test success does not create a GitHub status check. An empty check list means no checks were reported, not that CI passed.
 
-### Push, rebase-merge, and synchronize
+### Push, merge, and synchronize
 
 When all units pass their local checks, push the feature branch to `upstream` ([tclasen/sparkle](https://github.com/tclasen/sparkle)) and open a PR with explicit `--base main`. Write multiline PR text to a file and pass `--body-file` so shell quoting cannot change the description. Inspect the PR's current head, checks and review requirements, then merge only the reviewed head:
 
 ```sh
 gh pr view PR_NUMBER --repo tclasen/sparkle --json headRefOid,mergeStateStatus,reviewDecision,statusCheckRollup
-gh pr merge PR_NUMBER --repo tclasen/sparkle --rebase --match-head-commit REVIEWED_HEAD_SHA
+gh pr merge PR_NUMBER --repo tclasen/sparkle --merge --match-head-commit REVIEWED_HEAD_SHA
 ```
 
 Replace the placeholders with the actual PR number and reviewed head SHA. Satisfy required checks and reviews; do not use an administrative bypass. If the head changes, inspect the new changes and relevant validation before merging. A merge error or lost response requires inspecting PR state and remote refs before retrying or claiming completion.
