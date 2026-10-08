@@ -57,12 +57,13 @@ class Releases(unittest.TestCase):
                 self.assertEqual(path.read_bytes(), (second/path.name).read_bytes())
             for name in ('define-workflow', 'execute-workflow'):
                 with zipfile.ZipFile(first/f'{name}-v0.1.0.zip') as archive:
-                    self.assertIn('version: "0.1.0"', archive.read(f'{name}/SKILL.md').decode())
+                    self.assertEqual(archive.read(f'{name}/SKILL.md'), (self.root/f'skills/{name}/SKILL.md').read_bytes())
                     self.assertEqual(json.loads(archive.read(f'{name}/RELEASE.json'))['commit'], selected['head'])
                     self.assertIn(f'{name}/scripts/workflow.py', archive.namelist())
             checksums = json.loads((first/'SHA256SUMS.json').read_text())
             self.assertEqual(len(checksums), 5)
             self.assertIn('package skills', (first/'CHANGELOG.md').read_text())
+            self.assertIn('https://github.com/tclasen/sparkle/tree/v0.1.0', (first/'RELEASE_NOTES.md').read_text())
             self.git('tag', 'v0.1.0')
             third = Path(temp)/'third'
             r.build(third, self.root)

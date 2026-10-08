@@ -2,8 +2,6 @@
 name: define-workflow
 description: Create, revise, review, fork, and explicitly publish versioned repository-local workflows through agent-led onboarding interviews and conversational requests. Use when users want reusable agent-led procedures with dependencies, decisions, approvals, bounded iteration, or composed workflows.
 compatibility: Requires a filesystem and uv with Python 3.11 or later. PyYAML is installed by uv from inline dependency metadata.
-metadata:
-  version: "unreleased"
 ---
 
 # Define a workflow

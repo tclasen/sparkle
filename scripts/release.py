@@ -144,7 +144,9 @@ def check_bundles(head, root=ROOT):
 
 
 def notes(tag, head, changes):
-    lines = [f'## {tag}', '', f'Source: `{head}`', '']
+    lines = [f'## {tag}', '', f'Source: `{head}`', '', 'Install with the skills.sh CLI:', '', '```sh',
+             f'npx skills add https://github.com/tclasen/sparkle/tree/{tag} --skill define-workflow execute-workflow',
+             '```', '']
     if version(tag[1:])[0] == 0:
         lines += ['Initial development: backwards compatibility and regression testing are not required.', '']
     for title, selected in (
@@ -176,11 +178,6 @@ def build(output, root=ROOT):
         source = files_at(f'skills/{name}/', head, root)
         with zipfile.ZipFile(output/f'{name}-{tag}.zip', 'w', compression=zipfile.ZIP_STORED) as archive:
             members = {path.removeprefix('skills/'): data for path, data in source.items()}
-            entry = f'{name}/SKILL.md'
-            text = members[entry].decode()
-            text, count = re.subn(r'(?m)^  version: "unreleased"$', f'  version: "{selected["version"]}"', text)
-            need(count == 1, f'{name}: expected one unreleased skill version marker')
-            members[entry] = text.encode()
             members[f'{name}/RELEASE.json'] = (json.dumps(metadata, indent=2, sort_keys=True) + '\n').encode()
             for path, data in sorted(members.items()):
                 info = zipfile.ZipInfo(path, date_time=(1980, 1, 1, 0, 0, 0))

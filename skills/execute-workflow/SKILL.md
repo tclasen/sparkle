@@ -2,8 +2,6 @@
 name: execute-workflow
 description: Interview users to onboard repository-local projects and start, inspect, resume, retry, or cancel runs of published conversational workflows. Use when executing agent-led procedures with pinned versions, checkpointed evidence, decisions, approvals, iterations, or subworkflows.
 compatibility: Requires a filesystem and uv with Python 3.11 or later. Delegation is optional; serial foreground execution works without it.
-metadata:
-  version: "unreleased"
 ---
 
 # Execute a workflow
