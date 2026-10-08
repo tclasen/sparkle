@@ -1,0 +1,65 @@
+index,case,cell,skills,catalog_version,started_at,elapsed_seconds,exit_code,stop_reason,tool_calls,tool_errors,input_tokens,output_tokens,cached_input_tokens,usage_status,objective_score_percent,checks_passed,checks_total,goal_complete,hard_failures,skill_entry_reads,explicit_workflow_definition_reads,dependency_block_reported,feature_functional_checks_passed
+1,author,codex-luna,False,,2026-10-08T21:01:15Z,23.149,0,,4,1,73816,1829,66304,reported,90,9,10,False,[],[],[],,
+2,author,codex-luna,True,,2026-10-08T21:01:38Z,40.374,0,,11,2,259525,3812,238336,reported,90,9,10,False,[],"[""define-workflow""]",[],,
+3,author,pi-luna,True,,2026-10-08T21:02:18Z,57.112,0,,18,4,108333,3574,89088,reported,90,9,10,False,[],"[""define-workflow""]",[],,
+4,author,pi-luna,False,,2026-10-08T21:03:15Z,20.398,0,,5,1,8963,1026,4096,reported,90,9,10,False,[],[],[],,
+5,author,codex-oss,False,,2026-10-08T21:03:36Z,180.801,0,time_budget_exhausted,2,0,0,0,0,not reported; zero is not measured consumption,20,2,10,False,[],[],[],,
+6,author,codex-oss,True,,2026-10-08T21:06:37Z,180.509,0,time_budget_exhausted,11,1,0,0,0,not reported; zero is not measured consumption,20,2,10,False,[],"[""define-workflow""]",[],,
+7,author,pi-oss,True,,2026-10-08T21:09:37Z,32.55,0,,9,1,18671,1562,16558,reported,90,9,10,False,[],"[""define-workflow""]",[],,
+8,author,pi-oss,False,,2026-10-08T21:10:10Z,26.389,0,,6,1,9919,1393,8954,reported,100,10,10,True,[],[],[],,
+9,end_to_end,codex-luna,True,,2026-10-08T21:10:36Z,91.103,0,,29,5,846325,7821,791808,reported,100,10,10,True,[],"[""define-workflow"", ""execute-workflow""]",[],,
+10,end_to_end,codex-luna,False,,2026-10-08T21:12:07Z,26.331,0,,7,3,121994,2575,108544,reported,70,7,10,False,[],[],[],,
+11,end_to_end,pi-luna,False,,2026-10-08T21:12:34Z,17.383,0,,7,1,12074,1108,4096,reported,100,10,10,True,[],[],[],,
+12,end_to_end,pi-luna,True,,2026-10-08T21:12:51Z,87.069,0,,39,3,346868,4535,301568,reported,100,10,10,True,[],"[""define-workflow"", ""execute-workflow""]",[],,
+13,end_to_end,codex-oss,True,,2026-10-08T21:14:18Z,180.565,0,time_budget_exhausted,14,0,0,0,0,not reported; zero is not measured consumption,10,1,10,False,[],"[""define-workflow"", ""execute-workflow""]",[],,
+14,end_to_end,codex-oss,False,,2026-10-08T21:17:19Z,65.513,0,,8,0,459010,1586,450358,reported,100,10,10,True,[],[],[],,
+15,end_to_end,pi-oss,True,,2026-10-08T21:18:25Z,180.716,143,time_budget_exhausted,46,11,822605,6803,803101,partial reported (completed messages only),20,2,10,False,[],[],[],,
+16,end_to_end,pi-oss,False,,2026-10-08T21:21:25Z,35.839,0,,9,2,15005,1632,14232,reported,100,10,10,True,[],[],[],,
+17,minimal,codex-luna,True,,2026-10-08T21:22:01Z,32.262,0,,8,0,165707,2653,149248,reported,100,10,10,True,[],"[""execute-workflow""]",[],,
+18,minimal,codex-luna,False,,2026-10-08T21:22:33Z,12.098,0,,3,1,58063,841,52224,reported,100,10,10,True,[],[],[],,
+19,minimal,codex-luna,True,original,2026-10-08T21:22:46Z,26.196,0,,6,0,119444,1977,97536,reported,100,10,10,True,[],"[""execute-workflow""]",[],,
+20,minimal,codex-luna,False,original,2026-10-08T21:23:12Z,14.083,0,,3,1,59049,1043,52224,reported,100,10,10,True,[],[],"[""example-workflow""]",,
+21,minimal,pi-luna,False,original,2026-10-08T21:23:26Z,26.306,0,,14,1,30864,997,15872,reported,100,10,10,True,[],[],"[""example-workflow""]",,
+22,minimal,pi-luna,True,,2026-10-08T21:23:52Z,20.254,0,,10,0,28040,904,18944,reported,100,10,10,True,[],"[""execute-workflow""]",[],,
+23,minimal,pi-luna,False,,2026-10-08T21:24:13Z,15.184,0,,8,0,12891,728,4608,reported,100,10,10,True,[],[],[],,
+24,minimal,pi-luna,True,original,2026-10-08T21:24:28Z,17.193,0,,10,0,20682,841,10240,reported,100,10,10,True,[],"[""execute-workflow""]","[""example-workflow""]",,
+25,minimal,codex-oss,True,original,2026-10-08T21:24:45Z,181.007,0,time_budget_exhausted,14,0,0,0,0,not reported; zero is not measured consumption,80,8,10,False,[],"[""execute-workflow""]","[""example-workflow""]",,
+26,minimal,codex-oss,False,original,2026-10-08T21:27:46Z,7.038,0,,0,0,39315,69,38296,reported,0,0,10,False,[],[],[],,
+27,minimal,codex-oss,True,,2026-10-08T21:27:53Z,8.049,0,,0,0,39322,189,38625,reported,0,0,10,False,[],[],[],,
+28,minimal,codex-oss,False,,2026-10-08T21:28:01Z,5.047,0,,0,0,39322,70,38625,reported,0,0,10,False,[],[],[],,
+29,minimal,pi-oss,False,original,2026-10-08T21:28:06Z,31.47,0,,7,0,12986,1207,11257,reported,100,10,10,True,[],[],"[""example-workflow""]",,
+30,minimal,pi-oss,True,original,2026-10-08T21:28:38Z,33.46,0,,8,0,20497,1335,18597,reported,100,10,10,True,[],"[""execute-workflow""]",[],,
+31,minimal,pi-oss,False,,2026-10-08T21:29:11Z,27.648,0,,6,0,9878,1173,9516,reported,100,10,10,True,[],[],[],,
+32,minimal,pi-oss,True,,2026-10-08T21:29:39Z,31.001,0,,8,0,19376,1257,17733,reported,100,10,10,True,[],"[""execute-workflow""]",[],,
+33,research,codex-luna,True,,2026-10-08T21:30:10Z,27.224,0,,8,1,169833,2673,144128,reported,100,10,10,True,[],"[""execute-workflow""]",[],,
+34,research,codex-luna,True,original,2026-10-08T21:30:37Z,24.18,0,,10,0,95780,2253,75520,reported,100,10,10,True,[],[],"[""research-to-deliverable""]",,
+35,research,codex-luna,False,,2026-10-08T21:31:02Z,21.201,0,,6,1,109679,2261,97536,reported,100,10,10,True,[],[],[],,
+36,research,codex-luna,True,candidate,2026-10-08T21:31:23Z,78.925,0,,24,2,693941,8320,653056,reported,90,9,10,False,[],"[""execute-workflow""]","[""research-to-deliverable""]",,
+37,research,pi-luna,True,candidate,2026-10-08T21:32:42Z,28.705,0,,14,0,41695,2128,30208,reported,80,8,10,False,[],"[""execute-workflow""]","[""research-to-deliverable""]",,
+38,research,pi-luna,True,,2026-10-08T21:33:11Z,27.604,0,,15,0,38427,1661,23040,reported,100,10,10,True,[],"[""execute-workflow""]",[],,
+39,research,pi-luna,True,original,2026-10-08T21:33:38Z,36.785,0,,16,0,68972,1987,55296,reported,100,10,10,True,[],"[""execute-workflow""]","[""research-to-deliverable""]",,
+40,research,pi-luna,False,,2026-10-08T21:34:15Z,26.668,0,,14,1,24946,1703,11776,reported,90,9,10,False,[],[],[],,
+41,research,codex-oss,False,,2026-10-08T21:34:42Z,66.648,0,,9,0,461094,1857,453311,reported,90,9,10,False,[],[],[],,
+42,research,codex-oss,True,original,2026-10-08T21:35:48Z,23.278,1,,6,0,0,0,0,not reported; zero is not measured consumption,10,1,10,False,[],[],[],,
+43,research,codex-oss,True,,2026-10-08T21:36:12Z,6.065,0,,0,0,39394,144,38624,reported,10,1,10,False,[],[],[],,
+44,research,codex-oss,True,candidate,2026-10-08T21:36:18Z,131.129,0,,14,0,688856,2797,676381,reported,90,9,10,False,[],[],"[""research-to-deliverable""]",,
+45,research,pi-oss,True,,2026-10-08T21:38:29Z,52.981,0,,9,0,20028,2131,18070,reported,100,10,10,True,[],[],[],,
+46,research,pi-oss,True,original,2026-10-08T21:39:22Z,38.791,0,,8,0,16036,1722,15343,reported,100,10,10,True,[],[],[],,
+47,research,pi-oss,False,,2026-10-08T21:40:01Z,32.622,0,,8,0,14382,1491,13912,reported,90,9,10,False,[],[],[],,
+48,research,pi-oss,True,candidate,2026-10-08T21:40:34Z,50.055,0,,10,0,22307,2189,21201,reported,100,10,10,True,[],[],[],,
+49,software,codex-luna,True,candidate,2026-10-08T21:41:24Z,134.422,0,,39,4,1308305,12576,1251328,reported,100,10,10,True,[],"[""execute-workflow""]","[""software-feature"", ""quality-check""]",False,4
+50,software,codex-luna,True,,2026-10-08T21:43:38Z,27.441,0,,8,2,155063,2575,141056,reported,60,6,10,False,[],"[""execute-workflow""]",[],False,0
+51,software,codex-luna,False,,2026-10-08T21:44:06Z,20.301,0,,7,4,121441,1763,107520,reported,60,6,10,False,[],[],[],False,0
+52,software,codex-luna,True,original,2026-10-08T21:44:27Z,35.565,0,,13,4,280387,3102,260608,reported,60,6,10,False,[],"[""execute-workflow""]","[""software-feature"", ""quality-check""]",False,0
+53,software,pi-luna,True,original,2026-10-08T21:45:03Z,52.355,0,,22,4,121519,2568,91648,reported,60,6,10,False,[],"[""execute-workflow""]","[""quality-check""]",False,0
+54,software,pi-luna,True,candidate,2026-10-08T21:45:56Z,33.736,0,,19,4,39209,2280,27648,reported,100,10,10,True,[],"[""execute-workflow""]",[],False,4
+55,software,pi-luna,True,,2026-10-08T21:46:29Z,34.846,0,,18,3,55665,2300,43520,reported,100,10,10,True,[],"[""execute-workflow""]",[],False,4
+56,software,pi-luna,False,,2026-10-08T21:47:05Z,36.952,0,,17,1,45331,2218,28160,reported,100,10,10,True,[],[],[],False,4
+57,software,codex-oss,True,candidate,2026-10-08T21:47:42Z,180.381,0,time_budget_exhausted,2,0,0,0,0,not reported; zero is not measured consumption,10,1,10,False,[],[],[],False,0
+58,software,codex-oss,True,,2026-10-08T21:50:43Z,180.592,0,time_budget_exhausted,8,0,0,0,0,not reported; zero is not measured consumption,10,1,10,False,[],[],[],False,0
+59,software,codex-oss,False,,2026-10-08T21:53:44Z,180.414,0,time_budget_exhausted,9,1,0,0,0,not reported; zero is not measured consumption,10,1,10,False,[],[],[],False,0
+60,software,codex-oss,True,original,2026-10-08T21:56:45Z,180.376,0,time_budget_exhausted,14,2,0,0,0,not reported; zero is not measured consumption,40,4,10,False,[],[],"[""software-feature""]",True,0
+61,software,pi-oss,True,,2026-10-08T21:59:45Z,65.114,0,,11,0,27101,2727,24755,reported,100,10,10,True,[],[],[],False,4
+62,software,pi-oss,True,original,2026-10-08T22:00:51Z,76.238,0,,20,3,65145,1990,62668,reported,60,6,10,False,[],[],"[""software-feature"", ""quality-check""]",True,0
+63,software,pi-oss,True,candidate,2026-10-08T22:02:07Z,156.385,0,,16,1,53169,2485,50549,reported,100,10,10,True,[],[],"[""software-feature"", ""quality-check""]",False,4
+64,software,pi-oss,False,,2026-10-08T22:04:44Z,55.97,0,,15,2,36978,2810,35123,reported,100,10,10,True,[],[],[],False,4

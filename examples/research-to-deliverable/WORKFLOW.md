@@ -11,9 +11,6 @@ steps:
   type: task
   capabilities:
   - web-search
-  skills:
-  - name: research
-    required: false
 - id: choose-format
   type: decision
   depends_on:
@@ -72,8 +69,7 @@ For this example, the authoring interview selected: choose format using the rule
 
 ## research — Collect evidence
 
-Task: Search primary sources and save dated URLs and excerpts with source usage limits.
-Fallback: use available web search and direct source reading, write a source ledger and assessment without a specialized research skill.
+Task: Use the available web-search capability to find primary sources relevant to the question and read them directly. Save a source ledger with each source's URL, title, date, relevant claims or short excerpts, and usage limits. Identify at least three independent sources, distinguish facts from inferences, and mark missing or conflicting evidence explicitly. Compare source dates and applicability to the frozen question; do not treat repeated copies of one source as independent evidence. Save the ledger and an assessment of whether it supports the question before drafting. This research procedure is part of this workflow and requires no external research skill. Missing required search/read capabilities block the work; do not invent search results or silently substitute unavailable tools.
 
 Inputs: Frozen run inputs and predecessor results.
 Outputs: Local artifacts and a structured result with evidence and handoff.

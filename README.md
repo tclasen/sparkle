@@ -33,3 +33,5 @@ The agent asks for missing context, prepares the files, and records progress. Wo
 See [the usage guide](docs/GUIDE.md) for examples and recovery details, or [Contributing](CONTRIBUTING.md) to work on sparkle itself.
 
 Proposed skill changes use [paired usefulness evaluations](docs/EVALUATIONS.md) across two models and two coding harnesses. See [evaluation setup](docs/EVAL_CONFIGURATION.md) for configuration and validation status.
+
+The [initial 64-run screening](docs/evals/2026-10-08-screening/README.md) records objective outcomes for both skills and the pre-authored workflows. Its one-repeat results do not establish net benefit or a proven catalog.

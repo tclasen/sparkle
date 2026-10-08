@@ -77,7 +77,6 @@ These are read-only structural helper checks, not workflow execution or publicat
 PROMPT
 )
 ````
-```
 
 Codex / Luna:
 
@@ -114,6 +113,14 @@ env -u OPENAI_API_KEY PI_CODING_AGENT_DIR="$eval_pi_dir" "$eval_pi" \
 Pi / local: use the same Pi command with `--provider ollama --model gpt-oss:120b`.
 
 These host probes intentionally read known skill paths. Pi automatic skill discovery is disabled; the probe verifies access, not native discovery. Codex ignores user config/rules but still uses the host's authentication and may discover global skills. For actual usefulness runs, inventory and isolate those resources as required by the policy. Enable only the skill resources for the selected condition; exercise native skill discovery/invocation separately. Do not give the no-skill baseline these helper commands. All host probes used fresh sessions/workspaces; Pi's tools run with host-user permissions, so a temporary directory is not a security sandbox. The host recipes do not establish that all four cells work inside Docker.
+
+### Isolation observed during usefulness screening
+
+The screening used Codex `--no-daemon --strict-config` in addition to the flags above. This host's existing `CODEX_HOME` points to `/Users/agent/.codex-personal`; inspecting only `~/.codex` misses its active resources. Do not replace the authentication home to obtain isolation. Attempts to disable the system skills through `skills.config` (directory and entry-file paths, including the active home) did not remove Codex's built-in skill descriptions. Their passive visibility remained constant across conditions. Every scored prompt prohibited reading or using external skills, and actual tool calls require inspection before counting a run as valid. This is a residual isolation limitation, not proof that global skill discovery was disabled.
+
+Pi used the flags above with `read,write,edit,bash`; skill-enabled conditions added an explicit `--skill /absolute/workspace/.agents/skills/NAME` for each selected repository skill. With `--no-skills`, these explicit paths load without automatic global skill discovery. Each workspace had its own Git root to stop ancestor project discovery. A model's own list of available skills was unreliable in local-model probes; native context and actual file reads are the evidence.
+
+For scored runs, prewarm the same dependency cache for every condition and set both `UV_CACHE_DIR` to the workspace cache and `UV_OFFLINE=1`. Codex additionally received these values through `shell_environment_policy.set`; inherited shell environment alone did not reliably control the helper cache. These settings provide dependency readiness, not external network capabilities. Preserve incomplete transcripts: a terminated Codex turn can omit its usage record, and missing usage must not be reported as zero consumption.
 
 The operator must check the actual transcript for successful tool calls and helper JSON validation results, require exit zero, independently compare `fixture.txt` and `answer.txt` byte for byte, and verify that the **final assistant message** is exactly the marker. Searching the entire transcript for a marker is invalid: prompts, command arguments, and error messages may contain it. A marker or process exit alone is insufficient. The diagnostic budget was 360 seconds per cell; retain timeouts and failed attempts.
 

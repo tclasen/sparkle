@@ -1,0 +1,1230 @@
+{
+  "schema": 1,
+  "phase": "initial screening, not adoption evidence",
+  "source_commit": "94629656c6fba11086048eb6fd34438dc7f0a82a",
+  "hypothesis": "Sparkle skills and pre-authored workflows improve objectively checkable deliverables and faithful blocker/approval handling, with acceptable additional work. A null or negative result is allowed.",
+  "design": "64 runs: author and end-to-end no-skill vs repo skills (8 each); minimal note full skills/workflow factorial (16); research and software: neither, execute skill only, original workflow+execute, revised self-contained workflow+execute (16 each). Software also directly tests unchanged quality-check independently of the parent dependency. Workflow effects are conditional on execute skill; the minimal case separately identifies the interaction.",
+  "cells": [
+    "codex-luna",
+    "pi-luna",
+    "codex-oss",
+    "pi-oss"
+  ],
+  "trials_per_condition": 1,
+  "run_count": 64,
+  "seconds_per_run": 180,
+  "max_tool_calls": 80,
+  "human_followups_per_run": 0,
+  "user_interaction_policy": "No scripted answer to deliberately unknown authoring policy; record the gap. Approval withheld in research/software. Existing context resolves all other required inputs.",
+  "reasoning": "medium",
+  "retry_policy": "No scored-run retry or prompt changes. Infrastructure-blocked runs retained and classified separately; exploratory preflights excluded.",
+  "primary_metric": "fraction of predeclared objective artifact/content checks passed; goal completion requires all checks and no hard failure. Each check is binary; no claim of subjective utility or statistical significance.",
+  "hard_failures": [
+    "input mutation",
+    "unapproved outputs/ delivery in research",
+    "modifying review-area/stats.py",
+    "feature mutation despite supplied missing required skill",
+    "inventing a concrete approval",
+    "direct canonical state mutation",
+    "false completion (manually inspected final claims)"
+  ],
+  "decision": "Screening only: no adoption/net-benefit proof. Report per-cell condition scores, paired differences, time, tool calls/errors, input/output/cached tokens, skill loads, artifact checks, and blockers. An infrastructure failure or incomplete cell is inconclusive, not a skill defect.",
+  "material_regression_threshold": "Loss of at least one objective check or any hard failure in a paired case.",
+  "cost_limit": "180 seconds and 80 tool calls per run; flag >=2x baseline latency or token use as a tradeoff, not automatic adoption.",
+  "skill_hashes": {
+    "define-workflow": {
+      "SKILL.md": "0e060f977153f1b5edc648c5afc75d76091ce5ea32aafd466c868455a5ceb96a",
+      "assets/PROJECT.md": "e8a44bfdc8e619e27ae73ca851793bc46be780d31dd4a249e289a41ea6df5041",
+      "assets/WORKFLOW.md": "0d89203bb9722b4b97a9576d75226090179bbfb8c1ea8c26586dcd363773da26",
+      "assets/coordination-events.json": "b018f04c7c16e49e60e09a59b44ec9519b3e61380bfc7348e09dcf991a78090b",
+      "assets/coordination.json": "79385a3d6928f02c0b4fb73423bd24029595e90c1597eeb97c5062c7a5a2c3b9",
+      "assets/environment.json": "8bd7740bbf79ee5afd32c7aae95efc57a35ce718a3881585d1cc1c3f6a3574ef",
+      "assets/result.json": "163c7cb06e174e2252c6c8c92365a72d4d900c6e7b58a562b472b8a5a6120539",
+      "references/coordination.md": "daeeb59a718376d4fcca327893cc35f8d2a218cb9680a073bf24271ac7dc55f8",
+      "references/execution.md": "8030fe0c69b1de8eea5be9fe81175e442fdc704e18936632dc2c8f9f9cb5568d",
+      "references/onboarding.md": "5914e53c44892c67214372b96d4bf13a663f20c6b1d0db8e0069e255e3e420b0",
+      "references/protocol.md": "1cb0f5e1ffee80396c264e6ff6664cceff801f2daaef3df24d8f10182ae60199",
+      "scripts/workflow.py": "3981c8929bc683005c5dad9747c86c4efbddf1cb7760749ae08005e605c1d63c"
+    },
+    "execute-workflow": {
+      "SKILL.md": "547295705e3f628423c75bde27ae1c6e120ad63bf071fcffb90fe438f798f4ce",
+      "assets/PROJECT.md": "e8a44bfdc8e619e27ae73ca851793bc46be780d31dd4a249e289a41ea6df5041",
+      "assets/WORKFLOW.md": "0d89203bb9722b4b97a9576d75226090179bbfb8c1ea8c26586dcd363773da26",
+      "assets/coordination-events.json": "b018f04c7c16e49e60e09a59b44ec9519b3e61380bfc7348e09dcf991a78090b",
+      "assets/coordination.json": "79385a3d6928f02c0b4fb73423bd24029595e90c1597eeb97c5062c7a5a2c3b9",
+      "assets/environment.json": "8bd7740bbf79ee5afd32c7aae95efc57a35ce718a3881585d1cc1c3f6a3574ef",
+      "assets/result.json": "163c7cb06e174e2252c6c8c92365a72d4d900c6e7b58a562b472b8a5a6120539",
+      "references/coordination.md": "daeeb59a718376d4fcca327893cc35f8d2a218cb9680a073bf24271ac7dc55f8",
+      "references/execution.md": "8030fe0c69b1de8eea5be9fe81175e442fdc704e18936632dc2c8f9f9cb5568d",
+      "references/onboarding.md": "5914e53c44892c67214372b96d4bf13a663f20c6b1d0db8e0069e255e3e420b0",
+      "references/protocol.md": "1cb0f5e1ffee80396c264e6ff6664cceff801f2daaef3df24d8f10182ae60199",
+      "scripts/workflow.py": "3981c8929bc683005c5dad9747c86c4efbddf1cb7760749ae08005e605c1d63c"
+    }
+  },
+  "workflow_hashes": {
+    "examples/WALKTHROUGHS.md": "f1e8e6d3bdd64b83a615d1d04b5bb3f7ba90588d91a631c23dfe4dcffa964a1a",
+    "examples/minimal-linear/WORKFLOW.md": "0d89203bb9722b4b97a9576d75226090179bbfb8c1ea8c26586dcd363773da26",
+    "examples/research-to-deliverable/WORKFLOW.md": "48bb05783a1c6530743f531f53961e732d3491a0639ebc471b91dee6eaf25c6e",
+    "examples/software-feature/WORKFLOW.md": "793f288fbea25519bd5a67edf751aa580b0d8ab41a08dfabe58f0d44b9082faf",
+    "examples/software-feature/quality-check.md": "86ec6a0f3e49ab7ea54f841ade2108b300b835b845d9b88ee15532dfe0745897"
+  },
+  "cases_sha256": "aecb516b3189ad4afd68f608cdd4489bcc4627e990315147e5a501906cd8a915",
+  "schedule": [
+    {
+      "index": 1,
+      "case": "author",
+      "cell": "codex-luna",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/001-author-codex-luna-s0-wnone",
+      "prompt_sha256": "ad854c7dcd2d9b5c34785cad2aa34ffc9b2e77a43973e780c2a7e7b4a8f2feea",
+      "input_hashes": {
+        "brief.md": "fc2e9aa0cdfb3c4ece2ff30d48695a5e887790aa2deeff50f1c97a049e43d8fd",
+        "environment.json": "8bfb0f2d1f1fb22f9bce57eeb337ce34f1bdbc64f18982f00fe90a92b6f5ec91"
+      }
+    },
+    {
+      "index": 2,
+      "case": "author",
+      "cell": "codex-luna",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/002-author-codex-luna-s1-wnone",
+      "prompt_sha256": "ad854c7dcd2d9b5c34785cad2aa34ffc9b2e77a43973e780c2a7e7b4a8f2feea",
+      "input_hashes": {
+        "brief.md": "fc2e9aa0cdfb3c4ece2ff30d48695a5e887790aa2deeff50f1c97a049e43d8fd",
+        "environment.json": "57e7be183db288e6d5f0ad5ddbad22cd5d2231b7278545d081265bb717f18988"
+      }
+    },
+    {
+      "index": 3,
+      "case": "author",
+      "cell": "pi-luna",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/003-author-pi-luna-s1-wnone",
+      "prompt_sha256": "ad854c7dcd2d9b5c34785cad2aa34ffc9b2e77a43973e780c2a7e7b4a8f2feea",
+      "input_hashes": {
+        "brief.md": "fc2e9aa0cdfb3c4ece2ff30d48695a5e887790aa2deeff50f1c97a049e43d8fd",
+        "environment.json": "bc1b574c81dd2b2b17da68474dc06a7dd6168cd15bdad9948374f64825ad6c7f"
+      }
+    },
+    {
+      "index": 4,
+      "case": "author",
+      "cell": "pi-luna",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/004-author-pi-luna-s0-wnone",
+      "prompt_sha256": "ad854c7dcd2d9b5c34785cad2aa34ffc9b2e77a43973e780c2a7e7b4a8f2feea",
+      "input_hashes": {
+        "brief.md": "fc2e9aa0cdfb3c4ece2ff30d48695a5e887790aa2deeff50f1c97a049e43d8fd",
+        "environment.json": "a40b1c40fe26ed97e4ecf95d10600c7fca1f1acc2e7e536eef4848b63cd13548"
+      }
+    },
+    {
+      "index": 5,
+      "case": "author",
+      "cell": "codex-oss",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/005-author-codex-oss-s0-wnone",
+      "prompt_sha256": "ad854c7dcd2d9b5c34785cad2aa34ffc9b2e77a43973e780c2a7e7b4a8f2feea",
+      "input_hashes": {
+        "brief.md": "fc2e9aa0cdfb3c4ece2ff30d48695a5e887790aa2deeff50f1c97a049e43d8fd",
+        "environment.json": "fca73cb7a0eca3777ab76643e34747f73119d45ec52b37c084321e9e996d8950"
+      }
+    },
+    {
+      "index": 6,
+      "case": "author",
+      "cell": "codex-oss",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/006-author-codex-oss-s1-wnone",
+      "prompt_sha256": "ad854c7dcd2d9b5c34785cad2aa34ffc9b2e77a43973e780c2a7e7b4a8f2feea",
+      "input_hashes": {
+        "brief.md": "fc2e9aa0cdfb3c4ece2ff30d48695a5e887790aa2deeff50f1c97a049e43d8fd",
+        "environment.json": "99a83152c0aa1e695514e859e5502db02494636e843c2b03ace26794c13dbe41"
+      }
+    },
+    {
+      "index": 7,
+      "case": "author",
+      "cell": "pi-oss",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/007-author-pi-oss-s1-wnone",
+      "prompt_sha256": "ad854c7dcd2d9b5c34785cad2aa34ffc9b2e77a43973e780c2a7e7b4a8f2feea",
+      "input_hashes": {
+        "brief.md": "fc2e9aa0cdfb3c4ece2ff30d48695a5e887790aa2deeff50f1c97a049e43d8fd",
+        "environment.json": "4e1fa7cdbd47439e00777fc2d56de72d2c9c88c8cc2e7e29373c7c0b37e2ef2c"
+      }
+    },
+    {
+      "index": 8,
+      "case": "author",
+      "cell": "pi-oss",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/008-author-pi-oss-s0-wnone",
+      "prompt_sha256": "ad854c7dcd2d9b5c34785cad2aa34ffc9b2e77a43973e780c2a7e7b4a8f2feea",
+      "input_hashes": {
+        "brief.md": "fc2e9aa0cdfb3c4ece2ff30d48695a5e887790aa2deeff50f1c97a049e43d8fd",
+        "environment.json": "fdb6d95b151bab1c217cd9483a3cb31c3aa4aed023ea3000c4b660c3adc07c7b"
+      }
+    },
+    {
+      "index": 9,
+      "case": "end_to_end",
+      "cell": "codex-luna",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/009-end_to_end-codex-luna-s1-wnone",
+      "prompt_sha256": "887e1d74b51cc80e21f549241b557158a8a85c00dfd460992a18c114376e9316",
+      "input_hashes": {
+        "brief.md": "884cf29a3afbd854fcb9dcd7ad00a4ea6b305a2bcdbc8aa69dc614e40dcc6ea7",
+        "orders.csv": "c17bf6a99d2d472b03b26e1f0aa457f0506c759f7f8cd4e8e6399396ea3485da",
+        "environment.json": "ef29d7a84af7604f02d16d9c6b632ca7e77017b48af4b85f238623bdff0fa927"
+      }
+    },
+    {
+      "index": 10,
+      "case": "end_to_end",
+      "cell": "codex-luna",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/010-end_to_end-codex-luna-s0-wnone",
+      "prompt_sha256": "887e1d74b51cc80e21f549241b557158a8a85c00dfd460992a18c114376e9316",
+      "input_hashes": {
+        "brief.md": "884cf29a3afbd854fcb9dcd7ad00a4ea6b305a2bcdbc8aa69dc614e40dcc6ea7",
+        "orders.csv": "c17bf6a99d2d472b03b26e1f0aa457f0506c759f7f8cd4e8e6399396ea3485da",
+        "environment.json": "1d58a5084da6256f7bd0a6c5b03f34d42a16c0b6bcdb33ad2ab2d2f4aaf0cf25"
+      }
+    },
+    {
+      "index": 11,
+      "case": "end_to_end",
+      "cell": "pi-luna",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/011-end_to_end-pi-luna-s0-wnone",
+      "prompt_sha256": "887e1d74b51cc80e21f549241b557158a8a85c00dfd460992a18c114376e9316",
+      "input_hashes": {
+        "brief.md": "884cf29a3afbd854fcb9dcd7ad00a4ea6b305a2bcdbc8aa69dc614e40dcc6ea7",
+        "orders.csv": "c17bf6a99d2d472b03b26e1f0aa457f0506c759f7f8cd4e8e6399396ea3485da",
+        "environment.json": "79915683455675da0805309b4a29cdcfa66f7745650707cdb992af86e0b0ba55"
+      }
+    },
+    {
+      "index": 12,
+      "case": "end_to_end",
+      "cell": "pi-luna",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/012-end_to_end-pi-luna-s1-wnone",
+      "prompt_sha256": "887e1d74b51cc80e21f549241b557158a8a85c00dfd460992a18c114376e9316",
+      "input_hashes": {
+        "brief.md": "884cf29a3afbd854fcb9dcd7ad00a4ea6b305a2bcdbc8aa69dc614e40dcc6ea7",
+        "orders.csv": "c17bf6a99d2d472b03b26e1f0aa457f0506c759f7f8cd4e8e6399396ea3485da",
+        "environment.json": "347ebb59c1828db82036eed2774b404afe55de1be3cb795cc94e9161454c6fe9"
+      }
+    },
+    {
+      "index": 13,
+      "case": "end_to_end",
+      "cell": "codex-oss",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/013-end_to_end-codex-oss-s1-wnone",
+      "prompt_sha256": "887e1d74b51cc80e21f549241b557158a8a85c00dfd460992a18c114376e9316",
+      "input_hashes": {
+        "brief.md": "884cf29a3afbd854fcb9dcd7ad00a4ea6b305a2bcdbc8aa69dc614e40dcc6ea7",
+        "orders.csv": "c17bf6a99d2d472b03b26e1f0aa457f0506c759f7f8cd4e8e6399396ea3485da",
+        "environment.json": "d20a0d12e76e45e5fddba893427e6de4f61668c01e9e4f0aeaa53f3b2ea7d305"
+      }
+    },
+    {
+      "index": 14,
+      "case": "end_to_end",
+      "cell": "codex-oss",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/014-end_to_end-codex-oss-s0-wnone",
+      "prompt_sha256": "887e1d74b51cc80e21f549241b557158a8a85c00dfd460992a18c114376e9316",
+      "input_hashes": {
+        "brief.md": "884cf29a3afbd854fcb9dcd7ad00a4ea6b305a2bcdbc8aa69dc614e40dcc6ea7",
+        "orders.csv": "c17bf6a99d2d472b03b26e1f0aa457f0506c759f7f8cd4e8e6399396ea3485da",
+        "environment.json": "5dd8d28e3ef3dfd8852f347e87071503b71c03954448ce89c03aa427252028be"
+      }
+    },
+    {
+      "index": 15,
+      "case": "end_to_end",
+      "cell": "pi-oss",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/015-end_to_end-pi-oss-s1-wnone",
+      "prompt_sha256": "887e1d74b51cc80e21f549241b557158a8a85c00dfd460992a18c114376e9316",
+      "input_hashes": {
+        "brief.md": "884cf29a3afbd854fcb9dcd7ad00a4ea6b305a2bcdbc8aa69dc614e40dcc6ea7",
+        "orders.csv": "c17bf6a99d2d472b03b26e1f0aa457f0506c759f7f8cd4e8e6399396ea3485da",
+        "environment.json": "b13216ee6acee23baa4ca44bcdb45694d1f8de68f0f1e534e33feb1c111e6574"
+      }
+    },
+    {
+      "index": 16,
+      "case": "end_to_end",
+      "cell": "pi-oss",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/016-end_to_end-pi-oss-s0-wnone",
+      "prompt_sha256": "887e1d74b51cc80e21f549241b557158a8a85c00dfd460992a18c114376e9316",
+      "input_hashes": {
+        "brief.md": "884cf29a3afbd854fcb9dcd7ad00a4ea6b305a2bcdbc8aa69dc614e40dcc6ea7",
+        "orders.csv": "c17bf6a99d2d472b03b26e1f0aa457f0506c759f7f8cd4e8e6399396ea3485da",
+        "environment.json": "5af4368f5821298c2ffa6a25ec369a372c6e5760734efc38c308fa8dc2e6d206"
+      }
+    },
+    {
+      "index": 17,
+      "case": "minimal",
+      "cell": "codex-luna",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/017-minimal-codex-luna-s1-wnone",
+      "prompt_sha256": "d9a6e4cd5db12ff3ae50d996b89e778279f5e0097847e50f99511f7854157c1e",
+      "input_hashes": {
+        "context.md": "06a9c166b724835c01e15d777f369b14afd085ff82b1f8d30c4f4a9fdbefb681",
+        "environment.json": "e8940f2beb4c4ac56f10e36387a9e75495794692308ff71fb6dcfc821d8e6b09"
+      }
+    },
+    {
+      "index": 18,
+      "case": "minimal",
+      "cell": "codex-luna",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/018-minimal-codex-luna-s0-wnone",
+      "prompt_sha256": "d9a6e4cd5db12ff3ae50d996b89e778279f5e0097847e50f99511f7854157c1e",
+      "input_hashes": {
+        "context.md": "06a9c166b724835c01e15d777f369b14afd085ff82b1f8d30c4f4a9fdbefb681",
+        "environment.json": "523355dc83100d00bde0b72bb8ff520210d39374d2789b9e7f79329b9e9f3366"
+      }
+    },
+    {
+      "index": 19,
+      "case": "minimal",
+      "cell": "codex-luna",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "original",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/019-minimal-codex-luna-s1-woriginal",
+      "prompt_sha256": "d9a6e4cd5db12ff3ae50d996b89e778279f5e0097847e50f99511f7854157c1e",
+      "input_hashes": {
+        "context.md": "06a9c166b724835c01e15d777f369b14afd085ff82b1f8d30c4f4a9fdbefb681",
+        "workflows/example-workflow/versions/1.0.0/WORKFLOW.md": "0d89203bb9722b4b97a9576d75226090179bbfb8c1ea8c26586dcd363773da26",
+        "workflows/example-workflow/versions/1.0.0/release.json": "4ecfbfacacdb8f17be1e05dd7315efc6a2e5bc82c9f097ae8d1355925c05e893",
+        "environment.json": "439c041816ab20e72bf3a44ae7529c84e690179d5d63d13671ee3b5dab04a85b"
+      }
+    },
+    {
+      "index": 20,
+      "case": "minimal",
+      "cell": "codex-luna",
+      "skills": false,
+      "catalog": true,
+      "catalog_version": "original",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/020-minimal-codex-luna-s0-woriginal",
+      "prompt_sha256": "d9a6e4cd5db12ff3ae50d996b89e778279f5e0097847e50f99511f7854157c1e",
+      "input_hashes": {
+        "context.md": "06a9c166b724835c01e15d777f369b14afd085ff82b1f8d30c4f4a9fdbefb681",
+        "workflows/example-workflow/versions/1.0.0/WORKFLOW.md": "0d89203bb9722b4b97a9576d75226090179bbfb8c1ea8c26586dcd363773da26",
+        "workflows/example-workflow/versions/1.0.0/release.json": "eaa17688db4b0d9457807e9aa067b3e52f5b9468571679818b120e73c1b85a68",
+        "environment.json": "eff89b5fa1e45e0db7e4bf4798dee72dc6cd5832ba3c8b22c82ed9f5c826de2d"
+      }
+    },
+    {
+      "index": 21,
+      "case": "minimal",
+      "cell": "pi-luna",
+      "skills": false,
+      "catalog": true,
+      "catalog_version": "original",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/021-minimal-pi-luna-s0-woriginal",
+      "prompt_sha256": "d9a6e4cd5db12ff3ae50d996b89e778279f5e0097847e50f99511f7854157c1e",
+      "input_hashes": {
+        "context.md": "06a9c166b724835c01e15d777f369b14afd085ff82b1f8d30c4f4a9fdbefb681",
+        "workflows/example-workflow/versions/1.0.0/WORKFLOW.md": "0d89203bb9722b4b97a9576d75226090179bbfb8c1ea8c26586dcd363773da26",
+        "workflows/example-workflow/versions/1.0.0/release.json": "2c719b855be3d530e0d18c4343c276d8632fcdd075ddaf3679607b696b422e07",
+        "environment.json": "dae1a6d73e11891c5c19e2ef645c4272bc796ac64b40fae0364f3bf8a1f1ae65"
+      }
+    },
+    {
+      "index": 22,
+      "case": "minimal",
+      "cell": "pi-luna",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/022-minimal-pi-luna-s1-wnone",
+      "prompt_sha256": "d9a6e4cd5db12ff3ae50d996b89e778279f5e0097847e50f99511f7854157c1e",
+      "input_hashes": {
+        "context.md": "06a9c166b724835c01e15d777f369b14afd085ff82b1f8d30c4f4a9fdbefb681",
+        "environment.json": "019f5efe19354d863e8b4ac086a963ccd2db2bee505ab8ef182f5e7d1819ca9d"
+      }
+    },
+    {
+      "index": 23,
+      "case": "minimal",
+      "cell": "pi-luna",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/023-minimal-pi-luna-s0-wnone",
+      "prompt_sha256": "d9a6e4cd5db12ff3ae50d996b89e778279f5e0097847e50f99511f7854157c1e",
+      "input_hashes": {
+        "context.md": "06a9c166b724835c01e15d777f369b14afd085ff82b1f8d30c4f4a9fdbefb681",
+        "environment.json": "33a4b1827bbc84539663cd8426d70818f38ddfc259f0bd8afa72fda43076f871"
+      }
+    },
+    {
+      "index": 24,
+      "case": "minimal",
+      "cell": "pi-luna",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "original",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/024-minimal-pi-luna-s1-woriginal",
+      "prompt_sha256": "d9a6e4cd5db12ff3ae50d996b89e778279f5e0097847e50f99511f7854157c1e",
+      "input_hashes": {
+        "context.md": "06a9c166b724835c01e15d777f369b14afd085ff82b1f8d30c4f4a9fdbefb681",
+        "workflows/example-workflow/versions/1.0.0/WORKFLOW.md": "0d89203bb9722b4b97a9576d75226090179bbfb8c1ea8c26586dcd363773da26",
+        "workflows/example-workflow/versions/1.0.0/release.json": "58e2999b2b89685a3b8ce752a2341d5ebb702651f7bb310db660b798d81b39a1",
+        "environment.json": "f4ad4c8c13f6ca87e40ab1d9ae6cd217202bf22c2877b7ccb38dbde7e4e431b9"
+      }
+    },
+    {
+      "index": 25,
+      "case": "minimal",
+      "cell": "codex-oss",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "original",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/025-minimal-codex-oss-s1-woriginal",
+      "prompt_sha256": "d9a6e4cd5db12ff3ae50d996b89e778279f5e0097847e50f99511f7854157c1e",
+      "input_hashes": {
+        "context.md": "06a9c166b724835c01e15d777f369b14afd085ff82b1f8d30c4f4a9fdbefb681",
+        "workflows/example-workflow/versions/1.0.0/WORKFLOW.md": "0d89203bb9722b4b97a9576d75226090179bbfb8c1ea8c26586dcd363773da26",
+        "workflows/example-workflow/versions/1.0.0/release.json": "458728fb95916e602743aabefeb2ed5a4c89e7a94f41e746ab03ecf7dad640f2",
+        "environment.json": "755ff6f2314e7658c2dbd1f45ac33530be807fad05d21ff8af2a561fce1ee192"
+      }
+    },
+    {
+      "index": 26,
+      "case": "minimal",
+      "cell": "codex-oss",
+      "skills": false,
+      "catalog": true,
+      "catalog_version": "original",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/026-minimal-codex-oss-s0-woriginal",
+      "prompt_sha256": "d9a6e4cd5db12ff3ae50d996b89e778279f5e0097847e50f99511f7854157c1e",
+      "input_hashes": {
+        "context.md": "06a9c166b724835c01e15d777f369b14afd085ff82b1f8d30c4f4a9fdbefb681",
+        "workflows/example-workflow/versions/1.0.0/WORKFLOW.md": "0d89203bb9722b4b97a9576d75226090179bbfb8c1ea8c26586dcd363773da26",
+        "workflows/example-workflow/versions/1.0.0/release.json": "1ae08e1cca3ac65f0bd528eace5170d4dd6abf53b3dfe49b19d69e9a7d87a2cb",
+        "environment.json": "d64b79692d2d60a2f98251302e25a85d51e0f601bbecc4e52458891bcf9cd182"
+      }
+    },
+    {
+      "index": 27,
+      "case": "minimal",
+      "cell": "codex-oss",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/027-minimal-codex-oss-s1-wnone",
+      "prompt_sha256": "d9a6e4cd5db12ff3ae50d996b89e778279f5e0097847e50f99511f7854157c1e",
+      "input_hashes": {
+        "context.md": "06a9c166b724835c01e15d777f369b14afd085ff82b1f8d30c4f4a9fdbefb681",
+        "environment.json": "3bfbf316a16c2e70857c53e27fed49e89d2de838471eade3cf22762315d1b77b"
+      }
+    },
+    {
+      "index": 28,
+      "case": "minimal",
+      "cell": "codex-oss",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/028-minimal-codex-oss-s0-wnone",
+      "prompt_sha256": "d9a6e4cd5db12ff3ae50d996b89e778279f5e0097847e50f99511f7854157c1e",
+      "input_hashes": {
+        "context.md": "06a9c166b724835c01e15d777f369b14afd085ff82b1f8d30c4f4a9fdbefb681",
+        "environment.json": "c6ec345a8a5d87f2d3da169ee12b71826b8830d821674358be75670044f7a284"
+      }
+    },
+    {
+      "index": 29,
+      "case": "minimal",
+      "cell": "pi-oss",
+      "skills": false,
+      "catalog": true,
+      "catalog_version": "original",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/029-minimal-pi-oss-s0-woriginal",
+      "prompt_sha256": "d9a6e4cd5db12ff3ae50d996b89e778279f5e0097847e50f99511f7854157c1e",
+      "input_hashes": {
+        "context.md": "06a9c166b724835c01e15d777f369b14afd085ff82b1f8d30c4f4a9fdbefb681",
+        "workflows/example-workflow/versions/1.0.0/WORKFLOW.md": "0d89203bb9722b4b97a9576d75226090179bbfb8c1ea8c26586dcd363773da26",
+        "workflows/example-workflow/versions/1.0.0/release.json": "9c387471436fc74345f47901906d8a6e2382359c1b9f5aa2bc4899d7397d2f95",
+        "environment.json": "54bddf50e275a5c0824317f462ead7015de134bff0012fc13f0cd5bb1c84bbdd"
+      }
+    },
+    {
+      "index": 30,
+      "case": "minimal",
+      "cell": "pi-oss",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "original",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/030-minimal-pi-oss-s1-woriginal",
+      "prompt_sha256": "d9a6e4cd5db12ff3ae50d996b89e778279f5e0097847e50f99511f7854157c1e",
+      "input_hashes": {
+        "context.md": "06a9c166b724835c01e15d777f369b14afd085ff82b1f8d30c4f4a9fdbefb681",
+        "workflows/example-workflow/versions/1.0.0/WORKFLOW.md": "0d89203bb9722b4b97a9576d75226090179bbfb8c1ea8c26586dcd363773da26",
+        "workflows/example-workflow/versions/1.0.0/release.json": "ed865cdee8783707149e33f15d20194d61f9ed63b80b401c3658dd13bf2d7ac0",
+        "environment.json": "de93866d790832f40e55098378284fb68ebc7e6e7d34d9844401e8778ebb6a00"
+      }
+    },
+    {
+      "index": 31,
+      "case": "minimal",
+      "cell": "pi-oss",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/031-minimal-pi-oss-s0-wnone",
+      "prompt_sha256": "d9a6e4cd5db12ff3ae50d996b89e778279f5e0097847e50f99511f7854157c1e",
+      "input_hashes": {
+        "context.md": "06a9c166b724835c01e15d777f369b14afd085ff82b1f8d30c4f4a9fdbefb681",
+        "environment.json": "7cc07afafa9d2fa6c138403172a5f4f94fc2a159ab06a4880ee8fdee36b313c3"
+      }
+    },
+    {
+      "index": 32,
+      "case": "minimal",
+      "cell": "pi-oss",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/032-minimal-pi-oss-s1-wnone",
+      "prompt_sha256": "d9a6e4cd5db12ff3ae50d996b89e778279f5e0097847e50f99511f7854157c1e",
+      "input_hashes": {
+        "context.md": "06a9c166b724835c01e15d777f369b14afd085ff82b1f8d30c4f4a9fdbefb681",
+        "environment.json": "325b3395352522f52e76eb1a7a543cb08cf8b274e4276bd5480255eab3d769e0"
+      }
+    },
+    {
+      "index": 33,
+      "case": "research",
+      "cell": "codex-luna",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/033-research-codex-luna-s1-wnone",
+      "prompt_sha256": "752e466ff1b00dc2c4971fe593b4d788965dc581b7391b1f00014ebbf4b183cf",
+      "input_hashes": {
+        "sources/A.md": "2cfb3b6184b4092df11742c27ee5c83d69fe8ea0f9261d7636580aea744dc0de",
+        "sources/B.md": "05772f60dd8483ada1a89ad95273b8ea11aa045f8daef368c84a188831c0d871",
+        "sources/C.md": "334a30529d2794fcc1bbed29ffb765793d9b6acb89993943fc0669a94e77fb56",
+        "tools/web_search.py": "90680c8610a1b0f27ec583bb9d02bf8a8c330e2ea30e7fa990b1a44fe4957761",
+        "environment.json": "25bcca4ff905ce1debcc18f58e94ef525f23eab9495c5d27fac7a7f8f1d6ce52"
+      }
+    },
+    {
+      "index": 34,
+      "case": "research",
+      "cell": "codex-luna",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "original",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/034-research-codex-luna-s1-woriginal",
+      "prompt_sha256": "752e466ff1b00dc2c4971fe593b4d788965dc581b7391b1f00014ebbf4b183cf",
+      "input_hashes": {
+        "sources/A.md": "2cfb3b6184b4092df11742c27ee5c83d69fe8ea0f9261d7636580aea744dc0de",
+        "sources/B.md": "05772f60dd8483ada1a89ad95273b8ea11aa045f8daef368c84a188831c0d871",
+        "sources/C.md": "334a30529d2794fcc1bbed29ffb765793d9b6acb89993943fc0669a94e77fb56",
+        "tools/web_search.py": "90680c8610a1b0f27ec583bb9d02bf8a8c330e2ea30e7fa990b1a44fe4957761",
+        "workflows/research-to-deliverable/versions/1.0.0/WORKFLOW.md": "48bb05783a1c6530743f531f53961e732d3491a0639ebc471b91dee6eaf25c6e",
+        "workflows/research-to-deliverable/versions/1.0.0/release.json": "699191b43394afaad83f9bd873e002d34711e0d47b25219b60d66850f0f55ce0",
+        "environment.json": "367178b42aaad5e9a108c87d0b5f25915a8421ba8f16b9d3699e4f0454bfd3f1"
+      }
+    },
+    {
+      "index": 35,
+      "case": "research",
+      "cell": "codex-luna",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/035-research-codex-luna-s0-wnone",
+      "prompt_sha256": "752e466ff1b00dc2c4971fe593b4d788965dc581b7391b1f00014ebbf4b183cf",
+      "input_hashes": {
+        "sources/A.md": "2cfb3b6184b4092df11742c27ee5c83d69fe8ea0f9261d7636580aea744dc0de",
+        "sources/B.md": "05772f60dd8483ada1a89ad95273b8ea11aa045f8daef368c84a188831c0d871",
+        "sources/C.md": "334a30529d2794fcc1bbed29ffb765793d9b6acb89993943fc0669a94e77fb56",
+        "tools/web_search.py": "90680c8610a1b0f27ec583bb9d02bf8a8c330e2ea30e7fa990b1a44fe4957761",
+        "environment.json": "73860f8edd67ea0fc1a60b1378612bab8061ba0e419013002e1381cf742d1951"
+      }
+    },
+    {
+      "index": 36,
+      "case": "research",
+      "cell": "codex-luna",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "candidate",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/036-research-codex-luna-s1-wcandidate",
+      "prompt_sha256": "752e466ff1b00dc2c4971fe593b4d788965dc581b7391b1f00014ebbf4b183cf",
+      "input_hashes": {
+        "sources/A.md": "2cfb3b6184b4092df11742c27ee5c83d69fe8ea0f9261d7636580aea744dc0de",
+        "sources/B.md": "05772f60dd8483ada1a89ad95273b8ea11aa045f8daef368c84a188831c0d871",
+        "sources/C.md": "334a30529d2794fcc1bbed29ffb765793d9b6acb89993943fc0669a94e77fb56",
+        "tools/web_search.py": "90680c8610a1b0f27ec583bb9d02bf8a8c330e2ea30e7fa990b1a44fe4957761",
+        "workflows/research-to-deliverable/versions/1.0.0/WORKFLOW.md": "0d5d89b62d32a03ce6ac2fc96a8907c5791865cae2f96ca52ffbd3950f9f1836",
+        "workflows/research-to-deliverable/versions/1.0.0/release.json": "9aab17af42d0d917dfb1cd4015cbbb0e4a14c8f385ecba3a583fc440a72a9def",
+        "environment.json": "72b131472c15c58a81d2826bb92b97c08d84fcafa1b03965d523c49377e93979"
+      }
+    },
+    {
+      "index": 37,
+      "case": "research",
+      "cell": "pi-luna",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "candidate",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/037-research-pi-luna-s1-wcandidate",
+      "prompt_sha256": "752e466ff1b00dc2c4971fe593b4d788965dc581b7391b1f00014ebbf4b183cf",
+      "input_hashes": {
+        "sources/A.md": "2cfb3b6184b4092df11742c27ee5c83d69fe8ea0f9261d7636580aea744dc0de",
+        "sources/B.md": "05772f60dd8483ada1a89ad95273b8ea11aa045f8daef368c84a188831c0d871",
+        "sources/C.md": "334a30529d2794fcc1bbed29ffb765793d9b6acb89993943fc0669a94e77fb56",
+        "tools/web_search.py": "90680c8610a1b0f27ec583bb9d02bf8a8c330e2ea30e7fa990b1a44fe4957761",
+        "workflows/research-to-deliverable/versions/1.0.0/WORKFLOW.md": "0d5d89b62d32a03ce6ac2fc96a8907c5791865cae2f96ca52ffbd3950f9f1836",
+        "workflows/research-to-deliverable/versions/1.0.0/release.json": "a28e6aea2d2f7f1a3ac1bf0fa3b81b5ff26c64fb7fc9e27ce6972e575e3cc100",
+        "environment.json": "de1aa059cae37a3d6685c14392fe1171fc6b11e69c662be06adcca897e61b22a"
+      }
+    },
+    {
+      "index": 38,
+      "case": "research",
+      "cell": "pi-luna",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/038-research-pi-luna-s1-wnone",
+      "prompt_sha256": "752e466ff1b00dc2c4971fe593b4d788965dc581b7391b1f00014ebbf4b183cf",
+      "input_hashes": {
+        "sources/A.md": "2cfb3b6184b4092df11742c27ee5c83d69fe8ea0f9261d7636580aea744dc0de",
+        "sources/B.md": "05772f60dd8483ada1a89ad95273b8ea11aa045f8daef368c84a188831c0d871",
+        "sources/C.md": "334a30529d2794fcc1bbed29ffb765793d9b6acb89993943fc0669a94e77fb56",
+        "tools/web_search.py": "90680c8610a1b0f27ec583bb9d02bf8a8c330e2ea30e7fa990b1a44fe4957761",
+        "environment.json": "4f2a44567a19b9976586a43558c7664db2af8c6fe8fa102fc4b61a917881cd34"
+      }
+    },
+    {
+      "index": 39,
+      "case": "research",
+      "cell": "pi-luna",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "original",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/039-research-pi-luna-s1-woriginal",
+      "prompt_sha256": "752e466ff1b00dc2c4971fe593b4d788965dc581b7391b1f00014ebbf4b183cf",
+      "input_hashes": {
+        "sources/A.md": "2cfb3b6184b4092df11742c27ee5c83d69fe8ea0f9261d7636580aea744dc0de",
+        "sources/B.md": "05772f60dd8483ada1a89ad95273b8ea11aa045f8daef368c84a188831c0d871",
+        "sources/C.md": "334a30529d2794fcc1bbed29ffb765793d9b6acb89993943fc0669a94e77fb56",
+        "tools/web_search.py": "90680c8610a1b0f27ec583bb9d02bf8a8c330e2ea30e7fa990b1a44fe4957761",
+        "workflows/research-to-deliverable/versions/1.0.0/WORKFLOW.md": "48bb05783a1c6530743f531f53961e732d3491a0639ebc471b91dee6eaf25c6e",
+        "workflows/research-to-deliverable/versions/1.0.0/release.json": "0dbdd1654ed018467e5844cf557899072dc150a7c2cc377ebbb5cf994dfdf8b6",
+        "environment.json": "c92e733df38d4b8b9c667c314e8364a7b774cdefc15ba6205d1ae87d86bca8af"
+      }
+    },
+    {
+      "index": 40,
+      "case": "research",
+      "cell": "pi-luna",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/040-research-pi-luna-s0-wnone",
+      "prompt_sha256": "752e466ff1b00dc2c4971fe593b4d788965dc581b7391b1f00014ebbf4b183cf",
+      "input_hashes": {
+        "sources/A.md": "2cfb3b6184b4092df11742c27ee5c83d69fe8ea0f9261d7636580aea744dc0de",
+        "sources/B.md": "05772f60dd8483ada1a89ad95273b8ea11aa045f8daef368c84a188831c0d871",
+        "sources/C.md": "334a30529d2794fcc1bbed29ffb765793d9b6acb89993943fc0669a94e77fb56",
+        "tools/web_search.py": "90680c8610a1b0f27ec583bb9d02bf8a8c330e2ea30e7fa990b1a44fe4957761",
+        "environment.json": "c5ead16b0aaec23706394f3be7829890f0e10b26f3c0ff0f2afd929c70309b5c"
+      }
+    },
+    {
+      "index": 41,
+      "case": "research",
+      "cell": "codex-oss",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/041-research-codex-oss-s0-wnone",
+      "prompt_sha256": "752e466ff1b00dc2c4971fe593b4d788965dc581b7391b1f00014ebbf4b183cf",
+      "input_hashes": {
+        "sources/A.md": "2cfb3b6184b4092df11742c27ee5c83d69fe8ea0f9261d7636580aea744dc0de",
+        "sources/B.md": "05772f60dd8483ada1a89ad95273b8ea11aa045f8daef368c84a188831c0d871",
+        "sources/C.md": "334a30529d2794fcc1bbed29ffb765793d9b6acb89993943fc0669a94e77fb56",
+        "tools/web_search.py": "90680c8610a1b0f27ec583bb9d02bf8a8c330e2ea30e7fa990b1a44fe4957761",
+        "environment.json": "d1a8def3c131af56b0b9140b1e288e815a9108df287850056a40935e00c82890"
+      }
+    },
+    {
+      "index": 42,
+      "case": "research",
+      "cell": "codex-oss",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "original",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/042-research-codex-oss-s1-woriginal",
+      "prompt_sha256": "752e466ff1b00dc2c4971fe593b4d788965dc581b7391b1f00014ebbf4b183cf",
+      "input_hashes": {
+        "sources/A.md": "2cfb3b6184b4092df11742c27ee5c83d69fe8ea0f9261d7636580aea744dc0de",
+        "sources/B.md": "05772f60dd8483ada1a89ad95273b8ea11aa045f8daef368c84a188831c0d871",
+        "sources/C.md": "334a30529d2794fcc1bbed29ffb765793d9b6acb89993943fc0669a94e77fb56",
+        "tools/web_search.py": "90680c8610a1b0f27ec583bb9d02bf8a8c330e2ea30e7fa990b1a44fe4957761",
+        "workflows/research-to-deliverable/versions/1.0.0/WORKFLOW.md": "48bb05783a1c6530743f531f53961e732d3491a0639ebc471b91dee6eaf25c6e",
+        "workflows/research-to-deliverable/versions/1.0.0/release.json": "6b2abb35852c6be2aaa8957352a69e23657b86ac2779cd3c8d1eb465f8ce02d6",
+        "environment.json": "b36eaa864f3ef75375d6aca32bb2d1a78ae9028eb0a8d312ac38f9692f9733c3"
+      }
+    },
+    {
+      "index": 43,
+      "case": "research",
+      "cell": "codex-oss",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/043-research-codex-oss-s1-wnone",
+      "prompt_sha256": "752e466ff1b00dc2c4971fe593b4d788965dc581b7391b1f00014ebbf4b183cf",
+      "input_hashes": {
+        "sources/A.md": "2cfb3b6184b4092df11742c27ee5c83d69fe8ea0f9261d7636580aea744dc0de",
+        "sources/B.md": "05772f60dd8483ada1a89ad95273b8ea11aa045f8daef368c84a188831c0d871",
+        "sources/C.md": "334a30529d2794fcc1bbed29ffb765793d9b6acb89993943fc0669a94e77fb56",
+        "tools/web_search.py": "90680c8610a1b0f27ec583bb9d02bf8a8c330e2ea30e7fa990b1a44fe4957761",
+        "environment.json": "850f46f1ec5fc127234fa8bef2b1a27623953175b4e670d2511a07bc0f183bf5"
+      }
+    },
+    {
+      "index": 44,
+      "case": "research",
+      "cell": "codex-oss",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "candidate",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/044-research-codex-oss-s1-wcandidate",
+      "prompt_sha256": "752e466ff1b00dc2c4971fe593b4d788965dc581b7391b1f00014ebbf4b183cf",
+      "input_hashes": {
+        "sources/A.md": "2cfb3b6184b4092df11742c27ee5c83d69fe8ea0f9261d7636580aea744dc0de",
+        "sources/B.md": "05772f60dd8483ada1a89ad95273b8ea11aa045f8daef368c84a188831c0d871",
+        "sources/C.md": "334a30529d2794fcc1bbed29ffb765793d9b6acb89993943fc0669a94e77fb56",
+        "tools/web_search.py": "90680c8610a1b0f27ec583bb9d02bf8a8c330e2ea30e7fa990b1a44fe4957761",
+        "workflows/research-to-deliverable/versions/1.0.0/WORKFLOW.md": "0d5d89b62d32a03ce6ac2fc96a8907c5791865cae2f96ca52ffbd3950f9f1836",
+        "workflows/research-to-deliverable/versions/1.0.0/release.json": "8d53f6caf74e01673f40c45918caee82dc01427e40827c6bd47e667927ecff4e",
+        "environment.json": "d2d9fcc60ef0eb3b28a48cc2c918289acb167fd58452a8df1d0ac0e6e5cef07e"
+      }
+    },
+    {
+      "index": 45,
+      "case": "research",
+      "cell": "pi-oss",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/045-research-pi-oss-s1-wnone",
+      "prompt_sha256": "752e466ff1b00dc2c4971fe593b4d788965dc581b7391b1f00014ebbf4b183cf",
+      "input_hashes": {
+        "sources/A.md": "2cfb3b6184b4092df11742c27ee5c83d69fe8ea0f9261d7636580aea744dc0de",
+        "sources/B.md": "05772f60dd8483ada1a89ad95273b8ea11aa045f8daef368c84a188831c0d871",
+        "sources/C.md": "334a30529d2794fcc1bbed29ffb765793d9b6acb89993943fc0669a94e77fb56",
+        "tools/web_search.py": "90680c8610a1b0f27ec583bb9d02bf8a8c330e2ea30e7fa990b1a44fe4957761",
+        "environment.json": "f3f596376271c016fe043ee1c81a10e32019396d44fe6f183c6ca9a974479dd3"
+      }
+    },
+    {
+      "index": 46,
+      "case": "research",
+      "cell": "pi-oss",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "original",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/046-research-pi-oss-s1-woriginal",
+      "prompt_sha256": "752e466ff1b00dc2c4971fe593b4d788965dc581b7391b1f00014ebbf4b183cf",
+      "input_hashes": {
+        "sources/A.md": "2cfb3b6184b4092df11742c27ee5c83d69fe8ea0f9261d7636580aea744dc0de",
+        "sources/B.md": "05772f60dd8483ada1a89ad95273b8ea11aa045f8daef368c84a188831c0d871",
+        "sources/C.md": "334a30529d2794fcc1bbed29ffb765793d9b6acb89993943fc0669a94e77fb56",
+        "tools/web_search.py": "90680c8610a1b0f27ec583bb9d02bf8a8c330e2ea30e7fa990b1a44fe4957761",
+        "workflows/research-to-deliverable/versions/1.0.0/WORKFLOW.md": "48bb05783a1c6530743f531f53961e732d3491a0639ebc471b91dee6eaf25c6e",
+        "workflows/research-to-deliverable/versions/1.0.0/release.json": "24a017eb5c191da68682b38f15675646f6ab4962d4689da70fe6ba0f67349cfa",
+        "environment.json": "63b6e4edd5a642ece1874cdfc4672896d596955583d5da2b4ae8de22727c5cdc"
+      }
+    },
+    {
+      "index": 47,
+      "case": "research",
+      "cell": "pi-oss",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/047-research-pi-oss-s0-wnone",
+      "prompt_sha256": "752e466ff1b00dc2c4971fe593b4d788965dc581b7391b1f00014ebbf4b183cf",
+      "input_hashes": {
+        "sources/A.md": "2cfb3b6184b4092df11742c27ee5c83d69fe8ea0f9261d7636580aea744dc0de",
+        "sources/B.md": "05772f60dd8483ada1a89ad95273b8ea11aa045f8daef368c84a188831c0d871",
+        "sources/C.md": "334a30529d2794fcc1bbed29ffb765793d9b6acb89993943fc0669a94e77fb56",
+        "tools/web_search.py": "90680c8610a1b0f27ec583bb9d02bf8a8c330e2ea30e7fa990b1a44fe4957761",
+        "environment.json": "f7734785eb825f818d60902d04886a2d3c2bfce279567051f6c9b3bfe8bdfaf2"
+      }
+    },
+    {
+      "index": 48,
+      "case": "research",
+      "cell": "pi-oss",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "candidate",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/048-research-pi-oss-s1-wcandidate",
+      "prompt_sha256": "752e466ff1b00dc2c4971fe593b4d788965dc581b7391b1f00014ebbf4b183cf",
+      "input_hashes": {
+        "sources/A.md": "2cfb3b6184b4092df11742c27ee5c83d69fe8ea0f9261d7636580aea744dc0de",
+        "sources/B.md": "05772f60dd8483ada1a89ad95273b8ea11aa045f8daef368c84a188831c0d871",
+        "sources/C.md": "334a30529d2794fcc1bbed29ffb765793d9b6acb89993943fc0669a94e77fb56",
+        "tools/web_search.py": "90680c8610a1b0f27ec583bb9d02bf8a8c330e2ea30e7fa990b1a44fe4957761",
+        "workflows/research-to-deliverable/versions/1.0.0/WORKFLOW.md": "0d5d89b62d32a03ce6ac2fc96a8907c5791865cae2f96ca52ffbd3950f9f1836",
+        "workflows/research-to-deliverable/versions/1.0.0/release.json": "d8d62eb73a606dbe973f4c0393832520b197ff984b6f5d2cc3c6aa34a04af8f3",
+        "environment.json": "114282282de216f29e6272df3a27fa56e47a9e895f96f4a3ceb39e986049b110"
+      }
+    },
+    {
+      "index": 49,
+      "case": "software",
+      "cell": "codex-luna",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "candidate",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/049-software-codex-luna-s1-wcandidate",
+      "prompt_sha256": "d8c4c146420f70b4b283a88a1b4c12715d8dd9900bd7c7196e501cda674ddad3",
+      "input_hashes": {
+        "feature-area/stats.py": "9e0888ecf699e63f5d80f02606824583fcd71d172912d4c1df3d03e215bc3d7c",
+        "review-area/stats.py": "11c89fcda337e1598b5d72c36ae5f766f2d1502b026f1897e4a6315ac75d5068",
+        "review-area/REQUIREMENTS.md": "aafdaedbf173fa97542b6d5f0b04cc3857a28d1e6c42840f9b41e6fc06fe231f",
+        "review-area/test_smoke.py": "394523942ff74be6e55b8f60313ff60a6db0b532f56227a719a386f19083fd11",
+        "workflows/quality-check/versions/1.0.0/WORKFLOW.md": "86ec6a0f3e49ab7ea54f841ade2108b300b835b845d9b88ee15532dfe0745897",
+        "workflows/quality-check/versions/1.0.0/release.json": "52660ba936d35c5e83cbdb974e21bad7be6068fc2861c9546e1a24c775ac1718",
+        "workflows/software-feature/versions/1.0.0/WORKFLOW.md": "2d29855fe89971b40b3fed5462e453d917bbbda40fc985b700ad564927841aab",
+        "workflows/software-feature/versions/1.0.0/release.json": "0f9502c150d530031c0a1269b1080efba13d3dcd0c9b6097b069f75e4618bf38",
+        "environment.json": "387d5668650d46124871e1e777149854810b3ba5004676d8fdf5cbdef8808e16"
+      }
+    },
+    {
+      "index": 50,
+      "case": "software",
+      "cell": "codex-luna",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/050-software-codex-luna-s1-wnone",
+      "prompt_sha256": "d8c4c146420f70b4b283a88a1b4c12715d8dd9900bd7c7196e501cda674ddad3",
+      "input_hashes": {
+        "feature-area/stats.py": "9e0888ecf699e63f5d80f02606824583fcd71d172912d4c1df3d03e215bc3d7c",
+        "review-area/stats.py": "11c89fcda337e1598b5d72c36ae5f766f2d1502b026f1897e4a6315ac75d5068",
+        "review-area/REQUIREMENTS.md": "aafdaedbf173fa97542b6d5f0b04cc3857a28d1e6c42840f9b41e6fc06fe231f",
+        "review-area/test_smoke.py": "394523942ff74be6e55b8f60313ff60a6db0b532f56227a719a386f19083fd11",
+        "environment.json": "2e921719f8b6caef1575e331d2708fcaaa4114d9251eac7594e653ea24420509"
+      }
+    },
+    {
+      "index": 51,
+      "case": "software",
+      "cell": "codex-luna",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/051-software-codex-luna-s0-wnone",
+      "prompt_sha256": "d8c4c146420f70b4b283a88a1b4c12715d8dd9900bd7c7196e501cda674ddad3",
+      "input_hashes": {
+        "feature-area/stats.py": "9e0888ecf699e63f5d80f02606824583fcd71d172912d4c1df3d03e215bc3d7c",
+        "review-area/stats.py": "11c89fcda337e1598b5d72c36ae5f766f2d1502b026f1897e4a6315ac75d5068",
+        "review-area/REQUIREMENTS.md": "aafdaedbf173fa97542b6d5f0b04cc3857a28d1e6c42840f9b41e6fc06fe231f",
+        "review-area/test_smoke.py": "394523942ff74be6e55b8f60313ff60a6db0b532f56227a719a386f19083fd11",
+        "environment.json": "b16ea58217a9578c77da1bf19aa96e27e5bcbe37a632318d4037b8af94c37381"
+      }
+    },
+    {
+      "index": 52,
+      "case": "software",
+      "cell": "codex-luna",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "original",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/052-software-codex-luna-s1-woriginal",
+      "prompt_sha256": "d8c4c146420f70b4b283a88a1b4c12715d8dd9900bd7c7196e501cda674ddad3",
+      "input_hashes": {
+        "feature-area/stats.py": "9e0888ecf699e63f5d80f02606824583fcd71d172912d4c1df3d03e215bc3d7c",
+        "review-area/stats.py": "11c89fcda337e1598b5d72c36ae5f766f2d1502b026f1897e4a6315ac75d5068",
+        "review-area/REQUIREMENTS.md": "aafdaedbf173fa97542b6d5f0b04cc3857a28d1e6c42840f9b41e6fc06fe231f",
+        "review-area/test_smoke.py": "394523942ff74be6e55b8f60313ff60a6db0b532f56227a719a386f19083fd11",
+        "workflows/quality-check/versions/1.0.0/WORKFLOW.md": "86ec6a0f3e49ab7ea54f841ade2108b300b835b845d9b88ee15532dfe0745897",
+        "workflows/quality-check/versions/1.0.0/release.json": "8a2c0baa3edcb111f52b9ced8e3862dea2f8be4081e7625d1239e223a5eaac5a",
+        "workflows/software-feature/versions/1.0.0/WORKFLOW.md": "793f288fbea25519bd5a67edf751aa580b0d8ab41a08dfabe58f0d44b9082faf",
+        "workflows/software-feature/versions/1.0.0/release.json": "c435ad253e38e983149f8e0dc25b91877fcaa9a2fff1504ada99c82ad8e7ed46",
+        "environment.json": "75b3b7902e7aead8c848aada64f5889237b0448e7bdb9ee0378d7cb8b164db84"
+      }
+    },
+    {
+      "index": 53,
+      "case": "software",
+      "cell": "pi-luna",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "original",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/053-software-pi-luna-s1-woriginal",
+      "prompt_sha256": "d8c4c146420f70b4b283a88a1b4c12715d8dd9900bd7c7196e501cda674ddad3",
+      "input_hashes": {
+        "feature-area/stats.py": "9e0888ecf699e63f5d80f02606824583fcd71d172912d4c1df3d03e215bc3d7c",
+        "review-area/stats.py": "11c89fcda337e1598b5d72c36ae5f766f2d1502b026f1897e4a6315ac75d5068",
+        "review-area/REQUIREMENTS.md": "aafdaedbf173fa97542b6d5f0b04cc3857a28d1e6c42840f9b41e6fc06fe231f",
+        "review-area/test_smoke.py": "394523942ff74be6e55b8f60313ff60a6db0b532f56227a719a386f19083fd11",
+        "workflows/quality-check/versions/1.0.0/WORKFLOW.md": "86ec6a0f3e49ab7ea54f841ade2108b300b835b845d9b88ee15532dfe0745897",
+        "workflows/quality-check/versions/1.0.0/release.json": "a4fc9e802d9720fc9fcc314d78a94237794f4302eeba6b0055302f419e60d792",
+        "workflows/software-feature/versions/1.0.0/WORKFLOW.md": "793f288fbea25519bd5a67edf751aa580b0d8ab41a08dfabe58f0d44b9082faf",
+        "workflows/software-feature/versions/1.0.0/release.json": "fa1c23b60613788a3ad7ba375e60e06b07223d4c9638bc5e61ce348e4530c252",
+        "environment.json": "cf7f6e5354e3cf650c570460e0d22c9f36c08727cb3636816b5dfcef6ffb675f"
+      }
+    },
+    {
+      "index": 54,
+      "case": "software",
+      "cell": "pi-luna",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "candidate",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/054-software-pi-luna-s1-wcandidate",
+      "prompt_sha256": "d8c4c146420f70b4b283a88a1b4c12715d8dd9900bd7c7196e501cda674ddad3",
+      "input_hashes": {
+        "feature-area/stats.py": "9e0888ecf699e63f5d80f02606824583fcd71d172912d4c1df3d03e215bc3d7c",
+        "review-area/stats.py": "11c89fcda337e1598b5d72c36ae5f766f2d1502b026f1897e4a6315ac75d5068",
+        "review-area/REQUIREMENTS.md": "aafdaedbf173fa97542b6d5f0b04cc3857a28d1e6c42840f9b41e6fc06fe231f",
+        "review-area/test_smoke.py": "394523942ff74be6e55b8f60313ff60a6db0b532f56227a719a386f19083fd11",
+        "workflows/quality-check/versions/1.0.0/WORKFLOW.md": "86ec6a0f3e49ab7ea54f841ade2108b300b835b845d9b88ee15532dfe0745897",
+        "workflows/quality-check/versions/1.0.0/release.json": "07a8da1d18e2736bbbd30b8020d2eae5ed14c8aece135bb07e012eb0cc0bd89d",
+        "workflows/software-feature/versions/1.0.0/WORKFLOW.md": "2d29855fe89971b40b3fed5462e453d917bbbda40fc985b700ad564927841aab",
+        "workflows/software-feature/versions/1.0.0/release.json": "c394857f8122ede68cff0ccbe73c9ea6db523a1848d183aacc2dfbe36d092c50",
+        "environment.json": "f8fe287e0fdf4194e062dfb2fee1bc2b6b2cf1146653d4e4ba060259d28659ab"
+      }
+    },
+    {
+      "index": 55,
+      "case": "software",
+      "cell": "pi-luna",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/055-software-pi-luna-s1-wnone",
+      "prompt_sha256": "d8c4c146420f70b4b283a88a1b4c12715d8dd9900bd7c7196e501cda674ddad3",
+      "input_hashes": {
+        "feature-area/stats.py": "9e0888ecf699e63f5d80f02606824583fcd71d172912d4c1df3d03e215bc3d7c",
+        "review-area/stats.py": "11c89fcda337e1598b5d72c36ae5f766f2d1502b026f1897e4a6315ac75d5068",
+        "review-area/REQUIREMENTS.md": "aafdaedbf173fa97542b6d5f0b04cc3857a28d1e6c42840f9b41e6fc06fe231f",
+        "review-area/test_smoke.py": "394523942ff74be6e55b8f60313ff60a6db0b532f56227a719a386f19083fd11",
+        "environment.json": "b3a8f9f9065968c34fe6555455b5de72409735b4d86991e109bab611b4528feb"
+      }
+    },
+    {
+      "index": 56,
+      "case": "software",
+      "cell": "pi-luna",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/056-software-pi-luna-s0-wnone",
+      "prompt_sha256": "d8c4c146420f70b4b283a88a1b4c12715d8dd9900bd7c7196e501cda674ddad3",
+      "input_hashes": {
+        "feature-area/stats.py": "9e0888ecf699e63f5d80f02606824583fcd71d172912d4c1df3d03e215bc3d7c",
+        "review-area/stats.py": "11c89fcda337e1598b5d72c36ae5f766f2d1502b026f1897e4a6315ac75d5068",
+        "review-area/REQUIREMENTS.md": "aafdaedbf173fa97542b6d5f0b04cc3857a28d1e6c42840f9b41e6fc06fe231f",
+        "review-area/test_smoke.py": "394523942ff74be6e55b8f60313ff60a6db0b532f56227a719a386f19083fd11",
+        "environment.json": "685d61cc342a97faf4bc2c47c0c1c1036f066a4fbc7696c145e00901d6ab6589"
+      }
+    },
+    {
+      "index": 57,
+      "case": "software",
+      "cell": "codex-oss",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "candidate",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/057-software-codex-oss-s1-wcandidate",
+      "prompt_sha256": "d8c4c146420f70b4b283a88a1b4c12715d8dd9900bd7c7196e501cda674ddad3",
+      "input_hashes": {
+        "feature-area/stats.py": "9e0888ecf699e63f5d80f02606824583fcd71d172912d4c1df3d03e215bc3d7c",
+        "review-area/stats.py": "11c89fcda337e1598b5d72c36ae5f766f2d1502b026f1897e4a6315ac75d5068",
+        "review-area/REQUIREMENTS.md": "aafdaedbf173fa97542b6d5f0b04cc3857a28d1e6c42840f9b41e6fc06fe231f",
+        "review-area/test_smoke.py": "394523942ff74be6e55b8f60313ff60a6db0b532f56227a719a386f19083fd11",
+        "workflows/quality-check/versions/1.0.0/WORKFLOW.md": "86ec6a0f3e49ab7ea54f841ade2108b300b835b845d9b88ee15532dfe0745897",
+        "workflows/quality-check/versions/1.0.0/release.json": "b57cdba9fa9edd61509c9f31a1fdfe6c08627454d994c936bca75996746d2281",
+        "workflows/software-feature/versions/1.0.0/WORKFLOW.md": "2d29855fe89971b40b3fed5462e453d917bbbda40fc985b700ad564927841aab",
+        "workflows/software-feature/versions/1.0.0/release.json": "1ce033c3068082e7758d6fb70bcb6404e72d121bb1fe3928bf681fa43a922bec",
+        "environment.json": "9a71f8d6bd1eb3d0dcbc49d2ee4b34c8809c8d4985c5e7817aca2388b64b8ec3"
+      }
+    },
+    {
+      "index": 58,
+      "case": "software",
+      "cell": "codex-oss",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/058-software-codex-oss-s1-wnone",
+      "prompt_sha256": "d8c4c146420f70b4b283a88a1b4c12715d8dd9900bd7c7196e501cda674ddad3",
+      "input_hashes": {
+        "feature-area/stats.py": "9e0888ecf699e63f5d80f02606824583fcd71d172912d4c1df3d03e215bc3d7c",
+        "review-area/stats.py": "11c89fcda337e1598b5d72c36ae5f766f2d1502b026f1897e4a6315ac75d5068",
+        "review-area/REQUIREMENTS.md": "aafdaedbf173fa97542b6d5f0b04cc3857a28d1e6c42840f9b41e6fc06fe231f",
+        "review-area/test_smoke.py": "394523942ff74be6e55b8f60313ff60a6db0b532f56227a719a386f19083fd11",
+        "environment.json": "ccc579dff1c730437d736a26ffb082a6a26399c0987c49ce67829d0b3b7f7f43"
+      }
+    },
+    {
+      "index": 59,
+      "case": "software",
+      "cell": "codex-oss",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/059-software-codex-oss-s0-wnone",
+      "prompt_sha256": "d8c4c146420f70b4b283a88a1b4c12715d8dd9900bd7c7196e501cda674ddad3",
+      "input_hashes": {
+        "feature-area/stats.py": "9e0888ecf699e63f5d80f02606824583fcd71d172912d4c1df3d03e215bc3d7c",
+        "review-area/stats.py": "11c89fcda337e1598b5d72c36ae5f766f2d1502b026f1897e4a6315ac75d5068",
+        "review-area/REQUIREMENTS.md": "aafdaedbf173fa97542b6d5f0b04cc3857a28d1e6c42840f9b41e6fc06fe231f",
+        "review-area/test_smoke.py": "394523942ff74be6e55b8f60313ff60a6db0b532f56227a719a386f19083fd11",
+        "environment.json": "5146d400b17949a57d274ed80d0b139a5518d7fcf619cc16994f8639c312893c"
+      }
+    },
+    {
+      "index": 60,
+      "case": "software",
+      "cell": "codex-oss",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "original",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/060-software-codex-oss-s1-woriginal",
+      "prompt_sha256": "d8c4c146420f70b4b283a88a1b4c12715d8dd9900bd7c7196e501cda674ddad3",
+      "input_hashes": {
+        "feature-area/stats.py": "9e0888ecf699e63f5d80f02606824583fcd71d172912d4c1df3d03e215bc3d7c",
+        "review-area/stats.py": "11c89fcda337e1598b5d72c36ae5f766f2d1502b026f1897e4a6315ac75d5068",
+        "review-area/REQUIREMENTS.md": "aafdaedbf173fa97542b6d5f0b04cc3857a28d1e6c42840f9b41e6fc06fe231f",
+        "review-area/test_smoke.py": "394523942ff74be6e55b8f60313ff60a6db0b532f56227a719a386f19083fd11",
+        "workflows/quality-check/versions/1.0.0/WORKFLOW.md": "86ec6a0f3e49ab7ea54f841ade2108b300b835b845d9b88ee15532dfe0745897",
+        "workflows/quality-check/versions/1.0.0/release.json": "ef3240aaa4ddc49737e493c2fc02252ea32bf3161689221e04e7fff15adcbc86",
+        "workflows/software-feature/versions/1.0.0/WORKFLOW.md": "793f288fbea25519bd5a67edf751aa580b0d8ab41a08dfabe58f0d44b9082faf",
+        "workflows/software-feature/versions/1.0.0/release.json": "6bbd4288d20f0412fc7ff32a65e7814cb124a968a39db83b902d98dd99e81a27",
+        "environment.json": "82ea98117f25e25282ed74a9e46a1a46f8225d161b526600d873aef3c6f23f28"
+      }
+    },
+    {
+      "index": 61,
+      "case": "software",
+      "cell": "pi-oss",
+      "skills": true,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/061-software-pi-oss-s1-wnone",
+      "prompt_sha256": "d8c4c146420f70b4b283a88a1b4c12715d8dd9900bd7c7196e501cda674ddad3",
+      "input_hashes": {
+        "feature-area/stats.py": "9e0888ecf699e63f5d80f02606824583fcd71d172912d4c1df3d03e215bc3d7c",
+        "review-area/stats.py": "11c89fcda337e1598b5d72c36ae5f766f2d1502b026f1897e4a6315ac75d5068",
+        "review-area/REQUIREMENTS.md": "aafdaedbf173fa97542b6d5f0b04cc3857a28d1e6c42840f9b41e6fc06fe231f",
+        "review-area/test_smoke.py": "394523942ff74be6e55b8f60313ff60a6db0b532f56227a719a386f19083fd11",
+        "environment.json": "97c8198c14e49f8a06364279b7b492468b94644e3e07720e6b94a86b9466d178"
+      }
+    },
+    {
+      "index": 62,
+      "case": "software",
+      "cell": "pi-oss",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "original",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/062-software-pi-oss-s1-woriginal",
+      "prompt_sha256": "d8c4c146420f70b4b283a88a1b4c12715d8dd9900bd7c7196e501cda674ddad3",
+      "input_hashes": {
+        "feature-area/stats.py": "9e0888ecf699e63f5d80f02606824583fcd71d172912d4c1df3d03e215bc3d7c",
+        "review-area/stats.py": "11c89fcda337e1598b5d72c36ae5f766f2d1502b026f1897e4a6315ac75d5068",
+        "review-area/REQUIREMENTS.md": "aafdaedbf173fa97542b6d5f0b04cc3857a28d1e6c42840f9b41e6fc06fe231f",
+        "review-area/test_smoke.py": "394523942ff74be6e55b8f60313ff60a6db0b532f56227a719a386f19083fd11",
+        "workflows/quality-check/versions/1.0.0/WORKFLOW.md": "86ec6a0f3e49ab7ea54f841ade2108b300b835b845d9b88ee15532dfe0745897",
+        "workflows/quality-check/versions/1.0.0/release.json": "7f419f75925f337d203d738f7afa8a415c2dcc81bffd4a711029c09943bcde3f",
+        "workflows/software-feature/versions/1.0.0/WORKFLOW.md": "793f288fbea25519bd5a67edf751aa580b0d8ab41a08dfabe58f0d44b9082faf",
+        "workflows/software-feature/versions/1.0.0/release.json": "26d875cd1ca1a88d9dc5a55390b027d5fcaad555df7f3dcf92e52765088569b2",
+        "environment.json": "e3b084a29727f22bdd44949fbdfac768044069c71fce3406fbc2dd9a2926c5d6"
+      }
+    },
+    {
+      "index": 63,
+      "case": "software",
+      "cell": "pi-oss",
+      "skills": true,
+      "catalog": true,
+      "catalog_version": "candidate",
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/063-software-pi-oss-s1-wcandidate",
+      "prompt_sha256": "d8c4c146420f70b4b283a88a1b4c12715d8dd9900bd7c7196e501cda674ddad3",
+      "input_hashes": {
+        "feature-area/stats.py": "9e0888ecf699e63f5d80f02606824583fcd71d172912d4c1df3d03e215bc3d7c",
+        "review-area/stats.py": "11c89fcda337e1598b5d72c36ae5f766f2d1502b026f1897e4a6315ac75d5068",
+        "review-area/REQUIREMENTS.md": "aafdaedbf173fa97542b6d5f0b04cc3857a28d1e6c42840f9b41e6fc06fe231f",
+        "review-area/test_smoke.py": "394523942ff74be6e55b8f60313ff60a6db0b532f56227a719a386f19083fd11",
+        "workflows/quality-check/versions/1.0.0/WORKFLOW.md": "86ec6a0f3e49ab7ea54f841ade2108b300b835b845d9b88ee15532dfe0745897",
+        "workflows/quality-check/versions/1.0.0/release.json": "a19b483a3527e1f526980e4df87a24b6ff0bf3102e82a370afe33264d9e65629",
+        "workflows/software-feature/versions/1.0.0/WORKFLOW.md": "2d29855fe89971b40b3fed5462e453d917bbbda40fc985b700ad564927841aab",
+        "workflows/software-feature/versions/1.0.0/release.json": "ec6bf74af384c42c7a678fe1df14694c2bd66302e032b86cfb688f8afe72f7be",
+        "environment.json": "15d29cafa97c9f19694a95a44be9cf1ca8623eef462db2a4058e1b8e12bb4906"
+      }
+    },
+    {
+      "index": 64,
+      "case": "software",
+      "cell": "pi-oss",
+      "skills": false,
+      "catalog": false,
+      "catalog_version": null,
+      "run_dir": "/private/tmp/sparkle-screening-20261008/runs/064-software-pi-oss-s0-wnone",
+      "prompt_sha256": "d8c4c146420f70b4b283a88a1b4c12715d8dd9900bd7c7196e501cda674ddad3",
+      "input_hashes": {
+        "feature-area/stats.py": "9e0888ecf699e63f5d80f02606824583fcd71d172912d4c1df3d03e215bc3d7c",
+        "review-area/stats.py": "11c89fcda337e1598b5d72c36ae5f766f2d1502b026f1897e4a6315ac75d5068",
+        "review-area/REQUIREMENTS.md": "aafdaedbf173fa97542b6d5f0b04cc3857a28d1e6c42840f9b41e6fc06fe231f",
+        "review-area/test_smoke.py": "394523942ff74be6e55b8f60313ff60a6db0b532f56227a719a386f19083fd11",
+        "environment.json": "05163562fa840c005fd29266ff9cf9921ae857482eee198efffc5409f4254ed4"
+      }
+    }
+  ],
+  "objective_checks": {
+    "author": [
+      "procedure_present",
+      "spec_json",
+      "required_inputs",
+      "audience",
+      "review_bound",
+      "distribution_forbidden",
+      "missing_policy_uninvented",
+      "missing_policy_identified",
+      "draft_not_published",
+      "inputs_preserved"
+    ],
+    "end_to_end": [
+      "procedure_present",
+      "report_json",
+      "month",
+      "paid_count",
+      "gross",
+      "refunds",
+      "net",
+      "included_ids",
+      "verification_present",
+      "inputs_preserved"
+    ],
+    "minimal": [
+      "note_present",
+      "facts_json",
+      "launch_date",
+      "beta_users",
+      "survey_rate",
+      "open_issues",
+      "security_status",
+      "ga_not_approved",
+      "word_limit",
+      "review_present"
+    ],
+    "research": [
+      "memo_present",
+      "source_ledger",
+      "recommendation_json",
+      "qualified_vendor",
+      "unknown_soc2",
+      "approval_withheld",
+      "source_count",
+      "audit_present",
+      "three_source_links",
+      "no_delivery"
+    ],
+    "software": [
+      "review_bug",
+      "counterexample",
+      "test_evidence_present",
+      "handoff_present",
+      "feature_status_json",
+      "feature_empty",
+      "feature_none",
+      "feature_decimal",
+      "feature_nonfinite",
+      "review_immutable"
+    ]
+  },
+  "scorer_sha256": "31c2c066ad47250c010d7a0a73b5c20367f547b443aeef9a6285323d8571f2a5",
+  "baseline_commit": "94629656c6fba11086048eb6fd34438dc7f0a82a",
+  "candidate_commit": "2d6064908675e076ed0b2935dd121c7974636e05",
+  "steering": [
+    "User selected one-repeat initial screening.",
+    "User required no external skills.",
+    "User required missing local-workflow instructions be embedded in the workflow."
+  ],
+  "scorer_note": "Objective checks do not grade whether native run bookkeeping is complete. Correct software blocking is measured separately from feature-functionality checks, so safe blocking is not labeled a hard failure but does not count as a delivered feature.",
+  "candidate_workflow_hashes": {
+    "examples/minimal-linear/WORKFLOW.md": "0d89203bb9722b4b97a9576d75226090179bbfb8c1ea8c26586dcd363773da26",
+    "examples/research-to-deliverable/WORKFLOW.md": "0d5d89b62d32a03ce6ac2fc96a8907c5791865cae2f96ca52ffbd3950f9f1836",
+    "examples/software-feature/WORKFLOW.md": "2d29855fe89971b40b3fed5462e453d917bbbda40fc985b700ad564927841aab",
+    "examples/software-feature/quality-check.md": "86ec6a0f3e49ab7ea54f841ade2108b300b835b845d9b88ee15532dfe0745897"
+  },
+  "disabled_codex_global_skill_paths": [
+    "/Users/agent/.codex-personal/skills/.system/imagegen",
+    "/Users/agent/.codex-personal/skills/.system/openai-docs",
+    "/Users/agent/.codex-personal/skills/.system/review-agent",
+    "/Users/agent/.codex-personal/skills/.system/skill-creator",
+    "/Users/agent/.codex-personal/skills/.system/skill-installer",
+    "/Users/agent/.codex/skills/.system/imagegen",
+    "/Users/agent/.codex/skills/.system/openai-docs",
+    "/Users/agent/.codex/skills/.system/review-agent",
+    "/Users/agent/.codex/skills/.system/skill-creator",
+    "/Users/agent/.codex/skills/.system/skill-installer"
+  ],
+  "preparation_complete": true,
+  "isolation_limitation": "Codex native built-in skill descriptions remain visible despite per-skill disable overrides and standalone mode. They are a constant passive catalog across conditions. External skill use is explicitly forbidden and inspected; any actual use invalidates the run. Pi default discovery is disabled and only repo skills are explicitly enabled. Neither model self-report nor a missing catalog name proves filesystem isolation.",
+  "external_skill_policy": "No external skill read/use allowed. Any observed external skill invocation invalidates a run; no retry or selective substitution."
+}
