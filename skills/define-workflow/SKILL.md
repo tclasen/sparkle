@@ -9,6 +9,11 @@ compatibility: Requires a filesystem and uv with Python 3.11 or later. PyYAML is
 ## Activation boundaries
 Use for conversational authoring, review, revision, fork, or explicit publication. Work in the user's repository, outside this installed skill. Publication requires an explicit request; creating a draft does not imply publication. Honor existing session authorization.
 
+## Discovery and proportional use
+Use this skill when the request calls for a reusable workflow or a published run, rather than adding workflow machinery to an ordinary one-off task. Inspect repository-local `workflows/` releases and drafts when a workflow is requested; an absent optional workflow does not block direct work authorized by the user. If a required named release is absent, report its identity and the concrete gap. Do not claim a definition is missing without checking the supplied location. Use only available resources; procedures declared inside a workflow do not imply an external skill dependency.
+
+Load the entry instructions and required reference sections, then use the public helper's `inspect`, `ready`, and `context` output for the operation at hand. Do not read the entire helper implementation to discover commands. Load onboarding only for missing authoring/new-run context, and recovery guidance only when recovering. This keeps context focused without skipping applicable acceptance, consent, or evidence requirements.
+
 ## Operation selection
 Resolve the workflow and requested operation. Review reports findings without edits. Revision copies a published definition into its draft; fork uses a new ID and records provenance in prose. Publication-only requests do not reopen settled interviews.
 
