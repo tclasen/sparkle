@@ -31,3 +31,5 @@ Ask your agent to:
 The agent asks for missing context, prepares the files, and records progress. Workflow publication is explicit; each run keeps its original inputs and instructions.
 
 See [the usage guide](docs/GUIDE.md) for examples and recovery details, or [Contributing](CONTRIBUTING.md) to work on sparkle itself.
+
+Proposed skill changes use [paired usefulness evaluations](docs/EVALUATIONS.md) across two models and two coding harnesses.

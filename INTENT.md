@@ -83,6 +83,8 @@ The helper cannot prove actual consent, prose truth, result quality, or external
 
 ## How to assess changes
 
+Judge proposed skill/product changes through paired usefulness evaluations across local Ollama `gpt-oss:120b` and subscription Luna 6.0 (`gpt-6-luna`), each with Codex CLI and the Pi coding harness. Include the initial comparison from no skills to the current product. Measure deliverable utility, correctness, consent compliance, user effort, and resource tradeoffs; structural validity alone does not establish improvement. The [evaluation policy](docs/EVALUATIONS.md) records this requirement. Configuration smoke tests establish readiness only; the initial usefulness comparison remains pending.
+
 A change should make it easier to author, reuse, inspect, or recover a workflow while preserving the distinction between agent judgment and structural enforcement. Check whether it keeps installed skills independent, preserves evidence and frozen context, and leaves users with an understandable next action when work cannot proceed.
 
 When changing a requirement or boundary, update this document in the same contribution. Explain the problem, new intended behavior, tradeoff, and how the behavior will be verified. Mark future proposals explicitly rather than presenting them as existing capabilities. Git history and the contribution description should retain the reason for the decision.

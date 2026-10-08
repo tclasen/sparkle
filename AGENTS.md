@@ -42,6 +42,7 @@ These instructions apply to AI agents contributing to this project. They describ
 
 ## Verify and report
 
+- For proposed skill/product changes, follow [the usefulness evaluation policy](docs/EVALUATIONS.md) and its required two-model, two-harness matrix. Compare the accepted baseline with the candidate; use a no-skill baseline for the initial implementation. Connectivity, structural validation, and an agent's endorsement do not establish net benefit. Report missing cells and inconclusive results; do not claim benefit without outcome evidence.
 - Follow `CONTRIBUTING.md` for check selection. Run `python3 scripts/bundle.py --check` and follow [the release policy](docs/RELEASING.md): before 1.0, backwards compatibility and regression testing are not required; at and after 1.0, implementation changes require `uv run tests/test_workflows.py` and a compatibility assessment. Validate current structure, installation and release tooling at every version.
 - Run `uv run tests/verify_install.py` when changing packaging, dependencies, skill resources, or the execution interface. Report environmental blockers accurately.
 - Add meaningful behavioral coverage for changed contracts; avoid tests that merely duplicate implementation or test prose edits.
