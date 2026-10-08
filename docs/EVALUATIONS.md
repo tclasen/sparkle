@@ -11,7 +11,7 @@ Use every combination below for each proposed skill or product change. Keep the 
 | Local Ollama `gpt-oss:120b` | Required | Required |
 | OpenAI subscription `gpt-6-luna` (Luna 6.0) | Required | Required |
 
-`gptoss:120b` in conversational requests means the installed Ollama model tag `gpt-oss:120b`. Luna uses subscription OAuth, not a paid OpenAI Platform API key. Do not silently substitute another model, authentication route, or harness when a cell fails.
+`gptoss:120b` in conversational requests means the installed Ollama model tag `gpt-oss:120b`. Luna uses subscription OAuth, not a paid OpenAI Platform API key. Do not silently substitute another model, authentication route, or harness when a cell fails. See [configuration and preflight evidence](EVAL_CONFIGURATION.md).
 
 This is a contributor evaluation policy, including before 1.0. It complements the structural, installation, and version-dependent regression checks in [Contributing](../CONTRIBUTING.md) and [the release policy](RELEASING.md); it does not change the installed skills' runtime contract. This initial documentation/configuration contribution establishes the procedure and validates connectivity and tools. The first usefulness comparison is still to be run; no benefit for the existing skills is claimed here.
 

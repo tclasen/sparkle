@@ -1,0 +1,11 @@
+model = "gpt-oss:120b"
+model_provider = "ollama-local"
+model_context_window = 131072
+model_reasoning_effort = "medium"
+
+[model_providers.ollama-local]
+name = "Local Ollama"
+base_url = "http://127.0.0.1:11434/v1"
+wire_api = "responses"
+requires_openai_auth = false
+supports_websockets = false

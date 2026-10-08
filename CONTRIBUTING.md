@@ -44,7 +44,7 @@ Use temporary repositories for experiments and test runs. Keep generated project
 
 ## Verify
 
-For each proposed skill/product change, also follow [the usefulness evaluation policy](docs/EVALUATIONS.md). Run paired baseline/candidate cases in all four combinations of local Ollama `gpt-oss:120b` and subscription `gpt-6-luna`, with Codex CLI and the Pi coding harness. This evaluation requirement applies before 1.0 and is distinct from the version-dependent regression policy below. The initial no-skill comparison and later candidate comparisons must measure useful artifacts and user effort; a successful smoke test does not demonstrate net benefit.
+For each proposed skill/product change, also follow [the usefulness evaluation policy](docs/EVALUATIONS.md). Run paired baseline/candidate cases in all four combinations of local Ollama `gpt-oss:120b` and subscription `gpt-6-luna`, with Codex CLI and the Pi coding harness. Use the [configuration guide](docs/EVAL_CONFIGURATION.md) for setup and preflight. This evaluation requirement applies before 1.0 and is distinct from the version-dependent regression policy below. The initial no-skill comparison and later candidate comparisons must measure useful artifacts and user effort; a successful smoke test does not demonstrate net benefit.
 
 Follow [the project release policy](docs/RELEASING.md). Before 1.0, backwards compatibility and regression testing are not required; the behavioral suite below is available for focused verification. Starting with 1.0.0 it becomes a required regression check, along with a compatibility assessment. Current structural checks and installation checks for packaging changes remain required at every version.
 
