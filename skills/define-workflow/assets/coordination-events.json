@@ -1,0 +1,127 @@
+[
+  {
+    "id": "replace-with-unique-event-id",
+    "claim_id": "replace-with-unique-claim-id",
+    "observed_at": "2026-10-08T12:00:00Z",
+    "explanation": "Replace with actual observation and assessment.",
+    "evidence": [
+      "artifacts/ticket-observation.txt"
+    ],
+    "kind": "claim_intent",
+    "message_id": "claim-message-unique"
+  },
+  {
+    "id": "replace-with-unique-event-id",
+    "claim_id": "replace-with-unique-claim-id",
+    "observed_at": "2026-10-08T12:00:00Z",
+    "explanation": "Replace with actual observation and assessment.",
+    "evidence": [
+      "artifacts/ticket-observation.txt"
+    ],
+    "kind": "claim_observation",
+    "accessible": true,
+    "claim_seen": true,
+    "active_claims": [
+      "replace-with-unique-claim-id"
+    ]
+  },
+  {
+    "id": "replace-with-unique-event-id",
+    "claim_id": "replace-with-unique-claim-id",
+    "observed_at": "2026-10-08T12:00:00Z",
+    "explanation": "Replace with actual observation and assessment.",
+    "evidence": [
+      "artifacts/ticket-observation.txt"
+    ],
+    "kind": "dependency_assessment",
+    "ticket": "https://tickets.example.test/work/122",
+    "accepted": false
+  },
+  {
+    "id": "replace-with-unique-event-id",
+    "claim_id": "replace-with-unique-claim-id",
+    "observed_at": "2026-10-08T12:00:00Z",
+    "explanation": "Replace with actual observation and assessment.",
+    "evidence": [
+      "artifacts/ticket-observation.txt"
+    ],
+    "kind": "conflict",
+    "active_claims": [
+      "peer-claim"
+    ]
+  },
+  {
+    "id": "replace-with-unique-event-id",
+    "claim_id": "replace-with-unique-claim-id",
+    "observed_at": "2026-10-08T12:00:00Z",
+    "explanation": "Replace with actual observation and assessment.",
+    "evidence": [
+      "artifacts/ticket-observation.txt"
+    ],
+    "kind": "resolution",
+    "resolves": [
+      "prior-conflict-event-id"
+    ],
+    "mode": "withdrawals",
+    "withdrawn_claims": [
+      "peer-claim"
+    ]
+  },
+  {
+    "id": "replace-with-unique-event-id",
+    "claim_id": "replace-with-unique-claim-id",
+    "observed_at": "2026-10-08T12:00:00Z",
+    "explanation": "Replace with actual observation and assessment.",
+    "evidence": [
+      "artifacts/ticket-observation.txt"
+    ],
+    "kind": "progress"
+  },
+  {
+    "id": "replace-with-unique-event-id",
+    "claim_id": "replace-with-unique-claim-id",
+    "observed_at": "2026-10-08T12:00:00Z",
+    "explanation": "Replace with actual observation and assessment.",
+    "evidence": [
+      "artifacts/ticket-observation.txt"
+    ],
+    "kind": "release",
+    "message_id": "release-message",
+    "status": "uncertain"
+  },
+  {
+    "id": "replace-with-unique-event-id",
+    "claim_id": "replace-with-unique-claim-id",
+    "observed_at": "2026-10-08T12:00:00Z",
+    "explanation": "Replace with actual observation and assessment.",
+    "evidence": [
+      "artifacts/ticket-observation.txt"
+    ],
+    "kind": "handoff",
+    "message_id": "handoff-message",
+    "status": "planned",
+    "successor": "successor-ticket"
+  },
+  {
+    "id": "replace-with-unique-event-id",
+    "claim_id": "replace-with-unique-claim-id",
+    "observed_at": "2026-10-08T12:00:00Z",
+    "explanation": "Replace with actual observation and assessment.",
+    "evidence": [
+      "artifacts/ticket-observation.txt"
+    ],
+    "kind": "result_publication",
+    "message_id": "result-message",
+    "status": "planned",
+    "final": {
+      "passed": true,
+      "assessment": "Replace with actual assessment.",
+      "evidence": [
+        "artifacts/result.txt"
+      ]
+    },
+    "evidence_refs": [
+      "https://artifacts.example.test/result"
+    ]
+  }
+]
