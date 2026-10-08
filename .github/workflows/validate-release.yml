@@ -1,0 +1,81 @@
+# Human-readable flowcharts and local equivalents: docs/WORKFLOWS.md
+name: Validate and release
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-release-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validation:
+    name: validation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        with:
+          go-version: '1.26'
+          cache: false
+      - uses: astral-sh/setup-uv@d0d8abe699bfb85fec6de9f7adb5ae17292296ff # v6
+        with:
+          version: '0.12.23'
+          enable-cache: false
+      - name: Validate with the local entry point
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          DISABLE_TELEMETRY: '1'
+        run: |
+          if [ -n "$BASE_SHA" ]; then
+            python3 scripts/check.py --base "$BASE_SHA"
+          else
+            python3 scripts/check.py
+          fi
+
+  publication:
+    name: publication
+    needs: validation
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - uses: astral-sh/setup-uv@d0d8abe699bfb85fec6de9f7adb5ae17292296ff # v6
+        with:
+          version: '0.12.23'
+          enable-cache: false
+      - name: Publish with the local entry point
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DISABLE_TELEMETRY: '1'
+        run: |
+          gh auth setup-git
+          python3 scripts/publish.py --execute --output "$RUNNER_TEMP/sparkle-release"

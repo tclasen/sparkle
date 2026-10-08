@@ -4,6 +4,7 @@
 # dependencies = []
 # ///
 """Actual repository-local skills CLI installation plus standalone-resource smoke tests."""
+import argparse
 import hashlib
 import os
 from pathlib import Path
@@ -32,6 +33,11 @@ def files(folder):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--source', default=str(ROOT), help='skills CLI source: local checkout or version-pinned GitHub tree URL')
+    parser.add_argument('--expected-root', type=Path, default=ROOT, help='checkout whose skill contents must match the installed source')
+    parser.add_argument('--smoke-only', action='store_true', help='validate current installation without the behavioral regression walkthrough')
+    args = parser.parse_args()
     with tempfile.TemporaryDirectory(prefix='workflow-install-') as temp:
         base = Path(temp)
         target = base / 'project'; target.mkdir()
@@ -40,13 +46,13 @@ def main():
         env.setdefault('npm_config_cache', str(base / 'npm-cache'))
         env.setdefault('UV_CACHE_DIR', str(base / 'uv-cache'))
         run(CLI + ['--version'], target, env)
-        run(CLI + ['add', ROOT, '--skill', 'define-workflow', 'execute-workflow', '-a', 'codex', '-y', '--copy', '--json'], target, env)
+        run(CLI + ['add', args.source, '--skill', 'define-workflow', 'execute-workflow', '-a', 'codex', '-y', '--copy', '--json'], target, env)
         for name in ('define-workflow', 'execute-workflow'):
             # CLI versions may use the common .agents location or a Codex-local copy.
             candidates = [target / '.agents/skills' / name, target / '.codex/skills' / name]
             installed = next((p for p in candidates if (p / 'SKILL.md').is_file()), None)
             assert installed is not None, f'{name} was not installed locally'
-            assert files(installed) == files(ROOT / 'skills' / name), f'lost/changed installed resources: {name}'
+            assert files(installed) == files(args.expected_root / 'skills' / name), f'lost/changed installed resources: {name}'
             isolated = base / ('isolated-' + name); isolated.mkdir()
             skill = isolated / name
             shutil.copytree(installed, skill)
@@ -57,6 +63,8 @@ def main():
             script = skill / 'scripts/workflow.py'
             # The executable shebang and inline metadata are exercised through uv, not Python imports.
             run(['uv', 'run', script, 'validate', skill / 'assets/WORKFLOW.md'], isolated, env)
+            if args.smoke_only:
+                continue
             run(['uv', 'run', script, 'publish', skill / 'assets/WORKFLOW.md', '--root', isolated, '--version', '1.0.0'], isolated, env)
             run(['uv', 'run', script, 'verify-release', 'example-workflow', '1.0.0', '--root', isolated], isolated, env)
             run(['uv', 'run', script, 'project', 'sample', '--root', isolated, '--brief', 'Isolated installation smoke test'], isolated, env)
