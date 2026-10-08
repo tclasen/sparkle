@@ -1,0 +1,5 @@
+{
+  "executor": "REPLACE with observed agent/model/session identity",
+  "capabilities": [],
+  "skills": {}
+}
