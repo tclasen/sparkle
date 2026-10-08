@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "provider": "team-tracker",
+  "ticket": "https://tickets.example.test/work/123",
+  "peer": "agent-session-a",
+  "claim_id": "replace-with-unique-claim-id",
+  "work_area": "/isolated/clone-a",
+  "resources": ["staging service"],
+  "dependencies": ["https://tickets.example.test/work/122"]
+}
