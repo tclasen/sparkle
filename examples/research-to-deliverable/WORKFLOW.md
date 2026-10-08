@@ -69,11 +69,11 @@ For this example, the authoring interview selected: choose format using the rule
 
 ## research — Collect evidence
 
-Task: Use the available web-search capability to find primary sources relevant to the question and read them directly. Save a source ledger with each source's URL, title, date, relevant claims or short excerpts, and usage limits. Identify at least three independent sources, distinguish facts from inferences, and mark missing or conflicting evidence explicitly. Compare source dates and applicability to the frozen question; do not treat repeated copies of one source as independent evidence. Save the ledger and an assessment of whether it supports the question before drafting. This research procedure is part of this workflow and requires no external research skill. Missing required search/read capabilities block the work; do not invent search results or silently substitute unavailable tools.
+Task: Use the available web-search capability to find primary sources relevant to the question and read them directly. Save a source ledger with each source's URL, title, date, relevant claims or short excerpts, and usage limits. Identify at least three independent sources across the research comparison, distinguish facts from inferences, and mark missing or conflicting evidence explicitly. Compare source dates and applicability to the frozen question; do not treat repeated copies of one source as independent evidence. Save the ledger and an assessment of whether it supports the question before drafting. This research procedure is part of this workflow and requires no external research skill. Missing required search/read capabilities block the work; do not invent search results or silently substitute unavailable tools.
 
 Inputs: Frozen run inputs and predecessor results.
 Outputs: Local artifacts and a structured result with evidence and handoff.
-Acceptance: at least three relevant independent sources, explicit uncertainty, and enough evidence to address the question.
+Acceptance: at least three relevant independent sources across the comparison, explicit uncertainty, and enough evidence to address the question.
 
 ## choose-format — Select the deliverable format
 
@@ -140,6 +140,9 @@ Task: Copy the approved deliverable into project outputs, retain a run-local cop
 Inputs: Frozen run inputs and predecessor results.
 Outputs: Local artifacts and a structured result with evidence and handoff.
 Acceptance: copied bytes match the approved artifact. Never overwrite unrelated project outputs.
+
+## Recovery and source verification
+On continuation, inspect the source ledger, dated claims, selected draft, and saved action receipts before repeating work. Trace each material conclusion to an applicable primary source; explicitly distinguish an absent fact from a negative fact. Newer sources supersede older claims only when their scope is comparable; disclose remaining contradictions. Preserve prior evidence and approval scope. If a previous copy or other action has an uncertain outcome, inspect the destination and reconcile its receipt before retrying. A changed question or constraint requires a new run.
 
 ## Completion criteria
 The selected deliverable answers the question, the refinement exit criteria passed within two rounds, the user approved that concrete result, and matching copies exist in run artifacts and project outputs.

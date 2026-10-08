@@ -90,5 +90,8 @@ Inputs: Frozen run inputs and predecessor results.
 Outputs: Local artifacts and a structured result with evidence and handoff.
 Acceptance: handoff corresponds to the approved change and contains test results.
 
+## Recovery and acceptance evidence
+On continuation, inspect the current diff, saved test evidence, and action receipts before repeating work. Preserve unrelated and already verified changes. Compare each acceptance criterion with an observed result; file presence or a passing smoke test alone is insufficient. Record unresolved defects as blockers and keep the concrete review approval pending. Changed feature requirements require a new run rather than silently editing frozen inputs.
+
 ## Completion criteria
 The requested behavior is implemented, the pinned quality-check workflow passed, the user approved the exact change, and project outputs contain a complete handoff and change reference.
