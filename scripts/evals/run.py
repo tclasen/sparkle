@@ -92,7 +92,7 @@ def prepare(args):
     disabled = sorted({str(p.parent) for base in [home,Path.home()/'.codex',Path.home()/'.agents'] if base.exists() for p in base.rglob('SKILL.md')})
     schedule=[]
     for case in ['reuse','defects','author','boundaries']:
-        arms=cases.CORE_ARMS+cases.DIAGNOSTIC_ARMS if case in ('reuse','defects') else ('accepted','both')
+        arms=cases.CORE_ARMS+cases.DIAGNOSTIC_ARMS if case in ('reuse','defects') else ('neither','accepted','both')
         for trial in range(1,args.repeats+1):
             items=[{'case':case,'trial':trial,'cell':cell,'arm':arm} for cell in cases.CELLS for arm in arms]
             random.Random(args.seed+trial+['reuse','defects','author','boundaries'].index(case)*100).shuffle(items)
@@ -102,7 +102,7 @@ def prepare(args):
           'cells':list(cases.CELLS),'disabled_global_skills':disabled,'codex':args.codex,'pi':args.pi,'pi_tool_entry':args.pi_tool_entry,
           'versions':{'codex':subprocess.check_output([args.codex,'--version'],text=True).strip(),'pi':subprocess.check_output([args.pi,'--version'],text=True).strip(),'ollama':subprocess.check_output(['ollama','--version'],text=True).strip()},
           'frozen_hashes':hashes(frozen),'mock_sources':{str(t):cases.sources(t) for t in range(1,args.repeats+1)},
-          'human_minutes':None,'qualitative_utility':None,'design':'96 candidate factorial episodes plus 144 accepted/checklist/instructed/individual-change diagnostic episodes plus 48 author/end-to-end and activation/catalog/boundary episodes at three repeats; serial and fresh session per stage; no scored retries',
+          'human_minutes':None,'qualitative_utility':None,'design':'96 candidate factorial episodes plus 144 accepted/checklist/instructed/individual-change diagnostic episodes plus 72 author/end-to-end and activation/catalog/boundary episodes at three repeats; serial and fresh session per stage; no scored retries',
           'hypotheses':{'discovery':'clear discovery/fallback improves uptake and reduces needless blocking','context':'focused public-command context reduces resource cost without lost outcomes','verification':'independent checks and recovery improve hidden defect discovery and prevent duplicate effects'},
           'decision_rule':'Positive paired success delta with no cell loss, no candidate hard violation, and median time ratio <=2; otherwise inconclusive or observed regression. Human usefulness and catalog promotion remain unproven without independent review.',
           'budget_note':'Equal per-stage budgets. Cache prewarmed identically, model warm state uncontrolled and recorded. No adaptive extension.'}
@@ -168,7 +168,7 @@ def command(root,plan,item,work,prompt,profile,policy,shell,sock):
         disabled='['+','.join('{path='+json.dumps(p)+',enabled=false}' for p in plan['disabled_global_skills'])+']'
         cmd=[plan['codex'],'--no-daemon','exec','--strict-config','--ignore-user-config','--ignore-rules','--skip-git-repo-check','--ephemeral','--json',
              '-c','approval_policy="never"','-c','model_reasoning_effort="medium"','-c','web_search="disabled"','-c','skills.config='+disabled,
-             '-c','default_permissions="eval"','-c','permissions.eval.filesystem='+inline,'-c','permissions.eval.network={enabled=false,allow_unix_sockets=['+json.dumps(str(sock))+']}',
+             '-c','default_permissions="eval"','-c','permissions.eval.filesystem='+inline,'-c','features.network_proxy=true','-c','permissions.eval.network={enabled=true,allow_unix_sockets=['+json.dumps(str(sock))+']}',
              '-c','shell_environment_policy.inherit="none"','-c','shell_environment_policy.set={PATH='+json.dumps(env['PATH'])+',UV_CACHE_DIR='+json.dumps(env['UV_CACHE_DIR'])+',UV_OFFLINE="1",PYTHONDONTWRITEBYTECODE="1",TMPDIR='+json.dumps(env['TMPDIR'])+'}', '-m',model]
         if local:cmd+=['-c','model_provider="ollama-local"','-c','model_context_window=131072','-c','model_providers.ollama-local={name="Local Ollama",base_url="http://127.0.0.1:11434/v1",wire_api="responses",requires_openai_auth=false,supports_websockets=false}']
         cmd+=[prompt]
@@ -255,8 +255,8 @@ def grade(root,work,run,item,service,sessions,protected_before):
         checks['settled_policy']=bool(__import__('re').search(r'(fail|block|stop).*timestamp|timestamp.*(fail|block|stop)',text.lower()))
         h=helper(work)
         if h and draft.exists():
-            p=subprocess.run(['uv','run',str(h),'validate',str(draft)],env=environment(root,work),capture_output=True,text=True);checks['valid_draft']=p.returncode==0
-        else:checks['valid_draft']=False
+            p=subprocess.run(['uv','run',str(h),'validate',str(draft)],env=environment(root,work),capture_output=True,text=True);protocol['draft_valid']=p.returncode==0
+        else:protocol['draft_valid']=None
     else:
         data=oracle.read_json(work/'artifacts/percentage.json') or {}
         checks['direct_calculation']=number_equal(data.get('response_percentage'),(63+item['trial'])/90*100,1e-6)
@@ -349,7 +349,7 @@ def execute(root,plan,item,preflight=False):
             if item['case']=='boundaries' and stage==1:
                 save(run/'stage-1-workflow-state.json',[str(p.relative_to(work)) for p in work.glob('projects/*/runs/*/state.json')])
             save(run/'progress.json',{'finished_stages':stage,'followups':followups})
-        objective=grade(root,work,run,item,service,sessions,protected_before) if not preflight else {'probe':(work/'artifacts/probe.txt').exists(),'continuation':(work/'artifacts/continued.txt').exists()}
+        objective=grade(root,work,run,item,service,sessions,protected_before) if not preflight else {'probe':(work/'artifacts/probe.txt').exists(),'continuation':(work/'artifacts/continued.txt').exists(),'mock_service':any(e['args'] and e['args'][0]=='search' and 'sources' in e['result'] for e in service.events),'protected_inputs_preserved':all((work/p).is_file() and oracle.digest(work/p)==h for p,h in protected_before.items()),'native_helper_attempted':any('workflow.py inspect' in json.dumps(s['calls']) for s in sessions)}
         result={**item,'sessions':sessions,'objective':objective,'followups':followups,'elapsed_seconds':sum(s['elapsed_seconds'] for s in sessions),'tool_calls':sum(s['tool_calls'] for s in sessions),
                 'human_minutes':None,'repair_minutes':None,'independent_utility':None,'scripted_interventions':len(followups),'question_count':len(oracle.read_json(work/'artifacts/questions.json') or []) if item['case']=='author' else None,'mock_events':service.events,'effects':service.effects,'final_workspace_hashes':hashes(work),
                 'failure_attribution':classify(sessions,objective),'plan_sha256':oracle.digest(root/'plan.json')}
