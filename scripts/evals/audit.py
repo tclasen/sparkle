@@ -32,9 +32,10 @@ def observe(result, workspace):
         effect = result.get('effects', {}).get('decision-1')
         if isinstance(recovery, dict) and effect:
             receipt = recovery.get('receipt')
+            row['recovery_status'] = recovery.get('status')
             row['receipt_id_matches'] = receipt == effect.get('receipt_id') or (isinstance(receipt, dict) and receipt.get('receipt_id') == effect.get('receipt_id'))
             if row['receipt_id_matches'] and not checks.get('recovery'):
-                row['scorer_review_flags'].append('Receipt identity matches but full-object recovery check failed; inspect action/status and receipt representation.')
+                row['scorer_review_flags'].append('Receipt identity matches but recovery failed; inspect action ID, literal confirmed status requirement, and full receipt representation.')
     elif result['case'] == 'author':
         row['needed_answer_actually_provided'] = any(f.get('type') == 'scripted_answer' and f.get('provided') for f in result.get('followups', []))
         if row['needed_answer_actually_provided'] and not checks.get('asked_needed_question'):
