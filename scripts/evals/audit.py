@@ -35,6 +35,13 @@ def observe(result, workspace):
                native_valid_record_count=result['objective']['protocol']['valid'],
                elapsed_seconds=result['elapsed_seconds'],
                scorer_review_flags=[])
+    states=[]
+    for path in workspace.rglob('state.json'):
+        if any(part in ('.git','.uv-cache','.agents') for part in path.relative_to(workspace).parts):continue
+        state=oracle.read_json(path)
+        if isinstance(state,dict) and state.get('schema')==1 and isinstance(state.get('workflow'),dict) and isinstance(state.get('steps'),dict) and isinstance(state.get('run_id'),str):states.append(state)
+    row['native_state_status_counts']=dict(collections.Counter(s.get('status') if isinstance(s.get('status'),str) else 'invalid_status' for s in states))
+    row['native_approval_records']=sum(isinstance(step,dict) and isinstance(step.get('approval'),dict) for state in states for step in state['steps'].values())
     if 'gpt-oss' in result['cell']:
         before = oracle.read_json(workspace.parent/'invocation-1.json')
         state = before.get('model_before') if isinstance(before, dict) else None
@@ -111,6 +118,9 @@ def audit(root, output):
                              median_success_seconds=statistics.median(r['elapsed_seconds'] for r in success) if success else None,
                              elapsed_seconds_per_success=seconds / len(success) if success else None,
                              flagged_episodes=sum(bool(r['scorer_review_flags']) for r in items)))
+        statuses=collections.Counter()
+        for row in items:statuses.update(row['native_state_status_counts'])
+        coverage[-1].update(native_state_status_counts=dict(statuses),native_approval_records=sum(r['native_approval_records'] for r in items))
         if 'gpt-oss' in cell:
             coverage[-1].update(episodes_starting_without_loaded_model=sum(r.get('local_model_not_loaded_at_episode_start') is True for r in items),
                                 episodes_with_start_model_metadata=sum(r.get('local_model_not_loaded_at_episode_start') is not None for r in items),

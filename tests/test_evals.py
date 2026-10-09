@@ -216,6 +216,11 @@ class EvidenceExport(unittest.TestCase):
             row=audit.observe(result,root)
             self.assertEqual(row['verified_counterexamples'],0)
             self.assertEqual(row['matching_counterexamples_anywhere'],1)
+            run.save(root/'custom-project/runs/one/state.json',{'schema':1,'run_id':'one','workflow':{'id':'test'},'status':'running','steps':{'accept':{'approval':{'result':'approved'}}}})
+            row=audit.observe(result,root)
+            self.assertEqual(row['native_state_status_counts'],{'running':1})
+            self.assertEqual(row['native_approval_records'],1)
+            self.assertFalse(row['primary_success'])
 
     def test_export_excludes_authentication_caches_and_symlinks(self):
         with tempfile.TemporaryDirectory() as d:
