@@ -14,6 +14,7 @@ import cases
 import audit
 import screen
 import adjudicate
+import review as review_packets
 import export as evidence_export
 import tarfile
 import threading
@@ -163,6 +164,22 @@ class EvaluationRuntime(unittest.TestCase):
 
 
 class EvidenceExport(unittest.TestCase):
+    def test_review_packets_include_authored_procedure_and_actual_request(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);frozen=root/'frozen/evaluator';frozen.mkdir(parents=True)
+            (frozen/'run.py').write_bytes(Path(run.__file__).read_bytes())
+            plan={'seed':1,'repeats':1,'frozen_hashes':run.hashes(root/'frozen')}
+            run.save(root/'plan.json',plan);(root/'plan.sha256').write_text(oracle.digest(root/'plan.json'))
+            run.save(root/'blind-review-key.json',{'item-001':{'index':1,'case':'author','cell':next(iter(cases.CELLS)),'trial':1,'arm':'both'}})
+            episode=root/'runs/001-author-test';work=episode/'workspace';draft=work/'workflows/support-report/draft/WORKFLOW.md';draft.parent.mkdir(parents=True)
+            draft.write_text('The actual authored procedure.')
+            (episode/'prompt-1.txt').write_text('The actual request and its authorization scope.')
+            run.save(episode/'result.json',{'followups':[],'effects':{}})
+            review_packets.prepare(root)
+            packet=root/'blind-review/item-001'
+            self.assertEqual((packet/'workflows/support-report/draft/WORKFLOW.md').read_text(),draft.read_text())
+            self.assertEqual(json.loads((packet/'task.json').read_text())['requests'],['The actual request and its authorization scope.'])
+
     def test_supplementary_audit_preserves_failures_and_missing_usage(self):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d)/'workspace';(root/'artifacts').mkdir(parents=True)
