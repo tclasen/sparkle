@@ -317,6 +317,12 @@ def execute(root,plan,item,preflight=False):
     sock=Path('/private/tmp')/('se-'+hashlib.sha256(str(run).encode()).hexdigest()[:16]+'.sock')
     if sock.exists():raise ValueError('Existing mock socket: inspect '+str(sock))
     (work/'tools').mkdir();(work/'tools/mock.py').write_text('SOCKET_PATH='+repr(str(sock))+'\n'+MOCK_CLIENT)
+    # A real starting commit lets software workflows inspect an actual diff instead of
+    # mistaking an empty Git fixture for a missing repository prerequisite.
+    tracked=[name for name in ('input','feature','review') if (work/name).exists()]
+    subprocess.run(['git','add',*tracked],cwd=work,check=True)
+    subprocess.run(['git','-c','commit.gpgsign=false','-c','user.name=Evaluation fixture','-c','user.email=fixture@example.invalid','commit','-qm','Synthetic starting fixture'],cwd=work,check=True)
+    initial_fixture_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=work,text=True).strip()
     protected_before={str(p.relative_to(work)):oracle.digest(p) for p in work.rglob('*') if p.is_file() and (any(str(p.relative_to(work)).split('/')[0]==s for s in ['input','review','tools','.agents','environment.json']) or 'versions' in p.relative_to(work).parts)}
     save(run/'protected-before.json',protected_before)
     service=MockService(sock,work,run,plan['mock_sources'][str(item['trial'])]);thread=threading.Thread(target=service.serve_forever,daemon=True);thread.start()
@@ -357,7 +363,7 @@ def execute(root,plan,item,preflight=False):
                 save(run/'stage-1-workflow-state.json',[str(p.relative_to(work)) for p in work.glob('projects/*/runs/*/state.json')])
             save(run/'progress.json',{'finished_stages':stage,'followups':followups})
         objective=grade(root,work,run,item,service,sessions,protected_before) if not preflight else {'probe':(work/'artifacts/probe.txt').exists(),'continuation':(work/'artifacts/continued.txt').exists(),'mock_service':any(e['args'] and e['args'][0]=='search' and 'sources' in e['result'] for e in service.events),'protected_inputs_preserved':all((work/p).is_file() and oracle.digest(work/p)==h for p,h in protected_before.items()),'native_helper_attempted':any('workflow.py inspect' in json.dumps(s['calls']) for s in sessions)}
-        result={**item,'sessions':sessions,'objective':objective,'followups':followups,'elapsed_seconds':sum(s['elapsed_seconds'] for s in sessions),'tool_calls':sum(s['tool_calls'] for s in sessions),
+        result={**item,'initial_fixture_commit':initial_fixture_commit,'sessions':sessions,'objective':objective,'followups':followups,'elapsed_seconds':sum(s['elapsed_seconds'] for s in sessions),'tool_calls':sum(s['tool_calls'] for s in sessions),
                 'human_minutes':None,'repair_minutes':None,'independent_utility':None,'scripted_interventions':len(followups),'question_count':len(oracle.read_json(work/'artifacts/questions.json') or []) if item['case']=='author' else None,'mock_events':service.events,'effects':service.effects,'final_workspace_hashes':hashes(work),
                 'failure_attribution':classify(sessions,objective),'plan_sha256':oracle.digest(root/'plan.json')}
         save(run/'result.json',result);return result
