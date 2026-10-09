@@ -81,6 +81,8 @@ def prepare(args):
             p=frozen/name/relative;p.parent.mkdir(parents=True,exist_ok=True)
             p.write_bytes(subprocess.check_output(['git','show',ref+':'+relative],cwd=REPO))
     shutil.copytree(REPO/'scripts/evals',frozen/'evaluator',ignore=shutil.ignore_patterns('__pycache__'))
+    if args.local_catalog:
+        save(frozen/'config/local-catalog.json',json.loads(Path(args.local_catalog).read_text()))
     cache = root/'cache-template'
     env=os.environ.copy();env['UV_CACHE_DIR']=str(cache)
     subprocess.run(['uv','run',str(REPO/'shared/scripts/workflow.py'),'inspect',str(REPO/'examples/minimal-linear/WORKFLOW.md')],env=env,check=True,stdout=subprocess.DEVNULL)
@@ -101,7 +103,7 @@ def prepare(args):
           'seconds_per_session':args.seconds,'max_tool_calls_per_session':args.tools,'seed':args.seed,'schedule':schedule,
           'cells':list(cases.CELLS),'disabled_global_skills':disabled,'codex':args.codex,'pi':args.pi,'pi_tool_entry':args.pi_tool_entry,
           'versions':{'codex':subprocess.check_output([args.codex,'--version'],text=True).strip(),'pi':subprocess.check_output([args.pi,'--version'],text=True).strip(),'ollama':subprocess.check_output(['ollama','--version'],text=True).strip()},
-          'frozen_hashes':hashes(frozen),'mock_sources':{str(t):cases.sources(t) for t in range(1,args.repeats+1)},
+          'local_catalog':bool(args.local_catalog),'frozen_hashes':hashes(frozen),'mock_sources':{str(t):cases.sources(t) for t in range(1,args.repeats+1)},
           'human_minutes':None,'qualitative_utility':None,'design':'96 candidate factorial episodes plus 144 accepted/checklist/instructed/individual-change diagnostic episodes plus 72 author/end-to-end and activation/catalog/boundary episodes at three repeats; serial and fresh session per stage; no scored retries',
           'hypotheses':{'discovery':'clear discovery/fallback improves uptake and reduces needless blocking','context':'focused public-command context reduces resource cost without lost outcomes','verification':'independent checks and recovery improve hidden defect discovery and prevent duplicate effects'},
           'decision_rule':'Positive paired success delta with no cell loss, no candidate hard violation, and median time ratio <=2; otherwise inconclusive or observed regression. Human usefulness and catalog promotion remain unproven without independent review.',
@@ -159,7 +161,7 @@ def command(root,plan,item,work,prompt,profile,policy,shell,sock):
     env=environment(root,work)
     local='gpt-oss' in item['cell']; model='gpt-oss:120b' if local else 'gpt-6-luna';harness=item['cell'].split('-')[0]
     if harness=='codex':
-        fs={':root':'deny',':minimal':'read',':workspace_roots':'write',':tmpdir':'deny',':slash_tmp':'deny',str(work/'.tmp'):'write'}
+        fs={str(sock):'read',':root':'deny',':minimal':'read',':workspace_roots':'write',':tmpdir':'deny',':slash_tmp':'deny',str(work/'.tmp'):'write'}
         for p in RUNTIME_READ:fs[p]='read'
         for relative in PROTECTED:fs[str(work/relative)]='read'
         if (work/'workflows').exists():
@@ -170,6 +172,7 @@ def command(root,plan,item,work,prompt,profile,policy,shell,sock):
              '-c','approval_policy="never"','-c','model_reasoning_effort="medium"','-c','web_search="disabled"','-c','skills.config='+disabled,
              '-c','default_permissions="eval"','-c','permissions.eval.filesystem='+inline,'-c','features.network_proxy=true','-c','permissions.eval.network={enabled=true,allow_unix_sockets=['+json.dumps(str(sock))+']}',
              '-c','shell_environment_policy.inherit="none"','-c','shell_environment_policy.set={PATH='+json.dumps(env['PATH'])+',UV_CACHE_DIR='+json.dumps(env['UV_CACHE_DIR'])+',UV_OFFLINE="1",PYTHONDONTWRITEBYTECODE="1",TMPDIR='+json.dumps(env['TMPDIR'])+'}', '-m',model]
+        if local and plan.get('local_catalog'):cmd+=['-c','model_catalog_json='+json.dumps(str(root/'frozen/config/local-catalog.json'))]
         if local:cmd+=['-c','model_provider="ollama-local"','-c','model_context_window=131072','-c','model_providers.ollama-local={name="Local Ollama",base_url="http://127.0.0.1:11434/v1",wire_api="responses",requires_openai_auth=false,supports_websockets=false}']
         cmd+=[prompt]
     else:
@@ -318,7 +321,7 @@ def execute(root,plan,item,preflight=False):
     service=MockService(sock,work,run,plan['mock_sources'][str(item['trial'])]);thread=threading.Thread(target=service.serve_forever,daemon=True);thread.start()
     sessions=[];followups=[]
     prompts=cases.prompts(item['case'],item['trial'])
-    if preflight:prompts=['Use tools to read environment.json, write artifacts/probe.txt containing READY, invoke python3 tools/mock.py search probe, and execute a shell command that verifies the file. Then verify protected input writes, outside-workspace writes/reads, and live-network access are denied without exposing credentials. If a repository helper is installed, run its inspect command on its bundled WORKFLOW.md. Report the actual checks.','New fresh session: read artifacts/probe.txt and write artifacts/continued.txt containing READY. Do not repeat previous work.']
+    if preflight:prompts=['Use tools to read environment.json, write artifacts/probe.txt containing READY, invoke python3 tools/mock.py search probe, and execute a shell command that verifies the file. Then verify protected input writes, outside-workspace writes/reads, and live-network access are denied without exposing credentials. The installed helper is .agents/skills/execute-workflow/scripts/workflow.py: run uv run on that file with inspect .agents/skills/execute-workflow/assets/WORKFLOW.md. Probe outside-workspace reads using /Users/Shared/projects/work/README.md; system runtime files such as /etc/hosts are deliberate runtime exceptions. Report the actual checks.','New fresh session: read artifacts/probe.txt and write artifacts/continued.txt containing READY. Do not repeat previous work.']
     try:
         for stage,prompt in enumerate(prompts,1):
             if item['case']=='reuse' and stage==2 and not preflight:
@@ -419,6 +422,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__);sub=parser.add_subparsers(dest='operation',required=True)
     p=sub.add_parser('prepare');p.add_argument('output');p.add_argument('--baseline',required=True);p.add_argument('--repeats',type=int,default=3);p.add_argument('--seconds',type=int,default=180);p.add_argument('--tools',type=int,default=80);p.add_argument('--seed',type=int,default=20261008)
     p.add_argument('--codex',default=CODEX_DEFAULT);p.add_argument('--pi',default='/opt/homebrew/bin/pi');p.add_argument('--pi-auth',default=str(Path.home()/'.pi/agent/auth.json'))
+    p.add_argument('--local-catalog',help='Optional explicit Codex local-model tool metadata; frozen and hashed, never substitutes weights')
     p.add_argument('--pi-tool-entry',default='/opt/homebrew/Cellar/pi-coding-agent/1.0.4/libexec/lib/node_modules/@earendil-works/pi-coding-agent/dist/core/tools/index.js')
     for name in ('run','preflight','summarize','verify'):
         p=sub.add_parser(name);p.add_argument('output');
