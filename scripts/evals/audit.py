@@ -53,6 +53,10 @@ def observe(result, workspace):
 
 def audit(root, output):
     plan = run.verify(root)
+    screen = oracle.read_json(root/'screen-selection.json')
+    if screen is not None:
+        if oracle.digest(root/'screen-selection.json') != (root/'screen-selection.sha256').read_text().strip() or screen['original_plan_sha256'] != oracle.digest(root/'plan.json'):
+            raise ValueError('Screen selection changed')
     rows = []
     groups = collections.defaultdict(list)
     failures = collections.Counter()
@@ -77,10 +81,11 @@ def audit(root, output):
                              median_success_seconds=statistics.median(r['elapsed_seconds'] for r in success) if success else None,
                              elapsed_seconds_per_success=seconds / len(success) if success else None,
                              flagged_episodes=sum(bool(r['scorer_review_flags']) for r in items)))
-    report = dict(plan_sha256=oracle.digest(root/'plan.json'), planned_episodes=len(plan['schedule']),
+    report = dict(plan_sha256=oracle.digest(root/'plan.json'), planned_episodes=screen['planned_episodes'] if screen else len(plan['schedule']),
+                  original_plan_episodes=len(plan['schedule']),
                   observed_episodes=len(rows), groups=coverage, episodes=rows,
                   failed_checks=[dict(case=case, check=check, episodes=count) for (case, check), count in sorted(failures.items())],
-                  interpretation='Supplementary audit only. Primary scores are unchanged. Native records and observed model fields are diagnostics, not proof of procedure uptake, consent, or model revision. Cost per success includes failed-episode time; human repair and independent utility are unavailable. Trials vary input fixtures and are not identical-input stochastic repeats.')
+                  interpretation='Supplementary audit only. Primary scores are unchanged. Native records and observed model fields are diagnostics, not proof of procedure uptake, consent, or model revision. Cost per success includes failed-episode time; human repair and independent utility are unavailable. Full-plan trials vary input fixtures and are not identical-input stochastic repeats; a selected one-trial screen has no repeated-trial reliability estimate.')
     run.save(output, report)
     print(json.dumps({'observed_episodes': len(rows), 'flagged_episodes': sum(bool(r['scorer_review_flags']) for r in rows)}))
 

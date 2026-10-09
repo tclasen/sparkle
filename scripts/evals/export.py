@@ -17,6 +17,8 @@ def export(root, output, archive):
     output.mkdir(parents=True,exist_ok=True)
     for name in ['plan.json','plan.sha256','summary.json']:
         shutil.copy2(root/name,output/name)
+    for name in ['screen-selection.json','screen-selection.sha256','screen-summary.json','scope-correction.json']:
+        if (root/name).exists():shutil.copy2(root/name,output/name)
     fields=['index','case','cell','arm','trial','compliant_success','task_success','hard_failures','elapsed_seconds','tool_calls','tool_errors','sessions','timeouts','input_tokens','cached_input_tokens','output_tokens','usage_sessions','partial_usage_sessions','native_records','valid_native_records','question_count','scripted_interventions','human_minutes','repair_minutes','independent_utility','failure_attribution']
     with (output/'metrics.csv').open('w',newline='') as f:
         writer=csv.DictWriter(f,fieldnames=fields,lineterminator='\n');writer.writeheader()
