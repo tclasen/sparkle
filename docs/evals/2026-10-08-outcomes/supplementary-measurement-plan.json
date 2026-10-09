@@ -1,0 +1,10 @@
+{
+  "declared_utc": "2026-10-09T01:17:47Z",
+  "source_commit": "c940a49c97331f73081822fdf72f7f113bac5ec2",
+  "code_sha256": "5efa3a830a6249a4cc82e09e81abe51910235330183a888ac81aa756ff21fac0",
+  "observed_episodes_at_declaration": 27,
+  "observed_cases_at_declaration": [
+    "reuse"
+  ],
+  "policy": "Exploratory corrections applied equally to every condition; retain frozen primary scores and hard failures. No independent human utility or precision correction."
+}

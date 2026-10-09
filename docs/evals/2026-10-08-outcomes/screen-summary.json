@@ -1,0 +1,2888 @@
+{
+  "attempted": 104,
+  "completed_matrix": true,
+  "compliant_successes": 49,
+  "contrasts": [
+    {
+      "baseline": "neither",
+      "candidate": "skill",
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 1.1680052226456346,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "neither",
+      "candidate": "workflow",
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 0.9351268465240562,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "workflow",
+      "candidate": "both",
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 1.2793453907848167,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "skill",
+      "candidate": "both",
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 1.0242678694448415,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "both",
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 1.0687789065360984,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "checklist",
+      "candidate": "both",
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 1.0255075481520042,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 1.0
+    },
+    {
+      "baseline": "both",
+      "candidate": "instructed",
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 3.084213197969543,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "discovery-only",
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 1.0541171045314597,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "context-only",
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 1.1042195065713627,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "verification-only",
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 1.218774159421666,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "neither",
+      "candidate": "skill",
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 1.211971104231166,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "neither",
+      "candidate": "workflow",
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 0.9411923473842979,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "workflow",
+      "candidate": "both",
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 1.0637135001096472,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "skill",
+      "candidate": "both",
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 0.8260584783064348,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "both",
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 1.0539704825419112,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "checklist",
+      "candidate": "both",
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 0.8583757588957556,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "both",
+      "candidate": "instructed",
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 1.8983316946303403,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "discovery-only",
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 1.1408347122632836,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": -1.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "context-only",
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 1.0738103595246453,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "verification-only",
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 1.020775877918735,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "neither",
+      "candidate": "skill",
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 1.4890416209341626,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "neither",
+      "candidate": "workflow",
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 1.3264516803428632,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 1.0
+    },
+    {
+      "baseline": "workflow",
+      "candidate": "both",
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 1.0530491088432692,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": -1.0
+    },
+    {
+      "baseline": "skill",
+      "candidate": "both",
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 0.9380656257495362,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "both",
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 1.4606667881216977,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "checklist",
+      "candidate": "both",
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 0.7234991021233202,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "both",
+      "candidate": "instructed",
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 0.8107912592296947,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "discovery-only",
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 1.4311167790125707,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 1.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "context-only",
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 1.4035161231554016,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "verification-only",
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 1.4180725086536712,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "neither",
+      "candidate": "skill",
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 0.7999236614733335,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": -1.0
+    },
+    {
+      "baseline": "neither",
+      "candidate": "workflow",
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 1.0298414240605158,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "workflow",
+      "candidate": "both",
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 1.1035749182923953,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": -1.0
+    },
+    {
+      "baseline": "skill",
+      "candidate": "both",
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 1.4207695310805537,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "both",
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 1.4035195474867517,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "checklist",
+      "candidate": "both",
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 1.2736593775519465,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "both",
+      "candidate": "instructed",
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 1.0043354807193234,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "discovery-only",
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 1.3380422517104944,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 1.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "context-only",
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 0.9255667128512048,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "verification-only",
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 0.9106114928080675,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 1.0
+    },
+    {
+      "baseline": "neither",
+      "candidate": "skill",
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 1.067546657403606,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "neither",
+      "candidate": "workflow",
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 1.014415637730129,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "workflow",
+      "candidate": "both",
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 1.0212461282238858,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "skill",
+      "candidate": "both",
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 0.9704194521682542,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "both",
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 1.005532482260808,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "checklist",
+      "candidate": "both",
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 0.9739197553771022,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "both",
+      "candidate": "instructed",
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 3.3123361580198747,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": -1.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "discovery-only",
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 1.045915005134021,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "context-only",
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 1.2034758087998652,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "verification-only",
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 1.479640158771513,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "neither",
+      "candidate": "skill",
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 0.7421984243375056,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "neither",
+      "candidate": "workflow",
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 0.841836908700249,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "workflow",
+      "candidate": "both",
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 0.9601555695099966,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "skill",
+      "candidate": "both",
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 1.0890543148607663,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "both",
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 0.9059286724513588,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "checklist",
+      "candidate": "both",
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 0.7491702228544334,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "both",
+      "candidate": "instructed",
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 1.9304852320675105,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "discovery-only",
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 0.9414777722564123,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "context-only",
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 0.8723863766675586,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "verification-only",
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 1.1808990482015211,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "neither",
+      "candidate": "skill",
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 0.9995957492759482,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "neither",
+      "candidate": "workflow",
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 0.858412568321141,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "workflow",
+      "candidate": "both",
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 0.8209988839645709,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "skill",
+      "candidate": "both",
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 0.705040773816119,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "both",
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 0.8705813543843567,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "checklist",
+      "candidate": "both",
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 0.7046894207023333,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "both",
+      "candidate": "instructed",
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 1.192063049294585,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "discovery-only",
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 1.235271181281189,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "context-only",
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 1.2347512903214772,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "verification-only",
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 1.1773854273195858,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "neither",
+      "candidate": "skill",
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 0.6507528993263745,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "neither",
+      "candidate": "workflow",
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 0.6401133171834885,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "workflow",
+      "candidate": "both",
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 1.5470227318446992,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "skill",
+      "candidate": "both",
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 1.5217294516312547,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "both",
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 1.0251872588963598,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "checklist",
+      "candidate": "both",
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 1.0152396511464805,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "both",
+      "candidate": "instructed",
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 0.9604369168752641,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "discovery-only",
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 1.0603894318494265,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "context-only",
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 0.8831121220453088,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "verification-only",
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 1.0827021937827548,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "both",
+      "case": "author",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 1.7532307880492954,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "both",
+      "case": "author",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 1.152061719744743,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "both",
+      "case": "author",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 0.794084260230397,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "both",
+      "case": "author",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 0.5988221670802316,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "both",
+      "case": "boundaries",
+      "cell": "codex-gpt-6-luna-medium",
+      "median_time_ratio": 0.8570208526083553,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 0.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "both",
+      "case": "boundaries",
+      "cell": "pi-gpt-6-luna-medium",
+      "median_time_ratio": 1.1549532187373721,
+      "paired_outcomes": [
+        [
+          1,
+          true,
+          false
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": -1.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "both",
+      "case": "boundaries",
+      "cell": "codex-gpt-oss-120b-medium",
+      "median_time_ratio": 1.2371650937821823,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 1.0
+    },
+    {
+      "baseline": "accepted",
+      "candidate": "both",
+      "case": "boundaries",
+      "cell": "pi-gpt-oss-120b-medium",
+      "median_time_ratio": 0.7741852624819394,
+      "paired_outcomes": [
+        [
+          1,
+          false,
+          true
+        ]
+      ],
+      "pairs": 1,
+      "success_delta": 1.0
+    }
+  ],
+  "elapsed_seconds": 12666.737000000001,
+  "failure_attribution": {
+    "boundary_or_duplicate_effect": 1,
+    "budget_exhaustion": 9,
+    "harness_or_provider_failure": 5,
+    "outcome_failure": 54
+  },
+  "groups": [
+    {
+      "arm": "accepted",
+      "attempted": 1,
+      "case": "author",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 163.505,
+      "native_records": 1,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 59,
+      "total_seconds": 163.505,
+      "valid_native_records": 1
+    },
+    {
+      "arm": "both",
+      "attempted": 1,
+      "case": "author",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 286.66200000000003,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 50,
+      "total_seconds": 286.66200000000003,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "neither",
+      "attempted": 1,
+      "case": "author",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 87.787,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 36,
+      "total_seconds": 87.787,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "accepted",
+      "attempted": 1,
+      "case": "author",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 463.374,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 32,
+      "total_seconds": 463.374,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "both",
+      "attempted": 1,
+      "case": "author",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 367.958,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 32,
+      "total_seconds": 367.958,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "neither",
+      "attempted": 1,
+      "case": "author",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 235.113,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 29,
+      "total_seconds": 235.113,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "accepted",
+      "attempted": 1,
+      "case": "author",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 132.729,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 66,
+      "total_seconds": 132.729,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "both",
+      "attempted": 1,
+      "case": "author",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 152.912,
+      "native_records": 1,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 74,
+      "total_seconds": 152.912,
+      "valid_native_records": 1
+    },
+    {
+      "arm": "neither",
+      "attempted": 1,
+      "case": "author",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 103.361,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 47,
+      "total_seconds": 103.361,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "accepted",
+      "attempted": 1,
+      "case": "author",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 151.125,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 35,
+      "total_seconds": 151.125,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "both",
+      "attempted": 1,
+      "case": "author",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 90.497,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 23,
+      "total_seconds": 90.497,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "neither",
+      "attempted": 1,
+      "case": "author",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 121.816,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 22,
+      "total_seconds": 121.816,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "accepted",
+      "attempted": 1,
+      "case": "boundaries",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 42.153,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 11,
+      "total_seconds": 42.153,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "both",
+      "attempted": 1,
+      "case": "boundaries",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 36.126,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 11,
+      "total_seconds": 36.126,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "neither",
+      "attempted": 1,
+      "case": "boundaries",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 36.197,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 11,
+      "total_seconds": 36.197,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "accepted",
+      "attempted": 1,
+      "case": "boundaries",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 59.233000000000004,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 14,
+      "total_seconds": 59.233000000000004,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "both",
+      "attempted": 1,
+      "case": "boundaries",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 73.281,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 15,
+      "total_seconds": 73.281,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "neither",
+      "attempted": 1,
+      "case": "boundaries",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 56.246,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 12,
+      "total_seconds": 56.246,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "accepted",
+      "attempted": 1,
+      "case": "boundaries",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 32.171,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 14,
+      "total_seconds": 32.171,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "both",
+      "attempted": 1,
+      "case": "boundaries",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 37.156,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 14,
+      "total_seconds": 37.156,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "neither",
+      "attempted": 1,
+      "case": "boundaries",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 35.150999999999996,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 14,
+      "total_seconds": 35.150999999999996,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "accepted",
+      "attempted": 1,
+      "case": "boundaries",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 31.145,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 10,
+      "total_seconds": 31.145,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "both",
+      "attempted": 1,
+      "case": "boundaries",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 24.112000000000002,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 9,
+      "total_seconds": 24.112000000000002,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "neither",
+      "attempted": 1,
+      "case": "boundaries",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 18.083,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 6,
+      "total_seconds": 18.083,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "accepted",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 65.251,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 19,
+      "total_seconds": 65.251,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "both",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 65.612,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 19,
+      "total_seconds": 65.612,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "checklist",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 67.369,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 17,
+      "total_seconds": 67.369,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "context-only",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 78.528,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 29,
+      "total_seconds": 78.528,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "discovery-only",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 68.247,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 22,
+      "total_seconds": 68.247,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "instructed",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 217.329,
+      "native_records": 1,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 60,
+      "total_seconds": 217.329,
+      "valid_native_records": 1
+    },
+    {
+      "arm": "neither",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 63.334,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 19,
+      "total_seconds": 63.334,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "skill",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 67.612,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 20,
+      "total_seconds": 67.612,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "verification-only",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 96.548,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 23,
+      "total_seconds": 96.548,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "workflow",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 64.247,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 19,
+      "total_seconds": 64.247,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "accepted",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 292.369,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 19,
+      "total_seconds": 292.369,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "both",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 254.531,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 20,
+      "total_seconds": 254.531,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "checklist",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 361.196,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 15,
+      "total_seconds": 361.196,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "context-only",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 361.00300000000004,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 16,
+      "total_seconds": 361.00300000000004,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "discovery-only",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 361.155,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 16,
+      "total_seconds": 361.155,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "instructed",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 303.41700000000003,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 14,
+      "total_seconds": 303.41700000000003,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "neither",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 361.16200000000003,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 22,
+      "total_seconds": 361.16200000000003,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "skill",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 361.016,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 15,
+      "total_seconds": 361.016,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "verification-only",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 344.231,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 21,
+      "total_seconds": 344.231,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "workflow",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 310.02599999999995,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 27,
+      "total_seconds": 310.02599999999995,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "accepted",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 52.322,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 29,
+      "total_seconds": 52.322,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "both",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 47.4,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 26,
+      "total_seconds": 47.4,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "checklist",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 63.269999999999996,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 22,
+      "total_seconds": 63.269999999999996,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "context-only",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 45.645,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 28,
+      "total_seconds": 45.645,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "discovery-only",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 49.260000000000005,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 27,
+      "total_seconds": 49.260000000000005,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "instructed",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 91.505,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 43,
+      "total_seconds": 91.505,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "neither",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 58.641999999999996,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 31,
+      "total_seconds": 58.641999999999996,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "skill",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 43.524,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 24,
+      "total_seconds": 43.524,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "verification-only",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 61.78699999999999,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 29,
+      "total_seconds": 61.78699999999999,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "workflow",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 49.367,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 26,
+      "total_seconds": 49.367,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "accepted",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 120.021,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 18,
+      "total_seconds": 120.021,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "both",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 123.044,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 24,
+      "total_seconds": 123.044,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "checklist",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 121.197,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 26,
+      "total_seconds": 121.197,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "context-only",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 105.992,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 29,
+      "total_seconds": 105.992,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "discovery-only",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 127.269,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 25,
+      "total_seconds": 127.269,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "instructed",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 118.17599999999999,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 21,
+      "total_seconds": 118.17599999999999,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "neither",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 124.253,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 24,
+      "total_seconds": 124.253,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "skill",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 80.858,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 23,
+      "total_seconds": 80.858,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "verification-only",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 129.947,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 31,
+      "total_seconds": 129.947,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "workflow",
+      "attempted": 1,
+      "case": "defects",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 79.536,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 23,
+      "total_seconds": 79.536,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "accepted",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 73.729,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 20,
+      "total_seconds": 73.729,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "both",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 78.8,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 32,
+      "total_seconds": 78.8,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "checklist",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 76.84,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 24,
+      "total_seconds": 76.84,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "context-only",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 81.413,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 22,
+      "total_seconds": 81.413,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "discovery-only",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 77.719,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 15,
+      "total_seconds": 77.719,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "instructed",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 243.036,
+      "native_records": 2,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 57,
+      "total_seconds": 243.036,
+      "valid_native_records": 2
+    },
+    {
+      "arm": "neither",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 65.86699999999999,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 23,
+      "total_seconds": 65.86699999999999,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "skill",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 76.933,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 19,
+      "total_seconds": 76.933,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "verification-only",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 89.85900000000001,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 24,
+      "total_seconds": 89.85900000000001,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "workflow",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 61.594,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 20,
+      "total_seconds": 61.594,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "accepted",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 109.78,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 18,
+      "total_seconds": 109.78,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "both",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 160.35199999999998,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 15,
+      "total_seconds": 160.35199999999998,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "checklist",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 221.63400000000001,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 18,
+      "total_seconds": 221.63400000000001,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "context-only",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 154.078,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 17,
+      "total_seconds": 154.078,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "discovery-only",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 157.108,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 26,
+      "total_seconds": 157.108,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "instructed",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 130.012,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 27,
+      "total_seconds": 130.012,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "neither",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 114.798,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 20,
+      "total_seconds": 114.798,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "skill",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 170.939,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 24,
+      "total_seconds": 170.939,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "verification-only",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 155.67600000000002,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 22,
+      "total_seconds": 155.67600000000002,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "workflow",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "codex-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 152.274,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 18,
+      "total_seconds": 152.274,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "accepted",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 59.829,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 24,
+      "total_seconds": 59.829,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "both",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 63.058,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 26,
+      "total_seconds": 63.058,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "checklist",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 73.462,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 40,
+      "total_seconds": 73.462,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "context-only",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 64.245,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 27,
+      "total_seconds": 64.245,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "discovery-only",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 1,
+      "median_seconds": 68.255,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 33,
+      "total_seconds": 68.255,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "instructed",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 119.705,
+      "native_records": 2,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 62,
+      "total_seconds": 119.705,
+      "valid_native_records": 2
+    },
+    {
+      "arm": "neither",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 62.985,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 32,
+      "total_seconds": 62.985,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "skill",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 76.336,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 33,
+      "total_seconds": 76.336,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "verification-only",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 61.072,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 28,
+      "total_seconds": 61.072,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "workflow",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-6-luna-medium",
+      "hard_failures": 0,
+      "median_seconds": 59.281000000000006,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 28,
+      "total_seconds": 59.281000000000006,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "accepted",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 70.009,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 13,
+      "total_seconds": 70.009,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "both",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 98.259,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 18,
+      "total_seconds": 98.259,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "checklist",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 77.14699999999999,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 20,
+      "total_seconds": 77.14699999999999,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "context-only",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 64.798,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 16,
+      "total_seconds": 64.798,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "discovery-only",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 93.675,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 13,
+      "total_seconds": 93.675,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "instructed",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 98.685,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 20,
+      "total_seconds": 98.685,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "neither",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 86.457,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 21,
+      "total_seconds": 86.457,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "skill",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 69.15899999999999,
+      "native_records": 0,
+      "screen_trial_success": false,
+      "successes": 0,
+      "tool_calls": 19,
+      "total_seconds": 69.15899999999999,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "verification-only",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 63.751,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 16,
+      "total_seconds": 63.751,
+      "valid_native_records": 0
+    },
+    {
+      "arm": "workflow",
+      "attempted": 1,
+      "case": "reuse",
+      "cell": "pi-gpt-oss-120b-medium",
+      "hard_failures": 0,
+      "median_seconds": 89.037,
+      "native_records": 0,
+      "screen_trial_success": true,
+      "successes": 1,
+      "tool_calls": 17,
+      "total_seconds": 89.037,
+      "valid_native_records": 0
+    }
+  ],
+  "hard_failure_episodes": 1,
+  "human_effort": "unavailable: scripted interaction, no independent human time measurements",
+  "original_plan_episodes": 312,
+  "plan_sha256": "ec4a510b492b2c926121c5487aeea4579da35578316e8b27565ff43625a270f7",
+  "planned": 104,
+  "qualitative_utility": "unavailable: blind review packets await independent reviewers",
+  "screen_selection_sha256": "77e6a058d775d540443bcd5928ed1593013d2d80d19cd5956cc3cc40aa34f9a0",
+  "uncertainty": "Provisional screening; no repeated-trial reliability, statistical proof, or established catalog benefit."
+}

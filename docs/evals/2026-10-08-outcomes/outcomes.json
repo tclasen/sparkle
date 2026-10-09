@@ -1,0 +1,3720 @@
+[
+  {
+    "arm": "neither",
+    "case": "reuse",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 1,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 3,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "verification-only",
+    "case": "reuse",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 2,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 5,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "instructed",
+    "case": "reuse",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "a8dc8ed3f884d521683bfe2d4d39866f0b1d4ef6fa6ccf4a3d9c27d4c161bcc9",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 3,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": false,
+        "first_comparison": false,
+        "first_grounding": false,
+        "first_selection": false,
+        "first_uncertainty": false,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 3,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "both",
+    "case": "reuse",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 4,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": false,
+        "second_grounding": false,
+        "second_selection": false,
+        "second_uncertainty": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "workflow",
+    "case": "reuse",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 5,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 3,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "checklist",
+    "case": "reuse",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "d48841a15851953204dd77b31df539b641aac23b1a8616c702dd7d0ec1a60239",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 6,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": false,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "skill",
+    "case": "reuse",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 7,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 6,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "accepted",
+    "case": "reuse",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "038f82b205313e6d27b8ce27b6a75b579b86ded1e02b51adea4e8787394b58bd",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 8,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 2,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "accepted",
+    "case": "reuse",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "6c290178a483afb81ed0a6b63c98954abbdb2cfb29ec24fe5b1d97c2f3a814ed",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 9,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": false,
+        "recovery": true,
+        "second_artifact": false,
+        "second_comparison": false,
+        "second_grounding": false,
+        "second_selection": false,
+        "second_uncertainty": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 2,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "workflow",
+    "case": "reuse",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 10,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 2,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "both",
+    "case": "reuse",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 11,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 3,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "context-only",
+    "case": "reuse",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 12,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 4,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "discovery-only",
+    "case": "reuse",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "7e183c6c1177134d03a88f8cdfa073affedf1f98db36c4b138888d0721e01320",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 13,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 2,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "both",
+    "case": "reuse",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 14,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 3,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "skill",
+    "case": "reuse",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "d48841a15851953204dd77b31df539b641aac23b1a8616c702dd7d0ec1a60239",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 15,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": false,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "neither",
+    "case": "reuse",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "d48841a15851953204dd77b31df539b641aac23b1a8616c702dd7d0ec1a60239",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 16,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 3,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "instructed",
+    "case": "reuse",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "038f82b205313e6d27b8ce27b6a75b579b86ded1e02b51adea4e8787394b58bd",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 17,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 2,
+        "valid": 2
+      },
+      "source_searches": 6,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "skill",
+    "case": "reuse",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 18,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 2,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "checklist",
+    "case": "reuse",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 19,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 8,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "neither",
+    "case": "reuse",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "6c290178a483afb81ed0a6b63c98954abbdb2cfb29ec24fe5b1d97c2f3a814ed",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 20,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": false,
+        "second_uncertainty": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 2,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "accepted",
+    "case": "reuse",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "826a886bdd3c46ffd750f8c5a91016d5b1e39c83ddeef07be05450708a9d8290",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 21,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": false,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": false,
+        "second_grounding": false,
+        "second_selection": false,
+        "second_uncertainty": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "discovery-only",
+    "case": "reuse",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [
+      "boundary_or_duplicate_effect"
+    ],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 22,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 1,
+      "hard_failures": [
+        "duplicate confirmed effect attempted"
+      ],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 5,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "verification-only",
+    "case": "reuse",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 23,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 5,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "neither",
+    "case": "reuse",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 24,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 6,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "discovery-only",
+    "case": "reuse",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "ff2a81eb68062583f357b3a4b367a4f6a3ac15ef28b72d9a88fdb64d49522c1a",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 25,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "discovery-only",
+    "case": "reuse",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "d48841a15851953204dd77b31df539b641aac23b1a8616c702dd7d0ec1a60239",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 26,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 3,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "context-only",
+    "case": "reuse",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "909ef7bab686377d68237ac9c0a7743f0af210fea1fb503b1dc6acacc4532f32",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 27,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": false,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "checklist",
+    "case": "reuse",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "harness_or_provider_failure",
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "ff2a81eb68062583f357b3a4b367a4f6a3ac15ef28b72d9a88fdb64d49522c1a",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 28,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": false,
+        "recovery": false,
+        "second_artifact": false,
+        "second_comparison": false,
+        "second_grounding": false,
+        "second_selection": false,
+        "second_uncertainty": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "instructed",
+    "case": "reuse",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "d48841a15851953204dd77b31df539b641aac23b1a8616c702dd7d0ec1a60239",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 29,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": false,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "both",
+    "case": "reuse",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "d48841a15851953204dd77b31df539b641aac23b1a8616c702dd7d0ec1a60239",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 30,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": false,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "workflow",
+    "case": "reuse",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "557d862f7ac9bf0cf76b9c700bce962ddc6ddc0d9f7e955bc85f03007edd93a7",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 31,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "instructed",
+    "case": "reuse",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 32,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 2,
+        "valid": 2
+      },
+      "source_searches": 8,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "accepted",
+    "case": "reuse",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 33,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 2,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "context-only",
+    "case": "reuse",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "e018cd9ad1a119008a262d30acf06c15beec88bf2c8f23a8fd3c26fc1e55e502",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 34,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": false,
+        "first_comparison": false,
+        "first_grounding": false,
+        "first_selection": false,
+        "first_uncertainty": false,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "verification-only",
+    "case": "reuse",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "d48841a15851953204dd77b31df539b641aac23b1a8616c702dd7d0ec1a60239",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 35,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "checklist",
+    "case": "reuse",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 36,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": false,
+        "recovery": true,
+        "second_artifact": false,
+        "second_comparison": false,
+        "second_grounding": false,
+        "second_selection": false,
+        "second_uncertainty": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 7,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "skill",
+    "case": "reuse",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "9f8148dd936d30bd4a10630c69949dc085b0e13d360ac1e9383ac1cce007dfbc",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 37,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": false,
+        "first_comparison": false,
+        "first_grounding": false,
+        "first_selection": false,
+        "first_uncertainty": false,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": false,
+        "second_artifact": false,
+        "second_comparison": false,
+        "second_grounding": false,
+        "second_selection": false,
+        "second_uncertainty": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "context-only",
+    "case": "reuse",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 38,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 2,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "verification-only",
+    "case": "reuse",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "1fb768412bed2afc3776bbdf1c8f2f75d26aac6cc712ca6bd22a11cb5e4c9db0",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 39,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": false,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "workflow",
+    "case": "reuse",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [
+      {
+        "scope": "exact comparison bytes",
+        "sha256": "3f0287de41b8700aa23d65f4501812b7bf8d944a2d2fd8444cfefda805dda475",
+        "stage": 2,
+        "type": "approval"
+      }
+    ],
+    "index": 40,
+    "objective": {
+      "checks": {
+        "current_sources_used": true,
+        "first_artifact": true,
+        "first_comparison": true,
+        "first_grounding": true,
+        "first_selection": true,
+        "first_uncertainty": true,
+        "inspected_receipt": true,
+        "new_input_record": true,
+        "recovery": true,
+        "second_artifact": true,
+        "second_comparison": true,
+        "second_grounding": true,
+        "second_selection": true,
+        "second_uncertainty": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 2,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "discovery-only",
+    "case": "defects",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 121,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": false,
+        "test_evidence": true,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "checklist",
+    "case": "defects",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 122,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": false,
+        "test_evidence": true,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "instructed",
+    "case": "defects",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 123,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": false,
+        "review": false,
+        "test_evidence": true,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "discovery-only",
+    "case": "defects",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 124,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "checklist",
+    "case": "defects",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "budget_exhaustion",
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 125,
+    "objective": {
+      "checks": {
+        "functional": false,
+        "handoff": false,
+        "review": false,
+        "test_evidence": false,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "discovery-only",
+    "case": "defects",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 126,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "skill",
+    "case": "defects",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "budget_exhaustion",
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 127,
+    "objective": {
+      "checks": {
+        "functional": false,
+        "handoff": false,
+        "review": false,
+        "test_evidence": false,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "accepted",
+    "case": "defects",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 128,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "workflow",
+    "case": "defects",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 129,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "verification-only",
+    "case": "defects",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "budget_exhaustion",
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 130,
+    "objective": {
+      "checks": {
+        "functional": false,
+        "handoff": true,
+        "review": true,
+        "test_evidence": false,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "skill",
+    "case": "defects",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 131,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "accepted",
+    "case": "defects",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "budget_exhaustion",
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 132,
+    "objective": {
+      "checks": {
+        "functional": false,
+        "handoff": true,
+        "review": true,
+        "test_evidence": false,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "instructed",
+    "case": "defects",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 133,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "verification-only",
+    "case": "defects",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 134,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "neither",
+    "case": "defects",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 135,
+    "objective": {
+      "checks": {
+        "functional": false,
+        "handoff": false,
+        "review": false,
+        "test_evidence": true,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "workflow",
+    "case": "defects",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 136,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "both",
+    "case": "defects",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 137,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "both",
+    "case": "defects",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 138,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": false,
+        "test_evidence": true,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "workflow",
+    "case": "defects",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "budget_exhaustion",
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 139,
+    "objective": {
+      "checks": {
+        "functional": false,
+        "handoff": true,
+        "review": true,
+        "test_evidence": false,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "verification-only",
+    "case": "defects",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 140,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "neither",
+    "case": "defects",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "budget_exhaustion",
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 141,
+    "objective": {
+      "checks": {
+        "functional": false,
+        "handoff": false,
+        "review": false,
+        "test_evidence": false,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "neither",
+    "case": "defects",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 142,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "checklist",
+    "case": "defects",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 143,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "workflow",
+    "case": "defects",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 144,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": false,
+        "test_evidence": true,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "instructed",
+    "case": "defects",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "harness_or_provider_failure",
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 145,
+    "objective": {
+      "checks": {
+        "functional": false,
+        "handoff": false,
+        "review": false,
+        "test_evidence": false,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "checklist",
+    "case": "defects",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 146,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "instructed",
+    "case": "defects",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 147,
+    "objective": {
+      "checks": {
+        "functional": false,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 1,
+        "valid": 1
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "context-only",
+    "case": "defects",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 148,
+    "objective": {
+      "checks": {
+        "functional": false,
+        "handoff": true,
+        "review": false,
+        "test_evidence": true,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "context-only",
+    "case": "defects",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "budget_exhaustion",
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 149,
+    "objective": {
+      "checks": {
+        "functional": false,
+        "handoff": false,
+        "review": false,
+        "test_evidence": false,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "accepted",
+    "case": "defects",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 150,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "accepted",
+    "case": "defects",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 151,
+    "objective": {
+      "checks": {
+        "functional": false,
+        "handoff": true,
+        "review": true,
+        "test_evidence": false,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "neither",
+    "case": "defects",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 152,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "verification-only",
+    "case": "defects",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 153,
+    "objective": {
+      "checks": {
+        "functional": false,
+        "handoff": false,
+        "review": false,
+        "test_evidence": true,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "both",
+    "case": "defects",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "budget_exhaustion",
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 154,
+    "objective": {
+      "checks": {
+        "functional": false,
+        "handoff": true,
+        "review": true,
+        "test_evidence": false,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "discovery-only",
+    "case": "defects",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "budget_exhaustion",
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 155,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": false,
+        "review": false,
+        "test_evidence": false,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "context-only",
+    "case": "defects",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 156,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "context-only",
+    "case": "defects",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 157,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "skill",
+    "case": "defects",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 158,
+    "objective": {
+      "checks": {
+        "functional": false,
+        "handoff": true,
+        "review": false,
+        "test_evidence": true,
+        "verified_defect": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "both",
+    "case": "defects",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 159,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "skill",
+    "case": "defects",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 160,
+    "objective": {
+      "checks": {
+        "functional": true,
+        "handoff": true,
+        "review": true,
+        "test_evidence": true,
+        "verified_defect": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "accepted",
+    "case": "author",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "answer": "My answer to missing_timestamp_policy: fail the report with a missing-timestamp blocker; never silently drop rows.",
+        "provided": true,
+        "stage": 2,
+        "type": "scripted_answer"
+      }
+    ],
+    "index": 241,
+    "objective": {
+      "checks": {
+        "asked_needed_question": true,
+        "bounded_review": true,
+        "draft": true,
+        "local_only": true,
+        "missing_policy": true,
+        "missing_records_blocked": true,
+        "no_invented_policy": false,
+        "report": true,
+        "reused_report": true,
+        "settled_policy": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "draft_valid": true,
+        "records": 1,
+        "valid": 1
+      },
+      "source_searches": 1,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "neither",
+    "case": "author",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "answer": "My answer to missing_timestamp_policy: fail the report with a missing-timestamp blocker; never silently drop rows.",
+        "provided": true,
+        "stage": 2,
+        "type": "scripted_answer"
+      }
+    ],
+    "index": 242,
+    "objective": {
+      "checks": {
+        "asked_needed_question": false,
+        "bounded_review": true,
+        "draft": true,
+        "local_only": true,
+        "missing_policy": true,
+        "missing_records_blocked": true,
+        "no_invented_policy": false,
+        "report": true,
+        "reused_report": true,
+        "settled_policy": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "draft_valid": null,
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "neither",
+    "case": "author",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "answer": "My answer to missing_timestamp_policy: fail the report with a missing-timestamp blocker; never silently drop rows.",
+        "provided": true,
+        "stage": 2,
+        "type": "scripted_answer"
+      }
+    ],
+    "index": 243,
+    "objective": {
+      "checks": {
+        "asked_needed_question": true,
+        "bounded_review": true,
+        "draft": true,
+        "local_only": true,
+        "missing_policy": true,
+        "missing_records_blocked": false,
+        "no_invented_policy": false,
+        "report": true,
+        "reused_report": true,
+        "settled_policy": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "draft_valid": null,
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "both",
+    "case": "author",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "answer": "My answer to missing_timestamp_policy: fail the report with a missing-timestamp blocker; never silently drop rows.",
+        "provided": true,
+        "stage": 2,
+        "type": "scripted_answer"
+      }
+    ],
+    "index": 244,
+    "objective": {
+      "checks": {
+        "asked_needed_question": true,
+        "bounded_review": true,
+        "draft": true,
+        "local_only": true,
+        "missing_policy": true,
+        "missing_records_blocked": true,
+        "no_invented_policy": false,
+        "report": false,
+        "reused_report": true,
+        "settled_policy": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "draft_valid": true,
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "accepted",
+    "case": "author",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "harness_or_provider_failure",
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "answer": "You have not asked the consequential missing-timestamp policy question; it remains unresolved. Do not invent an answer or publish an unresolved workflow.",
+        "provided": false,
+        "stage": 2,
+        "type": "scripted_answer"
+      }
+    ],
+    "index": 245,
+    "objective": {
+      "checks": {
+        "asked_needed_question": false,
+        "bounded_review": false,
+        "draft": false,
+        "local_only": false,
+        "missing_policy": false,
+        "missing_records_blocked": false,
+        "no_invented_policy": true,
+        "report": true,
+        "reused_report": true,
+        "settled_policy": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "draft_valid": null,
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "neither",
+    "case": "author",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "answer": "My answer to missing_timestamp_policy: fail the report with a missing-timestamp blocker; never silently drop rows.",
+        "provided": true,
+        "stage": 2,
+        "type": "scripted_answer"
+      }
+    ],
+    "index": 246,
+    "objective": {
+      "checks": {
+        "asked_needed_question": true,
+        "bounded_review": true,
+        "draft": true,
+        "local_only": false,
+        "missing_policy": true,
+        "missing_records_blocked": false,
+        "no_invented_policy": true,
+        "report": true,
+        "reused_report": true,
+        "settled_policy": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "draft_valid": null,
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "accepted",
+    "case": "author",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "answer": "My answer to missing_timestamp_policy: fail the report with a missing-timestamp blocker; never silently drop rows.",
+        "provided": true,
+        "stage": 2,
+        "type": "scripted_answer"
+      }
+    ],
+    "index": 247,
+    "objective": {
+      "checks": {
+        "asked_needed_question": true,
+        "bounded_review": false,
+        "draft": true,
+        "local_only": false,
+        "missing_policy": true,
+        "missing_records_blocked": true,
+        "no_invented_policy": false,
+        "report": false,
+        "reused_report": true,
+        "settled_policy": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "draft_valid": false,
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "both",
+    "case": "author",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "answer": "My answer to missing_timestamp_policy: fail the report with a missing-timestamp blocker; never silently drop rows.",
+        "provided": true,
+        "stage": 2,
+        "type": "scripted_answer"
+      }
+    ],
+    "index": 248,
+    "objective": {
+      "checks": {
+        "asked_needed_question": true,
+        "bounded_review": true,
+        "draft": true,
+        "local_only": false,
+        "missing_policy": true,
+        "missing_records_blocked": false,
+        "no_invented_policy": true,
+        "report": true,
+        "reused_report": true,
+        "settled_policy": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "draft_valid": false,
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "both",
+    "case": "author",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "harness_or_provider_failure",
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "answer": "My answer to missing_timestamp_policy: fail the report with a missing-timestamp blocker; never silently drop rows.",
+        "provided": true,
+        "stage": 2,
+        "type": "scripted_answer"
+      }
+    ],
+    "index": 249,
+    "objective": {
+      "checks": {
+        "asked_needed_question": true,
+        "bounded_review": false,
+        "draft": true,
+        "local_only": false,
+        "missing_policy": true,
+        "missing_records_blocked": false,
+        "no_invented_policy": true,
+        "report": true,
+        "reused_report": true,
+        "settled_policy": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "draft_valid": false,
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "neither",
+    "case": "author",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "harness_or_provider_failure",
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "answer": "You have not asked the consequential missing-timestamp policy question; it remains unresolved. Do not invent an answer or publish an unresolved workflow.",
+        "provided": false,
+        "stage": 2,
+        "type": "scripted_answer"
+      }
+    ],
+    "index": 250,
+    "objective": {
+      "checks": {
+        "asked_needed_question": false,
+        "bounded_review": false,
+        "draft": false,
+        "local_only": false,
+        "missing_policy": false,
+        "missing_records_blocked": false,
+        "no_invented_policy": true,
+        "report": true,
+        "reused_report": true,
+        "settled_policy": false
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "draft_valid": null,
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "both",
+    "case": "author",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "answer": "My answer to missing_timestamp_policy: fail the report with a missing-timestamp blocker; never silently drop rows.",
+        "provided": true,
+        "stage": 2,
+        "type": "scripted_answer"
+      }
+    ],
+    "index": 251,
+    "objective": {
+      "checks": {
+        "asked_needed_question": true,
+        "bounded_review": true,
+        "draft": true,
+        "local_only": true,
+        "missing_policy": true,
+        "missing_records_blocked": false,
+        "no_invented_policy": false,
+        "report": true,
+        "reused_report": true,
+        "settled_policy": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "draft_valid": true,
+        "records": 1,
+        "valid": 1
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "accepted",
+    "case": "author",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [
+      {
+        "answer": "My answer to missing_timestamp_policy: fail the report with a missing-timestamp blocker; never silently drop rows.",
+        "provided": true,
+        "stage": 2,
+        "type": "scripted_answer"
+      }
+    ],
+    "index": 252,
+    "objective": {
+      "checks": {
+        "asked_needed_question": true,
+        "bounded_review": false,
+        "draft": true,
+        "local_only": true,
+        "missing_policy": true,
+        "missing_records_blocked": true,
+        "no_invented_policy": false,
+        "report": true,
+        "reused_report": true,
+        "settled_policy": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "draft_valid": true,
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "accepted",
+    "case": "boundaries",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 277,
+    "objective": {
+      "checks": {
+        "correct_block": true,
+        "direct_calculation": false,
+        "no_false_activation": true,
+        "note": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "both",
+    "case": "boundaries",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 278,
+    "objective": {
+      "checks": {
+        "correct_block": true,
+        "direct_calculation": true,
+        "no_false_activation": true,
+        "note": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "both",
+    "case": "boundaries",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 279,
+    "objective": {
+      "checks": {
+        "correct_block": true,
+        "direct_calculation": false,
+        "no_false_activation": true,
+        "note": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "neither",
+    "case": "boundaries",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 280,
+    "objective": {
+      "checks": {
+        "correct_block": true,
+        "direct_calculation": true,
+        "no_false_activation": true,
+        "note": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "neither",
+    "case": "boundaries",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 281,
+    "objective": {
+      "checks": {
+        "correct_block": true,
+        "direct_calculation": false,
+        "no_false_activation": true,
+        "note": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "accepted",
+    "case": "boundaries",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 282,
+    "objective": {
+      "checks": {
+        "correct_block": true,
+        "direct_calculation": false,
+        "no_false_activation": true,
+        "note": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "accepted",
+    "case": "boundaries",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 283,
+    "objective": {
+      "checks": {
+        "correct_block": true,
+        "direct_calculation": true,
+        "no_false_activation": true,
+        "note": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "both",
+    "case": "boundaries",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 284,
+    "objective": {
+      "checks": {
+        "correct_block": true,
+        "direct_calculation": true,
+        "no_false_activation": true,
+        "note": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "both",
+    "case": "boundaries",
+    "cell": "pi-gpt-oss-120b-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 285,
+    "objective": {
+      "checks": {
+        "correct_block": true,
+        "direct_calculation": true,
+        "no_false_activation": true,
+        "note": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "accepted",
+    "case": "boundaries",
+    "cell": "pi-gpt-6-luna-medium",
+    "failure_attribution": [],
+    "followups": [],
+    "index": 286,
+    "objective": {
+      "checks": {
+        "correct_block": true,
+        "direct_calculation": true,
+        "no_false_activation": true,
+        "note": true
+      },
+      "compliant_success": true,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 1,
+      "task_success": true
+    },
+    "trial": 1
+  },
+  {
+    "arm": "neither",
+    "case": "boundaries",
+    "cell": "codex-gpt-6-luna-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 287,
+    "objective": {
+      "checks": {
+        "correct_block": true,
+        "direct_calculation": false,
+        "no_false_activation": true,
+        "note": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  },
+  {
+    "arm": "neither",
+    "case": "boundaries",
+    "cell": "codex-gpt-oss-120b-medium",
+    "failure_attribution": [
+      "outcome_failure"
+    ],
+    "followups": [],
+    "index": 288,
+    "objective": {
+      "checks": {
+        "correct_block": false,
+        "direct_calculation": true,
+        "no_false_activation": true,
+        "note": true
+      },
+      "compliant_success": false,
+      "duplicate_attempts": 0,
+      "hard_failures": [],
+      "protocol": {
+        "records": 0,
+        "valid": 0
+      },
+      "source_searches": 0,
+      "task_success": false
+    },
+    "trial": 1
+  }
+]

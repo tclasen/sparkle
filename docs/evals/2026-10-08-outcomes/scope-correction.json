@@ -1,0 +1,8 @@
+{
+  "reason": "Restore previously requested one-trial screening; additional controls require 104 episodes.",
+  "original_plan_preserved": true,
+  "stopped_after_completed_episode": 19,
+  "runner_pid": 30658,
+  "no_child_processes_at_stop": true,
+  "at_utc": "2026-10-09T01:00:54Z"
+}

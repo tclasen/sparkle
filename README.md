@@ -37,3 +37,5 @@ Proposed skill changes use [paired usefulness evaluations](docs/EVALUATIONS.md) 
 The [initial 64-run screening](docs/evals/2026-10-08-screening/README.md) records objective outcomes for both skills and the pre-authored workflows. Its one-repeat results do not establish net benefit or a proven catalog.
 
 The [maintained evaluation runner](scripts/evals/README.md) adds tested outcome graders, resource-factorial and accepted/candidate comparisons, independent defect fixtures, scripted onboarding, fresh-session recovery, and private blind-review packets. Independent human usefulness ratings remain a separate evidence requirement.
+
+The [104-episode outcome screening](docs/evals/2026-10-08-outcomes/README.md) completed all four cells: 49 primary passes and 61 exploratory corrected passes. It preserves scoring errors, paired losses, incomplete native runs and resource costs. The implemented candidate remains unproven; neither net benefit nor catalog promotion is established.

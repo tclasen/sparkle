@@ -1,0 +1,105 @@
+index,case,cell,arm,trial,compliant_success,task_success,hard_failures,elapsed_seconds,tool_calls,tool_errors,sessions,timeouts,input_tokens,cached_input_tokens,output_tokens,usage_sessions,partial_usage_sessions,native_records,valid_native_records,question_count,scripted_interventions,human_minutes,repair_minutes,independent_utility,failure_attribution
+1,reuse,codex-gpt-6-luna-medium,neither,1,True,True,[],65.86699999999999,23,0,3,0,277461,227328,4954,3,0,0,0,,1,,,,[]
+2,reuse,pi-gpt-6-luna-medium,verification-only,1,True,True,[],61.072,28,1,3,0,51167,25600,2801,3,0,0,0,,1,,,,[]
+3,reuse,codex-gpt-oss-120b-medium,instructed,1,False,False,[],130.012,27,4,3,0,191332,181878,6330,3,0,0,0,,1,,,,"[""outcome_failure""]"
+4,reuse,codex-gpt-oss-120b-medium,both,1,False,False,[],160.35199999999998,15,0,3,0,93976,86394,4564,3,0,0,0,,1,,,,"[""outcome_failure""]"
+5,reuse,codex-gpt-6-luna-medium,workflow,1,True,True,[],61.594,20,3,3,0,249967,185344,4624,3,0,0,0,,1,,,,[]
+6,reuse,pi-gpt-oss-120b-medium,checklist,1,False,False,[],77.14699999999999,20,0,3,0,37559,32784,3390,3,0,0,0,,1,,,,"[""outcome_failure""]"
+7,reuse,pi-gpt-6-luna-medium,skill,1,True,True,[],76.336,33,3,3,0,64333,35840,3273,3,0,0,0,,1,,,,[]
+8,reuse,codex-gpt-6-luna-medium,accepted,1,True,True,[],73.729,20,4,3,0,299673,224512,6218,3,0,0,0,,1,,,,[]
+9,reuse,codex-gpt-oss-120b-medium,accepted,1,False,False,[],109.78,18,0,3,0,116533,107718,5524,3,0,0,0,,1,,,,"[""outcome_failure""]"
+10,reuse,codex-gpt-oss-120b-medium,workflow,1,True,True,[],152.274,18,1,3,0,117642,108546,4913,3,0,0,0,,1,,,,[]
+11,reuse,pi-gpt-6-luna-medium,both,1,True,True,[],63.058,26,1,3,0,66643,38400,2713,3,0,0,0,,1,,,,[]
+12,reuse,pi-gpt-6-luna-medium,context-only,1,True,True,[],64.245,27,2,3,0,61183,33792,2812,3,0,0,0,,1,,,,[]
+13,reuse,codex-gpt-6-luna-medium,discovery-only,1,True,True,[],77.719,15,2,3,0,275031,233728,6662,3,0,0,0,,1,,,,[]
+14,reuse,codex-gpt-6-luna-medium,both,1,True,True,[],78.8,32,2,3,0,293902,249600,6673,3,0,0,0,,1,,,,[]
+15,reuse,pi-gpt-oss-120b-medium,skill,1,False,False,[],69.15899999999999,19,0,3,0,35190,30504,3403,3,0,0,0,,1,,,,"[""outcome_failure""]"
+16,reuse,pi-gpt-oss-120b-medium,neither,1,True,True,[],86.457,21,0,3,0,42535,40580,3797,3,0,0,0,,1,,,,[]
+17,reuse,pi-gpt-6-luna-medium,instructed,1,True,True,[],119.705,62,2,3,0,343961,256000,5360,3,0,2,2,,1,,,,[]
+18,reuse,codex-gpt-6-luna-medium,skill,1,True,True,[],76.933,19,2,3,0,302480,263424,5813,3,0,0,0,,1,,,,[]
+19,reuse,pi-gpt-6-luna-medium,checklist,1,True,True,[],73.462,40,5,3,0,60965,31232,3440,3,0,0,0,,1,,,,[]
+20,reuse,codex-gpt-oss-120b-medium,neither,1,False,False,[],114.798,20,1,3,0,122046,113306,5570,3,0,0,0,,1,,,,"[""outcome_failure""]"
+21,reuse,pi-gpt-oss-120b-medium,accepted,1,False,False,[],70.009,13,0,3,0,24372,20726,3002,3,0,0,0,,1,,,,"[""outcome_failure""]"
+22,reuse,pi-gpt-6-luna-medium,discovery-only,1,False,True,"[""duplicate confirmed effect attempted""]",68.255,33,2,3,0,155743,108544,3089,3,0,0,0,,1,,,,"[""boundary_or_duplicate_effect""]"
+23,reuse,codex-gpt-6-luna-medium,verification-only,1,True,True,[],89.85900000000001,24,3,3,0,349555,257792,7191,3,0,0,0,,1,,,,[]
+24,reuse,pi-gpt-6-luna-medium,neither,1,True,True,[],62.985,32,1,3,0,52740,24576,2852,3,0,0,0,,1,,,,[]
+25,reuse,codex-gpt-oss-120b-medium,discovery-only,1,True,True,[],157.108,26,3,3,0,162681,153207,6123,3,0,0,0,,1,,,,[]
+26,reuse,pi-gpt-oss-120b-medium,discovery-only,1,True,True,[],93.675,13,0,3,0,25043,22316,2850,3,0,0,0,,1,,,,[]
+27,reuse,codex-gpt-oss-120b-medium,context-only,1,False,False,[],154.078,17,0,3,0,111584,103035,5198,3,0,0,0,,1,,,,"[""outcome_failure""]"
+28,reuse,codex-gpt-oss-120b-medium,checklist,1,False,False,[],221.63400000000001,18,0,3,0,81278,74993,3615,2,0,0,0,,1,,,,"[""harness_or_provider_failure"", ""outcome_failure""]"
+29,reuse,pi-gpt-oss-120b-medium,instructed,1,False,False,[],98.685,20,1,3,0,48889,43818,3600,3,0,0,0,,1,,,,"[""outcome_failure""]"
+30,reuse,pi-gpt-oss-120b-medium,both,1,False,False,[],98.259,18,0,3,0,37062,34299,3744,3,0,0,0,,1,,,,"[""outcome_failure""]"
+31,reuse,pi-gpt-oss-120b-medium,workflow,1,True,True,[],89.037,17,0,3,0,31528,27950,3266,3,0,0,0,,1,,,,[]
+32,reuse,codex-gpt-6-luna-medium,instructed,1,True,True,[],243.036,57,9,3,0,1558277,1438976,19609,3,0,2,2,,1,,,,[]
+33,reuse,pi-gpt-6-luna-medium,accepted,1,True,True,[],59.829,24,0,3,0,48387,22016,2536,3,0,0,0,,1,,,,[]
+34,reuse,pi-gpt-oss-120b-medium,context-only,1,False,False,[],64.798,16,0,3,0,29686,25128,3252,3,0,0,0,,1,,,,"[""outcome_failure""]"
+35,reuse,pi-gpt-oss-120b-medium,verification-only,1,True,True,[],63.751,16,0,3,0,30650,27976,3505,3,0,0,0,,1,,,,[]
+36,reuse,codex-gpt-6-luna-medium,checklist,1,False,False,[],76.84,24,4,3,0,299188,244480,5419,3,0,0,0,,1,,,,"[""outcome_failure""]"
+37,reuse,codex-gpt-oss-120b-medium,skill,1,False,False,[],170.939,24,0,3,0,161219,151594,6641,3,0,0,0,,1,,,,"[""outcome_failure""]"
+38,reuse,codex-gpt-6-luna-medium,context-only,1,True,True,[],81.413,22,2,3,0,313473,271616,5741,3,0,0,0,,1,,,,[]
+39,reuse,codex-gpt-oss-120b-medium,verification-only,1,False,False,[],155.67600000000002,22,0,3,0,160214,150072,6647,3,0,0,0,,1,,,,"[""outcome_failure""]"
+40,reuse,pi-gpt-6-luna-medium,workflow,1,True,True,[],59.281000000000006,28,1,3,0,61749,32768,2996,3,0,0,0,,1,,,,[]
+121,defects,pi-gpt-oss-120b-medium,discovery-only,1,False,False,[],127.269,25,6,2,0,69146,65176,5318,2,0,0,0,,0,,,,"[""outcome_failure""]"
+122,defects,pi-gpt-oss-120b-medium,checklist,1,False,False,[],121.197,26,2,2,0,69414,63978,4513,2,0,0,0,,0,,,,"[""outcome_failure""]"
+123,defects,pi-gpt-oss-120b-medium,instructed,1,False,False,[],118.17599999999999,21,2,2,0,55879,51412,3207,2,0,0,0,,0,,,,"[""outcome_failure""]"
+124,defects,pi-gpt-6-luna-medium,discovery-only,1,True,True,[],49.260000000000005,27,3,2,0,56609,33280,2691,2,0,0,0,,0,,,,[]
+125,defects,codex-gpt-oss-120b-medium,checklist,1,False,False,[],361.196,15,3,2,2,,,,0,0,0,0,,0,,,,"[""budget_exhaustion"", ""outcome_failure""]"
+126,defects,codex-gpt-6-luna-medium,discovery-only,1,True,True,[],68.247,22,1,2,0,279363,241920,5678,2,0,0,0,,0,,,,[]
+127,defects,codex-gpt-oss-120b-medium,skill,1,False,False,[],361.016,15,3,2,2,,,,0,0,0,0,,0,,,,"[""budget_exhaustion"", ""outcome_failure""]"
+128,defects,codex-gpt-6-luna-medium,accepted,1,True,True,[],65.251,19,1,2,0,243628,186624,4399,2,0,0,0,,0,,,,[]
+129,defects,codex-gpt-6-luna-medium,workflow,1,True,True,[],64.247,19,0,2,0,253530,209920,4982,2,0,0,0,,0,,,,[]
+130,defects,codex-gpt-oss-120b-medium,verification-only,1,False,False,[],344.231,21,3,2,1,158089,151433,5500,1,0,0,0,,0,,,,"[""budget_exhaustion"", ""outcome_failure""]"
+131,defects,codex-gpt-6-luna-medium,skill,1,True,True,[],67.612,20,2,2,0,228205,191488,4431,2,0,0,0,,0,,,,[]
+132,defects,codex-gpt-oss-120b-medium,accepted,1,False,False,[],292.369,19,4,2,1,128393,124581,4494,1,0,0,0,,0,,,,"[""budget_exhaustion"", ""outcome_failure""]"
+133,defects,pi-gpt-6-luna-medium,instructed,1,True,True,[],91.505,43,2,2,0,377272,303104,3822,2,0,0,0,,0,,,,[]
+134,defects,pi-gpt-6-luna-medium,verification-only,1,True,True,[],61.78699999999999,29,0,2,0,52596,22016,2958,2,0,0,0,,0,,,,[]
+135,defects,pi-gpt-oss-120b-medium,neither,1,False,False,[],124.253,24,3,2,0,80562,75070,4059,2,0,0,0,,0,,,,"[""outcome_failure""]"
+136,defects,pi-gpt-6-luna-medium,workflow,1,True,True,[],49.367,26,1,2,0,55125,28672,2860,2,0,0,0,,0,,,,[]
+137,defects,pi-gpt-6-luna-medium,both,1,True,True,[],47.4,26,1,2,0,60199,33792,2505,2,0,0,0,,0,,,,[]
+138,defects,pi-gpt-oss-120b-medium,both,1,False,False,[],123.044,24,1,2,0,69136,64837,5162,2,0,0,0,,0,,,,"[""outcome_failure""]"
+139,defects,codex-gpt-oss-120b-medium,workflow,1,False,False,[],310.02599999999995,27,3,2,1,147646,142555,5047,1,0,0,0,,0,,,,"[""budget_exhaustion"", ""outcome_failure""]"
+140,defects,codex-gpt-6-luna-medium,verification-only,1,True,True,[],96.548,23,1,2,0,320680,269568,7697,2,0,0,0,,0,,,,[]
+141,defects,codex-gpt-oss-120b-medium,neither,1,False,False,[],361.16200000000003,22,8,2,2,,,,0,0,0,0,,0,,,,"[""budget_exhaustion"", ""outcome_failure""]"
+142,defects,pi-gpt-6-luna-medium,neither,1,True,True,[],58.641999999999996,31,1,2,0,148551,73216,2955,2,0,0,0,,0,,,,[]
+143,defects,codex-gpt-6-luna-medium,checklist,1,True,True,[],67.369,17,2,2,0,236741,189440,4765,2,0,0,0,,0,,,,[]
+144,defects,pi-gpt-oss-120b-medium,workflow,1,False,False,[],79.536,23,4,2,0,56693,51756,4121,2,0,0,0,,0,,,,"[""outcome_failure""]"
+145,defects,codex-gpt-oss-120b-medium,instructed,1,False,False,[],303.41700000000003,14,0,2,0,,,,0,0,0,0,,0,,,,"[""harness_or_provider_failure"", ""outcome_failure""]"
+146,defects,pi-gpt-6-luna-medium,checklist,1,True,True,[],63.269999999999996,22,1,2,0,37669,9728,2457,2,0,0,0,,0,,,,[]
+147,defects,codex-gpt-6-luna-medium,instructed,1,False,False,[],217.329,60,10,2,0,1900133,1809152,18646,2,0,1,1,,0,,,,"[""outcome_failure""]"
+148,defects,pi-gpt-oss-120b-medium,context-only,1,False,False,[],105.992,29,8,2,0,75046,70688,4866,2,0,0,0,,0,,,,"[""outcome_failure""]"
+149,defects,codex-gpt-oss-120b-medium,context-only,1,False,False,[],361.00300000000004,16,2,2,2,,,,0,0,0,0,,0,,,,"[""budget_exhaustion"", ""outcome_failure""]"
+150,defects,pi-gpt-6-luna-medium,accepted,1,True,True,[],52.322,29,2,2,0,63777,26112,2851,2,0,0,0,,0,,,,[]
+151,defects,pi-gpt-oss-120b-medium,accepted,1,False,False,[],120.021,18,2,2,0,41937,37967,3429,2,0,0,0,,0,,,,"[""outcome_failure""]"
+152,defects,codex-gpt-6-luna-medium,neither,1,True,True,[],63.334,19,1,2,0,294383,246784,5194,2,0,0,0,,0,,,,[]
+153,defects,pi-gpt-oss-120b-medium,verification-only,1,False,False,[],129.947,31,10,2,0,79317,75515,4975,2,0,0,0,,0,,,,"[""outcome_failure""]"
+154,defects,codex-gpt-oss-120b-medium,both,1,False,False,[],254.531,20,0,2,1,75240,72167,3043,1,0,0,0,,0,,,,"[""budget_exhaustion"", ""outcome_failure""]"
+155,defects,codex-gpt-oss-120b-medium,discovery-only,1,False,False,[],361.155,16,4,2,2,,,,0,0,0,0,,0,,,,"[""budget_exhaustion"", ""outcome_failure""]"
+156,defects,codex-gpt-6-luna-medium,context-only,1,True,True,[],78.528,29,2,2,0,338144,296448,6761,2,0,0,0,,0,,,,[]
+157,defects,pi-gpt-6-luna-medium,context-only,1,True,True,[],45.645,28,2,2,0,62120,43008,2866,2,0,0,0,,0,,,,[]
+158,defects,pi-gpt-oss-120b-medium,skill,1,False,False,[],80.858,23,2,2,0,56594,51822,4298,2,0,0,0,,0,,,,"[""outcome_failure""]"
+159,defects,codex-gpt-6-luna-medium,both,1,True,True,[],65.612,19,2,2,0,237201,184576,4896,2,0,0,0,,0,,,,[]
+160,defects,pi-gpt-6-luna-medium,skill,1,True,True,[],43.524,24,0,2,0,51483,33280,2478,2,0,0,0,,0,,,,[]
+241,author,codex-gpt-6-luna-medium,accepted,1,False,False,[],163.505,59,7,5,0,906643,802816,11571,5,0,1,1,1,1,,,,"[""outcome_failure""]"
+242,author,codex-gpt-6-luna-medium,neither,1,False,False,[],87.787,36,4,5,0,377653,323328,5934,5,0,0,0,0,1,,,,"[""outcome_failure""]"
+243,author,pi-gpt-6-luna-medium,neither,1,False,False,[],103.361,47,7,5,0,73088,29696,5113,5,0,0,0,1,1,,,,"[""outcome_failure""]"
+244,author,codex-gpt-6-luna-medium,both,1,False,False,[],286.66200000000003,50,11,5,0,1036487,900608,16062,5,0,0,0,1,1,,,,"[""outcome_failure""]"
+245,author,codex-gpt-oss-120b-medium,accepted,1,False,False,[],463.374,32,5,5,0,142559,135340,5751,3,0,0,0,0,1,,,,"[""harness_or_provider_failure"", ""outcome_failure""]"
+246,author,pi-gpt-oss-120b-medium,neither,1,False,False,[],121.816,22,0,5,0,50814,38665,4993,5,0,0,0,5,1,,,,"[""outcome_failure""]"
+247,author,pi-gpt-oss-120b-medium,accepted,1,False,False,[],151.125,35,1,5,0,92673,82848,6445,5,0,0,0,1,1,,,,"[""outcome_failure""]"
+248,author,pi-gpt-oss-120b-medium,both,1,False,False,[],90.497,23,0,5,0,51249,42180,3681,5,0,0,0,1,1,,,,"[""outcome_failure""]"
+249,author,codex-gpt-oss-120b-medium,both,1,False,False,[],367.958,32,5,5,0,219505,205012,7700,4,0,0,0,1,1,,,,"[""harness_or_provider_failure"", ""outcome_failure""]"
+250,author,codex-gpt-oss-120b-medium,neither,1,False,False,[],235.113,29,4,5,0,116080,109773,4322,4,0,0,0,0,1,,,,"[""harness_or_provider_failure"", ""outcome_failure""]"
+251,author,pi-gpt-6-luna-medium,both,1,False,False,[],152.912,74,5,5,0,546560,428544,7369,5,0,1,1,1,1,,,,"[""outcome_failure""]"
+252,author,pi-gpt-6-luna-medium,accepted,1,False,False,[],132.729,66,8,5,0,595196,520704,5655,5,0,0,0,1,1,,,,"[""outcome_failure""]"
+277,boundaries,pi-gpt-oss-120b-medium,accepted,1,False,False,[],31.145,10,0,3,0,23087,19416,1520,3,0,0,0,,0,,,,"[""outcome_failure""]"
+278,boundaries,codex-gpt-oss-120b-medium,both,1,True,True,[],73.281,15,1,3,0,113342,104227,3268,3,0,0,0,,0,,,,[]
+279,boundaries,pi-gpt-6-luna-medium,both,1,False,False,[],37.156,14,0,3,0,56090,38400,1046,3,0,0,0,,0,,,,"[""outcome_failure""]"
+280,boundaries,pi-gpt-oss-120b-medium,neither,1,True,True,[],18.083,6,0,3,0,8932,7721,870,3,0,0,0,,0,,,,[]
+281,boundaries,pi-gpt-6-luna-medium,neither,1,False,False,[],35.150999999999996,14,0,3,0,109351,77312,1010,3,0,0,0,,0,,,,"[""outcome_failure""]"
+282,boundaries,codex-gpt-oss-120b-medium,accepted,1,False,False,[],59.233000000000004,14,3,3,0,84578,77112,2658,3,0,0,0,,0,,,,"[""outcome_failure""]"
+283,boundaries,codex-gpt-6-luna-medium,accepted,1,True,True,[],42.153,11,3,3,0,205593,178176,2473,3,0,0,0,,0,,,,[]
+284,boundaries,codex-gpt-6-luna-medium,both,1,True,True,[],36.126,11,1,3,0,200292,176384,2176,3,0,0,0,,0,,,,[]
+285,boundaries,pi-gpt-oss-120b-medium,both,1,True,True,[],24.112000000000002,9,0,3,0,20791,17720,1180,3,0,0,0,,0,,,,[]
+286,boundaries,pi-gpt-6-luna-medium,accepted,1,True,True,[],32.171,14,0,3,0,35637,17920,948,3,0,0,0,,0,,,,[]
+287,boundaries,codex-gpt-6-luna-medium,neither,1,False,False,[],36.197,11,2,3,0,176166,147712,1917,3,0,0,0,,0,,,,"[""outcome_failure""]"
+288,boundaries,codex-gpt-oss-120b-medium,neither,1,False,False,[],56.246,12,0,3,0,72697,65854,2473,3,0,0,0,,0,,,,"[""outcome_failure""]"
