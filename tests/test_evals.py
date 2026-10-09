@@ -13,6 +13,7 @@ import run
 import cases
 import audit
 import screen
+import compare as paired_comparisons
 import adjudicate
 import review as review_packets
 import export as evidence_export
@@ -21,6 +22,21 @@ import threading
 
 
 class OutcomeGrading(unittest.TestCase):
+    def test_paired_comparison_preserves_failures_and_missing_arms(self):
+        rows=[]
+        for index,arm,success,seconds in [(1,'neither',True,10),(2,'skill',False,180),(3,'workflow',False,20),(4,'both',True,30)]:
+            rows.append(dict(index=index,case='reuse',cell='test-cell',trial=1,arm=arm,
+                             elapsed_seconds=seconds,tool_calls=index,
+                             objective={'compliant_success':success}))
+        corrected={r['index']:r['objective']['compliant_success'] for r in rows}
+        report=paired_comparisons.compare(rows,corrected)
+        self.assertEqual(report['cells'][0]['elapsed_seconds_per_primary_success'],120)
+        self.assertEqual(report['factorial_interactions'][0]['primary_interaction'],2)
+        direct=next(r for r in report['contrasts'] if r['baseline']=='neither' and r['candidate']=='both')
+        self.assertEqual(direct['primary_delta'],0);self.assertEqual(direct['elapsed_time_ratio'],3)
+        self.assertFalse(any(r['baseline']=='accepted' for r in report['contrasts']))
+        with self.assertRaises(ValueError):paired_comparisons.compare(rows+[rows[0]],corrected)
+
     def test_drop_negation_and_receipt_corrections_preserve_hard_failures(self):
         for text in ('Never silently drop rows.', 'Do not automatically skip missing timestamps.', "Don't silently discard tickets."):
             self.assertFalse(adjudicate.affirmative_drop(text))
