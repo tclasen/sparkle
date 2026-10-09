@@ -11,6 +11,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts/evals'))
 import oracle
 import run
 import cases
+import export as evidence_export
+import tarfile
 import threading
 
 
@@ -120,6 +122,28 @@ class EvaluationRuntime(unittest.TestCase):
                 return all(oracle.research(data,source,{'budget':budget,'region':region,'retention_days':7}).values())
             self.assertTrue(expected('EU',100));self.assertTrue(expected('US',130))
         self.assertNotEqual(cases.files('defects',1)['review/mean.py'],cases.files('defects',2)['review/mean.py'])
+
+
+class EvidenceExport(unittest.TestCase):
+    def test_export_excludes_authentication_caches_and_symlinks(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)/'batch';root.mkdir();frozen=root/'frozen/evaluator';frozen.mkdir(parents=True)
+            (frozen/'run.py').write_bytes(Path(run.__file__).read_bytes())
+            plan={'frozen_hashes':run.hashes(root/'frozen')}
+            run.save(root/'plan.json',plan);(root/'plan.sha256').write_text(oracle.digest(root/'plan.json'))
+            run.save(root/'summary.json',{})
+            (root/'pi-agent').mkdir();(root/'pi-agent/auth.json').write_text('FAKE_SECRET')
+            (root/'cache-template').mkdir();(root/'cache-template/private.txt').write_text('FAKE_CACHE')
+            work=root/'runs/test/workspace';work.mkdir(parents=True)
+            (work/'link').symlink_to(root/'pi-agent/auth.json')
+            (work/'safe.txt').write_text('synthetic observed evidence')
+            archive=Path(d)/'evidence.tar.gz';output=Path(d)/'report'
+            evidence_export.export(root,output,archive)
+            with tarfile.open(archive) as tar:
+                names=tar.getnames()
+                self.assertIn('runs/test/workspace/safe.txt',names)
+                self.assertFalse(any('auth.json' in n or 'cache-template' in n or n.endswith('/link') for n in names))
+            self.assertTrue(json.loads((output/'evidence-integrity.json').read_text())['all_members_verified'])
 
 
 if __name__=='__main__':unittest.main()
