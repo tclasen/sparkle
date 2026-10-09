@@ -1,0 +1,25 @@
+# Local evaluation runner
+
+This contributor tool runs native Codex CLI and Pi serially with fresh sessions, isolated synthetic workspaces, tested semantic graders, and a separate mock receipt service. It is not an installed skill or an external skill dependency. macOS is the implemented execution adapter; other operating systems fail closed until their adapter is validated. It does not make all four configurations Docker sandboxes.
+
+Run grader calibration first:
+
+```sh
+python3 tests/test_evals.py
+python3 scripts/evals/run.py prepare /private/tmp/sparkle-eval-v2 --baseline ACCEPTED_COMMIT
+python3 scripts/evals/run.py preflight /private/tmp/sparkle-eval-v2
+python3 scripts/evals/run.py run /private/tmp/sparkle-eval-v2
+python3 scripts/evals/run.py summarize /private/tmp/sparkle-eval-v2
+```
+
+Replace `ACCEPTED_COMMIT` with the accepted source revision. Commit the evaluator and candidate before preparing. The default native executable paths match the recorded Mac setup; use `--codex`, `--pi`, `--pi-tool-entry`, and `--pi-auth` for another installation. Authentication is read by the native harness, never copied into the plan or report. The Pi auth symlink and its entire configuration directory must be excluded from evidence exports. Model IDs and Medium reasoning are pinned in the runner; subscription API keys are removed from child environments.
+
+Preparation freezes both source revisions, evaluator code, versions, budgets, inputs, trial schedule, and hashes. Later commands verify the frozen bytes. Completed episodes are never rerun. A partial episode stops execution until its uncertain effects are inspected; changing a plan requires a new output directory. Built-in provider reconnects remain visible in native traces. Three repeats are the default. At that default the suite has 288 episodes and 792 native sessions: 96 full resource-factorial episodes, 144 accepted/checklist/instructed/individual-change comparisons, and 48 authoring/end-to-end and activation/catalog/boundary episodes. Every arm uses the same per-stage budget, fixtures, scripted information, and ordinary-note permissions. Explicit mechanism instructions and checklists are separate declared diagnostic arms.
+
+Reuse evaluates current sources against an obsolete archive, three-vendor comparison, an injected uncertain confirmed effect, a fresh-session receipt check, and a new region/budget requiring a distinct comparison. Defect cases vary the hidden review fault across trials and evaluate finite-number implementation independently. Authoring asks for an unresolved policy, responds only when asked, then authorizes local publication and execution. Boundary cases combine an ineligible one-off calculation, an eligible minimal catalog workflow, and required-capability blocking. Source fixtures and outcomes are synthetic. The held-out tasks differ from the original screening; do not compare aggregate scores across the two batches as if the populations were identical.
+
+Codex uses a custom filesystem permission profile, disables live search, removes shell secrets, disables discovered global skills, and prevents tool access outside the workspace except required runtimes. Pi retains native tool schemas through a repository-owned instrumentation extension; direct file tools resolve symlinks and enforce workspace/protected paths, and native bash executes under macOS Seatbelt with no network except the episode's mock Unix socket. This extension is evaluation infrastructure, not a skill. Protected resources and input hashes are rechecked after execution. Runtime directories remain readable; global skill descriptions may still be exposed by Codex discovery, and trace-derived safety checks do not prove the absence of every conceivable violation. Preflight probes establish the actual enforced boundaries and reveal configuration failures before interpreting product outcomes.
+
+Primary success requires all case-specific outcome checks with no observed hard violation. Missing usage is unavailable; interrupted Pi message usage is partial. Read rates, native-record validity, tool errors, and protocol activity are diagnostics. Summary contrasts remain per case/cell, paired by trial. No confidence interval is reported from this tiny task population. The full candidate bundles changes; three additional arms apply only discovery wording, only focused-context wording, or only workflow verification/recovery changes to the accepted baseline. Report those contrasts separately, including interactions that individual arms cannot explain.
+
+Blind artifact packets and a private mapping are generated for independent review. Content can reveal implementation details; reviewers should report any broken blinding. Human effort, repair time, and subjective usefulness remain unavailable until someone independently measures them. Record reviewer identity, task rubric, rationale and disagreements. Do not fill those fields from model self-assessment. Reports must state missing cells, timeouts, provider failures, scorer limitations, and actual observation coverage. Catalog promotion requires broader outcome evidence than this suite alone.

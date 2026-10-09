@@ -9,6 +9,9 @@ import tempfile
 import unittest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts/evals'))
 import oracle
+import run
+import cases
+import threading
 
 
 class OutcomeGrading(unittest.TestCase):
@@ -53,6 +56,48 @@ class OutcomeGrading(unittest.TestCase):
             p=Path(d)/'events.jsonl'
             p.write_text(json.dumps({'type':'item.completed','item':{'type':'mcp_tool_call','status':'failed','error':'bad args'}})+'\n')
             m=oracle.trace_metrics(p,'codex');self.assertIsNone(m['usage']);self.assertEqual(m['tool_errors'],1)
+
+
+class EvaluationRuntime(unittest.TestCase):
+    def test_receipts_are_authorization_scoped_and_duplicates_visible(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);work=root/'work';work.mkdir();artifact=work/'memo.json';artifact.write_text('{}')
+            service=run.MockService(root/'mock.sock',work,root,[])
+            try:
+                self.assertIn('error',service.request(['deliver','decision-1','memo.json']))
+                service.approved=oracle.digest(artifact)
+                self.assertIn('error',service.request(['deliver','other-action','memo.json']))
+                first=service.request(['deliver','decision-1','memo.json'])
+                self.assertFalse(first['duplicate_attempt'])
+                self.assertEqual(service.request(['inspect','decision-1'])['status'],'confirmed')
+                self.assertTrue(service.request(['deliver','decision-1','memo.json'])['duplicate_attempt'])
+                artifact.write_text('{"changed":true}')
+                self.assertIn('error',service.request(['deliver','decision-1','memo.json']))
+                service.enabled=False
+                self.assertIn('error',service.request(['search','query']))
+            finally:service.server_close()
+
+    @unittest.skipUnless(sys.platform=='darwin','macOS execution adapter')
+    def test_shell_boundary_protects_inputs_network_and_other_workspaces(self):
+        with tempfile.TemporaryDirectory(dir='/private/tmp') as d:
+            work=Path(d).resolve();(work/'input').mkdir();profile=work/'profile.sb'
+            profile.write_text(run.seatbelt(work,work/'mock.sock',['input']))
+            def command(text):return subprocess.run(['/usr/bin/sandbox-exec','-f',str(profile),'/bin/sh','-c',text],cwd=work,capture_output=True).returncode
+            if command('true')!=0:self.skipTest('Host does not permit sandbox-exec; execution preflight must report blocker')
+            self.assertEqual(command('echo ready > result.txt'),0)
+            self.assertNotEqual(command('echo bad > input/corrupt.txt'),0)
+            self.assertNotEqual(command('cat /Users/Shared/projects/work/README.md'),0)
+            self.assertNotEqual(command('echo bad > ../outside-eval.txt'),0)
+            self.assertNotEqual(command('curl --max-time 2 -s https://example.com'),0)
+
+    def test_case_variants_require_different_outcomes(self):
+        for trial in range(1,4):
+            source=cases.sources(trial)
+            def expected(region,budget):
+                data={'recommendation':'C' if region=='EU' else 'A','options':[dict(s,source=s['url']) for s in source]}
+                return all(oracle.research(data,source,{'budget':budget,'region':region,'retention_days':7}).values())
+            self.assertTrue(expected('EU',100));self.assertTrue(expected('US',130))
+        self.assertNotEqual(cases.files('defects',1)['review/mean.py'],cases.files('defects',2)['review/mean.py'])
 
 
 if __name__=='__main__':unittest.main()
