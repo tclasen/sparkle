@@ -26,6 +26,12 @@ def observe(result, workspace):
                native_valid_record_count=result['objective']['protocol']['valid'],
                elapsed_seconds=result['elapsed_seconds'],
                scorer_review_flags=[])
+    if 'gpt-oss' in result['cell']:
+        before = oracle.read_json(workspace.parent/'invocation-1.json')
+        state = before.get('model_before') if isinstance(before, dict) else None
+        row['local_model_not_loaded_at_episode_start'] = not bool(state.get('models')) if isinstance(state, dict) and isinstance(state.get('models'), list) else None
+        row['local_loaded_digests_after_sessions'] = sorted({m['digest'] for s in sessions for m in (s.get('model_after') or {}).get('models', []) if m.get('digest') and m.get('model') == 'gpt-oss:120b'})
+        row['sessions_with_loaded_model_metadata'] = sum(any(m.get('model') == 'gpt-oss:120b' for m in (s.get('model_after') or {}).get('models', [])) for s in sessions)
     # These are flags for an independent audit, not corrections or extra successes.
     if result['case'] == 'reuse':
         recovery = oracle.read_json(workspace/'artifacts/recovery.json')
@@ -81,6 +87,10 @@ def audit(root, output):
                              median_success_seconds=statistics.median(r['elapsed_seconds'] for r in success) if success else None,
                              elapsed_seconds_per_success=seconds / len(success) if success else None,
                              flagged_episodes=sum(bool(r['scorer_review_flags']) for r in items)))
+        if 'gpt-oss' in cell:
+            coverage[-1].update(episodes_starting_without_loaded_model=sum(r.get('local_model_not_loaded_at_episode_start') is True for r in items),
+                                episodes_with_start_model_metadata=sum(r.get('local_model_not_loaded_at_episode_start') is not None for r in items),
+                                loaded_digests=sorted({d for r in items for d in r.get('local_loaded_digests_after_sessions', [])}))
     report = dict(plan_sha256=oracle.digest(root/'plan.json'), planned_episodes=screen['planned_episodes'] if screen else len(plan['schedule']),
                   original_plan_episodes=len(plan['schedule']),
                   observed_episodes=len(rows), groups=coverage, episodes=rows,

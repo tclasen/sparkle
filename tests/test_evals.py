@@ -138,7 +138,7 @@ class EvaluationRuntime(unittest.TestCase):
 class EvidenceExport(unittest.TestCase):
     def test_supplementary_audit_preserves_failures_and_missing_usage(self):
         with tempfile.TemporaryDirectory() as d:
-            root=Path(d);(root/'artifacts').mkdir()
+            root=Path(d)/'workspace';(root/'artifacts').mkdir(parents=True)
             run.save(root/'artifacts/percentage.json',{'response_percentage':71.11})
             result={'index':1,'case':'boundaries','cell':'test','arm':'both','trial':1,
                     'sessions':[{'usage':None,'exit_code':1,'stop_reason':None}],
@@ -153,6 +153,15 @@ class EvidenceExport(unittest.TestCase):
             result['objective']['checks']={'asked_needed_question':False,'bounded_review':True,'local_only':True}
             self.assertTrue(audit.observe(result,root)['needed_answer_actually_provided'])
             self.assertFalse(audit.observe(result,root)['primary_success'])
+            result['cell']='pi-gpt-oss-120b-medium'
+            row=audit.observe(result,root)
+            self.assertIsNone(row['local_model_not_loaded_at_episode_start'])
+            self.assertEqual(row['local_loaded_digests_after_sessions'],[])
+            run.save(root.parent/'invocation-1.json',{'model_before':{'models':[]}})
+            result['sessions'][0]['model_after']={'models':[{'model':'gpt-oss:120b','digest':'observed-weights'}]}
+            row=audit.observe(result,root)
+            self.assertTrue(row['local_model_not_loaded_at_episode_start'])
+            self.assertEqual(row['local_loaded_digests_after_sessions'],['observed-weights'])
 
     def test_export_excludes_authentication_caches_and_symlinks(self):
         with tempfile.TemporaryDirectory() as d:
