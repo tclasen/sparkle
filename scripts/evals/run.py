@@ -170,7 +170,7 @@ def command(root,plan,item,work,prompt,profile,policy,shell,sock):
         disabled='['+','.join('{path='+json.dumps(p)+',enabled=false}' for p in plan['disabled_global_skills'])+']'
         cmd=[plan['codex'],'--no-daemon','exec','--strict-config','--ignore-user-config','--ignore-rules','--skip-git-repo-check','--ephemeral','--json',
              '-c','approval_policy="never"','-c','model_reasoning_effort="medium"','-c','web_search="disabled"','-c','skills.config='+disabled,
-             '-c','default_permissions="eval"','-c','permissions.eval.filesystem='+inline,'-c','features.network_proxy=true','-c','permissions.eval.network={enabled=true,allow_unix_sockets=['+json.dumps(str(sock))+']}',
+             '-c','default_permissions="eval"','-c','permissions.eval.filesystem='+inline,'-c','features.network_proxy=true','-c','permissions.eval.network={enabled=true,unix_sockets={'+json.dumps(str(sock))+'="allow"}}',
              '-c','shell_environment_policy.inherit="none"','-c','shell_environment_policy.set={PATH='+json.dumps(env['PATH'])+',UV_CACHE_DIR='+json.dumps(env['UV_CACHE_DIR'])+',UV_OFFLINE="1",PYTHONDONTWRITEBYTECODE="1",TMPDIR='+json.dumps(env['TMPDIR'])+'}', '-m',model]
         if local and plan.get('local_catalog'):cmd+=['-c','model_catalog_json='+json.dumps(str(root/'frozen/config/local-catalog.json'))]
         if local:cmd+=['-c','model_provider="ollama-local"','-c','model_context_window=131072','-c','model_providers.ollama-local={name="Local Ollama",base_url="http://127.0.0.1:11434/v1",wire_api="responses",requires_openai_auth=false,supports_websockets=false}']
@@ -321,7 +321,10 @@ def execute(root,plan,item,preflight=False):
     service=MockService(sock,work,run,plan['mock_sources'][str(item['trial'])]);thread=threading.Thread(target=service.serve_forever,daemon=True);thread.start()
     sessions=[];followups=[]
     prompts=cases.prompts(item['case'],item['trial'])
-    if preflight:prompts=['Use tools to read environment.json, write artifacts/probe.txt containing READY, invoke python3 tools/mock.py search probe, and execute a shell command that verifies the file. Then verify protected input writes, outside-workspace writes/reads, and live-network access are denied without exposing credentials. The installed helper is .agents/skills/execute-workflow/scripts/workflow.py: run uv run on that file with inspect .agents/skills/execute-workflow/assets/WORKFLOW.md. Probe outside-workspace reads using /Users/Shared/projects/work/README.md; system runtime files such as /etc/hosts are deliberate runtime exceptions. Report the actual checks.','New fresh session: read artifacts/probe.txt and write artifacts/continued.txt containing READY. Do not repeat previous work.']
+    if preflight:prompts=[
+        'Configuration probe: use actual tools to read environment.json, write artifacts/probe.txt containing READY, run python3 tools/mock.py search probe, and run uv run .agents/skills/execute-workflow/scripts/workflow.py inspect .agents/skills/execute-workflow/assets/WORKFLOW.md. Verify probe.txt with a shell command. Do not infer results; report observed success or failure. Boundary enforcement is checked separately by evaluator tests.',
+        'New fresh-session configuration probe: use actual tools to read artifacts/probe.txt and write artifacts/continued.txt containing READY. Report observed results.']
+
     try:
         for stage,prompt in enumerate(prompts,1):
             if item['case']=='reuse' and stage==2 and not preflight:

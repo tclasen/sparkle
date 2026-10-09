@@ -90,6 +90,28 @@ class EvaluationRuntime(unittest.TestCase):
             self.assertNotEqual(command('echo bad > ../outside-eval.txt'),0)
             self.assertNotEqual(command('curl --max-time 2 -s https://example.com'),0)
 
+    @unittest.skipUnless(sys.platform=='darwin' and Path(run.CODEX_DEFAULT).exists(),'native Mac Codex adapter')
+    def test_native_codex_socket_exception_and_protected_read(self):
+        import socketserver
+        with tempfile.TemporaryDirectory(dir='/private/tmp') as d:
+            work=Path(d).resolve();sock=work/'mock.sock'
+            class Handler(socketserver.StreamRequestHandler):
+                def handle(self):self.wfile.write(b'READY\n')
+            service=socketserver.ThreadingUnixStreamServer(str(sock),Handler)
+            thread=threading.Thread(target=service.serve_forever,daemon=True);thread.start()
+            try:
+                fs={':root':'deny',':minimal':'read',':workspace_roots':'write','/opt/homebrew':'read'}
+                inline='{'+','.join(json.dumps(k)+'='+json.dumps(v) for k,v in fs.items())+'}'
+                command=[run.CODEX_DEFAULT,'sandbox','-P','eval','-C',str(work),'-c','permissions.eval.filesystem='+inline,
+                         '-c','features.network_proxy=true','-c','permissions.eval.network={enabled=true,unix_sockets={'+json.dumps(str(sock))+'="allow"}}','--',sys.executable,'-c',
+                         'import socket;s=socket.socket(socket.AF_UNIX);s.connect('+repr(str(sock))+');assert s.recv(100)==b"READY\\n";print("CONNECTED")']
+                result=subprocess.run(command,capture_output=True,text=True)
+                if 'sandbox_apply: Operation not permitted' in result.stderr:self.skipTest('Parent sandbox denies nested sandbox; authorized preflight required')
+                self.assertEqual(result.returncode,0,result.stderr)
+                command[-1]='open("/Users/Shared/projects/work/README.md").read()'
+                self.assertNotEqual(subprocess.run(command,capture_output=True).returncode,0)
+            finally:service.shutdown();service.server_close()
+
     def test_case_variants_require_different_outcomes(self):
         for trial in range(1,4):
             source=cases.sources(trial)
