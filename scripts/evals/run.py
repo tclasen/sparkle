@@ -91,7 +91,7 @@ def prepare(args):
     (pi/'auth.json').symlink_to(Path(args.pi_auth).resolve())
     # Disable every discovered global plugin/skill entry; tool reads are OS/path confined.
     home = Path(os.environ.get('CODEX_HOME',str(Path.home()/'.codex')))
-    disabled = sorted({str(p.parent) for base in [home,Path.home()/'.codex',Path.home()/'.agents'] if base.exists() for p in base.rglob('SKILL.md')})
+    disabled = sorted({value for base in [home,Path.home()/'.codex',Path.home()/'.agents'] if base.exists() for p in base.rglob('SKILL.md') for value in (str(p),str(p.parent))})
     schedule=[]
     for case in ['reuse','defects','author','boundaries']:
         arms=cases.CORE_ARMS+cases.DIAGNOSTIC_ARMS if case in ('reuse','defects') else ('neither','accepted','both')
@@ -169,6 +169,7 @@ def command(root,plan,item,work,prompt,profile,policy,shell,sock):
         inline='{'+','.join(json.dumps(k)+'='+json.dumps(v) for k,v in fs.items())+'}'
         disabled='['+','.join('{path='+json.dumps(p)+',enabled=false}' for p in plan['disabled_global_skills'])+']'
         cmd=[plan['codex'],'--no-daemon','exec','--strict-config','--ignore-user-config','--ignore-rules','--skip-git-repo-check','--ephemeral','--json',
+             '--disable','apps','--disable','plugins','--disable','multi_agent','--disable','hooks','--disable','memories',
              '-c','approval_policy="never"','-c','model_reasoning_effort="medium"','-c','web_search="disabled"','-c','skills.config='+disabled,
              '-c','default_permissions="eval"','-c','permissions.eval.filesystem='+inline,'-c','features.network_proxy=true','-c','permissions.eval.network={enabled=true,unix_sockets={'+json.dumps(str(sock))+'="allow"}}',
              '-c','shell_environment_policy.inherit="none"','-c','shell_environment_policy.set={PATH='+json.dumps(env['PATH'])+',UV_CACHE_DIR='+json.dumps(env['UV_CACHE_DIR'])+',UV_OFFLINE="1",PYTHONDONTWRITEBYTECODE="1",TMPDIR='+json.dumps(env['TMPDIR'])+'}', '-m',model]
