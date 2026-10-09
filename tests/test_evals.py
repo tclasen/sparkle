@@ -11,6 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts/evals'))
 import oracle
 import run
 import cases
+import audit
 import export as evidence_export
 import tarfile
 import threading
@@ -125,6 +126,24 @@ class EvaluationRuntime(unittest.TestCase):
 
 
 class EvidenceExport(unittest.TestCase):
+    def test_supplementary_audit_preserves_failures_and_missing_usage(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);(root/'artifacts').mkdir()
+            run.save(root/'artifacts/percentage.json',{'response_percentage':71.11})
+            result={'index':1,'case':'boundaries','cell':'test','arm':'both','trial':1,
+                    'sessions':[{'usage':None,'exit_code':1,'stop_reason':None}],
+                    'elapsed_seconds':2,'objective':{'compliant_success':False,'checks':{'direct_calculation':False},'protocol':{'records':0,'valid':0}}}
+            row=audit.observe(result,root)
+            self.assertFalse(row['primary_success'])
+            self.assertEqual(row['sessions_with_usage'],0)
+            self.assertEqual(row['nonzero_exit_sessions'],1)
+            self.assertGreater(row['percentage_absolute_error_points'],0)
+            self.assertTrue(row['scorer_review_flags'])
+            result.update(case='author',followups=[{'type':'scripted_answer','provided':True}])
+            result['objective']['checks']={'asked_needed_question':False,'bounded_review':True,'local_only':True}
+            self.assertTrue(audit.observe(result,root)['needed_answer_actually_provided'])
+            self.assertFalse(audit.observe(result,root)['primary_success'])
+
     def test_export_excludes_authentication_caches_and_symlinks(self):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d)/'batch';root.mkdir();frozen=root/'frozen/evaluator';frozen.mkdir(parents=True)
