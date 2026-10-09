@@ -36,7 +36,7 @@ For this example, the authoring interview selected: use repository instructions 
 
 ## inspect-code — Inspect correctness
 
-Task: Read the repository's instructions and changed code.
+Task: Read the repository's instructions, expected behavior, and changed code. Independently derive counterexamples for boundary values, empty inputs, invalid inputs, and interacting conditions; do not rely only on examples supplied in the request or existing passing tests. Run reproducible checks for suspected defects and record expected versus observed behavior. A plausible concern is not a verified defect. Review is read-only unless the user explicitly authorized a repair.
 
 Inputs: Frozen run inputs and predecessor results.
 Outputs: Local artifacts and a structured result with evidence and handoff.
@@ -44,7 +44,7 @@ Acceptance: record correctness/security concerns and whether each is resolved. E
 
 ## run-tests — Run focused checks
 
-Task: Run meaningful focused tests plus required repository checks. This may run independently of inspect-code only when no overlapping mutation occurs; use an isolated test work area if necessary.
+Task: Run meaningful focused tests plus required repository checks. Assess whether the tests would fail for a plausible incorrect implementation. Add independent checks when authorized, or run temporary checks without modifying review code. Preserve failing results and unresolved defects instead of reporting success from a passing smoke test. This may run independently of inspect-code only when no overlapping mutation occurs; use an isolated test work area if necessary.
 
 Inputs: Frozen run inputs and predecessor results.
 Outputs: Local artifacts and a structured result with evidence and handoff.

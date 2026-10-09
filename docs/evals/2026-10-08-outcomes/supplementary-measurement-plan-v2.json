@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "declared_utc": "2026-10-09T01:44:24Z",
+  "source_commit": "c9395e8e8d96ad67c03e3fe2435e4e165a00fdda",
+  "code_sha256": "08cecee2216a81ea37939373ef76eac8d1b55f9fa9ea5d1563f1a1d0c571ec2d",
+  "observed_episodes_at_declaration": 42,
+  "observed_cases_at_declaration": [
+    "defects",
+    "reuse"
+  ],
+  "observed_defect_episodes_at_declaration": 2,
+  "policy": "Add top-level findings-array normalization after the first defect output revealed an outer-object ambiguity. Keep version-1 declaration/code, original scores, and hard failures. Apply equally to every condition."
+}

@@ -9,6 +9,11 @@ compatibility: Requires a filesystem and uv with Python 3.11 or later. Delegatio
 ## Activation boundaries
 Use for project creation, new runs, status, resume, retry, or cancellation of published conversational workflows. Act as the sole coordinator of each local run in the foreground. Independent peers may own separate ticket-bound runs. Execute serially by default; delegate only when available and authorized. Preserve existing session authorization and explicit workflow approval scopes.
 
+## Discovery and proportional use
+Use this skill when the request calls for a reusable workflow or a published run, rather than adding workflow machinery to an ordinary one-off task. Inspect repository-local `workflows/` releases and drafts when a workflow is requested; an absent optional workflow does not block direct work authorized by the user. If a required named release is absent, report its identity and the concrete gap. Do not claim a definition is missing without checking the supplied location. Use only available resources; procedures declared inside a workflow do not imply an external skill dependency.
+
+Load the entry instructions and required reference sections, then use the public helper's `inspect`, `ready`, and `context` output for the operation at hand. Do not read the entire helper implementation to discover commands. Load onboarding only for missing authoring/new-run context, and recovery guidance only when recovering. This keeps context focused without skipping applicable acceptance, consent, or evidence requirements.
+
 ## Operation selection
 Resolve operation, project, workflow and optional version from context. Status is read-only. Resume/retry/cancel reuse frozen context and do not trigger onboarding. A new run chooses the latest numeric release unless specified.
 

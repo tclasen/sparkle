@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "source_commit": "b14ad27ab5e4687275db94b240422f20b162fe39",
+  "code_sha256": "6d50988b48ec1ec75ee3c519a127a661e287251e4775ded9a5360614afadbe7c",
+  "declared_utc": "2026-10-09T03:57:27.529678+00:00",
+  "completed_episodes": 91,
+  "completed_author_indices": [
+    241,
+    242,
+    243,
+    244,
+    245,
+    246,
+    247,
+    248,
+    249,
+    250,
+    251
+  ],
+  "reason": "Late authoring observations revealed literal blocked-status requirement absent from the task prompt. Normalize explicit refusal only with policy answer, timestamp reason and absent numeric metrics. All other checks/hard failures retained; primary/v1/v2 unchanged. Exploratory correction, not preregistered success."
+}

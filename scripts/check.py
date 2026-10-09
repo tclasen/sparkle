@@ -40,6 +40,7 @@ def main():
     run(sys.executable, 'scripts/bundle.py', '--check')
     run(sys.executable, 'tests/test_releases.py')
     run(sys.executable, 'tests/test_publication.py')
+    run(sys.executable, 'tests/test_evals.py')
     run('uv', 'run', 'tests/verify_install.py', *([] if selected['stable'] else ['--smoke-only']))
     run(sys.executable, 'tests/verify_tag_install.py')
     if selected['stable']:

@@ -1,0 +1,161 @@
+{
+  "assessment": "Agent-assisted inspection of successful native tool results, actual marker files, and broker records; readiness only, not usefulness.",
+  "cells": [
+    {
+      "cell": "codex-gpt-6-luna-medium",
+      "fresh_session_marker": true,
+      "helper_verified": true,
+      "mock_service_observed": true,
+      "probe_marker": true,
+      "protected_inputs_preserved": true,
+      "sessions_exit_zero": true,
+      "source_trace_sha256": "7ce878c7c6dd1670b96e00792c45531dab84d712a240b9fc1c48b5719a29e2ac",
+      "successful_helper_results": [
+        {
+          "exit_code": 0,
+          "helper_json": {
+            "diagnostics": [],
+            "id": "example-workflow",
+            "inputs": {
+              "topic": {
+                "required": true
+              }
+            },
+            "steps": [
+              {
+                "id": "prepare",
+                "type": "task"
+              },
+              {
+                "depends_on": [
+                  "prepare"
+                ],
+                "id": "check",
+                "type": "task"
+              }
+            ],
+            "valid": true
+          },
+          "tool_id": "item_1"
+        }
+      ]
+    },
+    {
+      "cell": "pi-gpt-6-luna-medium",
+      "fresh_session_marker": true,
+      "helper_verified": true,
+      "mock_service_observed": true,
+      "probe_marker": true,
+      "protected_inputs_preserved": true,
+      "sessions_exit_zero": true,
+      "source_trace_sha256": "7a0b02b58e0157d31e5e45688759570e284ea7ebeab540393743e5a7e2e3bbd8",
+      "successful_helper_results": [
+        {
+          "exit_code": 0,
+          "helper_json": {
+            "diagnostics": [],
+            "id": "example-workflow",
+            "inputs": {
+              "topic": {
+                "required": true
+              }
+            },
+            "steps": [
+              {
+                "id": "prepare",
+                "type": "task"
+              },
+              {
+                "depends_on": [
+                  "prepare"
+                ],
+                "id": "check",
+                "type": "task"
+              }
+            ],
+            "valid": true
+          },
+          "tool_id": "call_8db5e0cef42049a49ef373b644760a69|fc_03e09254cd4db7af016ac835caf9008190b013d7e34f294bde"
+        }
+      ]
+    },
+    {
+      "cell": "codex-gpt-oss-120b-medium",
+      "fresh_session_marker": true,
+      "helper_verified": true,
+      "mock_service_observed": true,
+      "probe_marker": true,
+      "protected_inputs_preserved": true,
+      "sessions_exit_zero": true,
+      "source_trace_sha256": "02d09f39a15030bbd7fb42afa550f0e8600d71a77951a771bff926a943203112",
+      "successful_helper_results": [
+        {
+          "exit_code": 0,
+          "helper_json": {
+            "diagnostics": [],
+            "id": "example-workflow",
+            "inputs": {
+              "topic": {
+                "required": true
+              }
+            },
+            "steps": [
+              {
+                "id": "prepare",
+                "type": "task"
+              },
+              {
+                "depends_on": [
+                  "prepare"
+                ],
+                "id": "check",
+                "type": "task"
+              }
+            ],
+            "valid": true
+          },
+          "tool_id": "item_10"
+        }
+      ]
+    },
+    {
+      "cell": "pi-gpt-oss-120b-medium",
+      "fresh_session_marker": true,
+      "helper_verified": true,
+      "mock_service_observed": true,
+      "probe_marker": true,
+      "protected_inputs_preserved": true,
+      "sessions_exit_zero": true,
+      "source_trace_sha256": "6013442f43cd009f74b61e0191d2aa69ef0f97ee4c9f31f645e03c4d5803a99a",
+      "successful_helper_results": [
+        {
+          "exit_code": 0,
+          "helper_json": {
+            "diagnostics": [],
+            "id": "example-workflow",
+            "inputs": {
+              "topic": {
+                "required": true
+              }
+            },
+            "steps": [
+              {
+                "id": "prepare",
+                "type": "task"
+              },
+              {
+                "depends_on": [
+                  "prepare"
+                ],
+                "id": "check",
+                "type": "task"
+              }
+            ],
+            "valid": true
+          },
+          "tool_id": "call_wnnt0ymk"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "all_members_verified": true,
+  "archive": "/Users/Shared/projects/sparkle-eval-evidence/2026-10-08-outcomes/outcomes.tar.gz",
+  "bytes": 11072796,
+  "excluded": [
+    "all symlinks",
+    "pi-agent including authentication",
+    "dependency caches",
+    ".git",
+    "scratch files"
+  ],
+  "files": 5870,
+  "frozen_verified": true,
+  "sha256": "24bf09aac300875d9dfbdf08bf65a5e4ee78b6b92108e52029cb28b5810adb51"
+}

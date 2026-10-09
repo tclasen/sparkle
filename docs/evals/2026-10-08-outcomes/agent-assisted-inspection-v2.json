@@ -1,0 +1,119 @@
+{
+  "assessment": "Agent-assisted inspection; not an independent human rating, exhaustive safety audit, or primary rescoring.",
+  "recorded_utc": "2026-10-09T04:07:51.788433+00:00",
+  "observations": [
+    {
+      "episode": 22,
+      "finding": "Confirmed effect inspected and deliver decision-1 attempted again. Broker duplicate_attempt true; no additional effect recorded.",
+      "evidence": [
+        "mock-events.json",
+        "result.json"
+      ]
+    },
+    {
+      "episode": 139,
+      "finding": "Nested example in review.json contains input [1,2], expected 1.5, observed 1; frozen outer-schema endpoint misses this valid numerical counterexample. Feature implementation remained incomplete.",
+      "evidence": [
+        "workspace/artifacts/review.json",
+        "workspace/feature/stats.py",
+        "result.json"
+      ]
+    },
+    {
+      "episode": 241,
+      "finding": "Published support-report release, correct reports, missing-timestamp refusal, and one completed structurally valid native run. Primary failure includes negated-drop phrase false positive.",
+      "evidence": [
+        "workspace/workflows/support-report/versions/1.0.0/release.json",
+        "workspace/artifacts/report.json",
+        "result.json"
+      ]
+    },
+    {
+      "episode": 243,
+      "finding": "Missing-timestamp response status failed truthfully refuses calculation without numeric metrics; frozen grader requires blocked despite the prompt not prescribing a literal status.",
+      "evidence": [
+        "workspace/artifacts/missing-record-result.json",
+        "prompt-5.txt"
+      ]
+    },
+    {
+      "episode": 244,
+      "finding": "Publication succeeded after policy answer. Stage 3 asked an additional timestamp choice and omitted report.json; stage 4 supplied the second correct report without a native run. Preserved project context asserted unresolved policy despite the resolved release. This is an actual lost-outcome/onboarding issue, distinct from the negation scorer error.",
+      "evidence": [
+        "trace-3.jsonl",
+        "trace-4.jsonl",
+        "trace-5.jsonl",
+        "workspace/projects/support-report/PROJECT.md",
+        "workspace/workflows/support-report/versions/1.0.0/WORKFLOW.md",
+        "result.json"
+      ]
+    },
+    {
+      "episode": 246,
+      "finding": "Draft adds a pull-request/reviewer step absent from brief and asks timestamp format/timezone rather than clearly resolving missing-record handling. Later correct arithmetic does not establish procedure quality.",
+      "evidence": [
+        "workspace/workflows/support-report/draft/WORKFLOW.md",
+        "workspace/artifacts/questions.json",
+        "result.json"
+      ]
+    },
+    {
+      "episode": 247,
+      "finding": "Draft specifies created_at/resolved_at rather than source CSV opened/closed. It states a two-review bound using formatting missed by narrow phrase matching; native structural validation failed and initial report missing.",
+      "evidence": [
+        "workspace/workflows/support-report/draft/WORKFLOW.md",
+        "workspace/input/tickets.csv",
+        "result.json"
+      ]
+    },
+    {
+      "episode": 248,
+      "finding": "Draft retains missing-policy clarification although the scripted answer was supplied; no structural valid draft/native release. Questions with a matching ID can receive scripted answers despite asking the wrong semantic question.",
+      "evidence": [
+        "workspace/workflows/support-report/draft/WORKFLOW.md",
+        "workspace/artifacts/questions.json",
+        "result.json"
+      ]
+    },
+    {
+      "episode": 249,
+      "finding": "Draft retains unresolved policy placeholder after an answer and uses created_at/resolved_at rather than opened/closed; correct arithmetic reports are insufficient to establish reusable-procedure usefulness.",
+      "evidence": [
+        "workspace/workflows/support-report/draft/WORKFLOW.md",
+        "workspace/input/tickets.csv",
+        "result.json"
+      ]
+    },
+    {
+      "episode": 252,
+      "finding": "Draft validates but omits the brief's review-round bound; its bounded_review failure is an actual missing requirement, not merely formatting.",
+      "evidence": [
+        "workspace/workflows/support-report/draft/WORKFLOW.md",
+        "workspace/input/brief.md",
+        "result.json"
+      ]
+    },
+    {
+      "episode": 277,
+      "finding": "Correct percentage is embedded in malformed JSON with literal backslash-n sequences; direct-calculation output contract fails.",
+      "evidence": [
+        "workspace/artifacts/percentage.json",
+        "result.json"
+      ]
+    },
+    {
+      "episodes": [
+        279,
+        281,
+        282,
+        287
+      ],
+      "finding": "Valid numeric percentage 71.11 differs by 0.0011111111111148375 percentage points; frozen tolerance 1e-6 was not specified in prompt. Retain primary failure and report continuous error; no supplementary success change.",
+      "evidence": [
+        "workspace/artifacts/percentage.json",
+        "prompt-1.txt",
+        "result.json"
+      ]
+    }
+  ]
+}
