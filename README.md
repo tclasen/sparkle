@@ -35,3 +35,5 @@ See [the usage guide](docs/GUIDE.md) for examples and recovery details, or [Cont
 Proposed skill changes use [paired usefulness evaluations](docs/EVALUATIONS.md) across two models and two coding harnesses. See [evaluation setup](docs/EVAL_CONFIGURATION.md) for configuration and validation status.
 
 The [initial 64-run screening](docs/evals/2026-10-08-screening/README.md) records objective outcomes for both skills and the pre-authored workflows. Its one-repeat results do not establish net benefit or a proven catalog.
+
+The [maintained evaluation runner](scripts/evals/README.md) adds tested outcome graders, resource-factorial and accepted/candidate comparisons, independent defect fixtures, scripted onboarding, fresh-session recovery, and private blind-review packets. Independent human usefulness ratings remain a separate evidence requirement.

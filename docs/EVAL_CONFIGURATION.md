@@ -26,15 +26,15 @@ Use a task-specific `npm_config_cache` or `UV_CACHE_DIR` if the normal cache is 
 | Cell | Requested model | Provider and wire format | Authentication |
 | --- | --- | --- | --- |
 | Codex / local | `gpt-oss:120b` | `ollama-local`, Ollama `/v1/responses` | No provider credential |
-| Codex / Luna | `gpt-6-luna` | Built-in `openai`, subscription route | Codex ChatGPT OAuth |
+| Codex / Luna 6.0 (`gpt-6-luna`, Medium reasoning) | `gpt-6-luna` | Built-in `openai`, subscription route | Codex ChatGPT OAuth |
 | Pi / local | `gpt-oss:120b` | Custom `ollama`, `openai-completions` | Dummy `ollama` key |
-| Pi / Luna | `gpt-6-luna` | Built-in `openai-codex`, `openai-codex-responses` | Pi subscription OAuth |
+| Pi / Luna 6.0 (`gpt-6-luna`, Medium reasoning) | `gpt-6-luna` | Built-in `openai-codex`, `openai-codex-responses` | Pi subscription OAuth |
 
-Authenticate independently if needed: `codex login` for Codex; start Pi and use `/login openai-codex` for Pi. `codex login status` and `pi auth check --provider openai-codex --model gpt-6-luna --json` report readiness without printing tokens. Never use Pi's `--credentials` or credential-printing commands in evidence capture. The preflight removed `OPENAI_API_KEY` from the child processes so the Luna cells used existing subscription authentication. Do not substitute `--provider openai` in Pi: that selects its API-key provider.
+Authenticate independently if needed: `codex login` for Codex; start Pi and use `/login openai-codex` for Pi. `codex login status` and `pi auth check --provider openai-codex --model gpt-6-luna --json` report readiness without printing tokens. Never use Pi's `--credentials` or credential-printing commands in evidence capture. The preflight removed `OPENAI_API_KEY` from the child processes so the Luna 6.0 (`gpt-6-luna`, Medium reasoning) cells used existing subscription authentication. Do not substitute `--provider openai` in Pi: that selects its API-key provider.
 
 The host endpoint is `http://127.0.0.1:11434`; a Docker sandbox reaches the same Mac service through `http://host.docker.internal:11434`. Verify `/api/tags` and `/api/ps`. The model needs approximately 65 GB of weights; the tested Mac has 128 GiB of RAM. Initial loading can take minutes, and local multi-turn Codex requests can be considerably slower than a greeting. Keep cold-start status and timeouts in the run record.
 
-The current host's `/api/tags` advertises two `gpt-oss:120b` entries with different runners/digests, plus a `llamacpp:` alias. The observed loaded runner during this preflight was `llamacpp`, digest `ad84bf7720de3aac13b8f07008047c85ff5c277721a648dbf51517453a0331f6`, with context length 131072. The other advertised digest was `7da0a7eefc4c5acd46742134ef1c05ff635ea3840d8ec8580f303b09f3641d5a`. Record both advertised and loaded metadata per batch, and investigate any routing/digest change before treating paired results as comparable. The earlier sandbox greeting used a different digest; it is a separate observation. Hosted Luna did not expose an immutable weight digest; record the requested/returned model ID and date rather than inventing a pin.
+The current host's `/api/tags` advertises two `gpt-oss:120b` entries with different runners/digests, plus a `llamacpp:` alias. The observed loaded runner during this preflight was `llamacpp`, digest `ad84bf7720de3aac13b8f07008047c85ff5c277721a648dbf51517453a0331f6`, with context length 131072. The other advertised digest was `7da0a7eefc4c5acd46742134ef1c05ff635ea3840d8ec8580f303b09f3641d5a`. Record both advertised and loaded metadata per batch, and investigate any routing/digest change before treating paired results as comparable. The earlier sandbox greeting used a different digest; it is a separate observation. Hosted Luna 6.0 (`gpt-6-luna`, Medium reasoning) did not expose an immutable weight digest; record the requested/returned model ID and date rather than inventing a pin.
 
 The checked-in [Codex configuration](eval-config/codex-ollama.toml) and [Pi model configuration](eval-config/pi-models.json) contain no secrets. Pi's zero local-model token prices are catalog bookkeeping, not a claim that local compute is free. Its hosted catalog cost estimates are not subscription billing evidence.
 
@@ -78,7 +78,7 @@ PROMPT
 )
 ````
 
-Codex / Luna:
+Codex / Luna 6.0 (`gpt-6-luna`, Medium reasoning):
 
 ```sh
 env -u OPENAI_API_KEY "$eval_codex" exec \
@@ -100,7 +100,7 @@ env -u OPENAI_API_KEY "$eval_codex" exec \
   "$eval_prompt" </dev/null
 ```
 
-Pi / Luna:
+Pi / Luna 6.0 (`gpt-6-luna`, Medium reasoning):
 
 ```sh
 env -u OPENAI_API_KEY PI_CODING_AGENT_DIR="$eval_pi_dir" "$eval_pi" \
@@ -147,21 +147,29 @@ The earlier sandbox inference returned `OLLAMA_SANDBOX_OK`. Docker defaults Code
 
 ## Observed validation, 2026-10-08
 
-The tested skill resources came from commit `1eb5e9f4f58548c294782c0f5fbf1594891d00a7` (v0.1.2); this documentation contribution does not change those bundles. The first four-cell probe read `fixture.txt`, both `SKILL.md` files, and both helper directories; asked for an exact copy to `answer.txt`; and requested `MATRIX_PREFLIGHT_OK`. All cells reached their selected model and completed real read/write/shell tool calls. Codex used subscription login for Luna; Pi's transcripts identified `openai-codex`, `openai-codex-responses`, and `gpt-6-luna`. Local requests used the configured Ollama endpoints.
+The tested skill resources came from commit `1eb5e9f4f58548c294782c0f5fbf1594891d00a7` (v0.1.2); this documentation contribution does not change those bundles. The first four-cell probe read `fixture.txt`, both `SKILL.md` files, and both helper directories; asked for an exact copy to `answer.txt`; and requested `MATRIX_PREFLIGHT_OK`. All cells reached their selected model and completed real read/write/shell tool calls. Codex used subscription login for Luna 6.0 (`gpt-6-luna`, Medium reasoning); Pi's transcripts identified `openai-codex`, `openai-codex-responses`, and `gpt-6-luna`. Local requests used the configured Ollama endpoints.
 
 | Cell | First probe elapsed | Exact artifact | Final offline diagnostic |
 | --- | --- | --- | --- |
-| Codex / Luna | 10.02 s | Passed | Passed, 6.39 s |
-| Pi / Luna | 9.48 s | Failed: missing trailing newline | Passed, 6.35 s |
+| Codex / Luna 6.0 (`gpt-6-luna`, Medium reasoning) | 10.02 s | Passed | Passed, 6.39 s |
+| Pi / Luna 6.0 (`gpt-6-luna`, Medium reasoning) | 9.48 s | Failed: missing trailing newline | Passed, 6.35 s |
 | Codex / local | 230.74 s | Passed | Passed, 10.98 s |
 | Pi / local | 22.18 s | Passed | Passed, 4.91 s |
 
 All four final probes exited zero, produced byte-identical artifacts, returned exactly the final marker, and showed both bundled helpers returning `"valid": true` in successful tool results. These observations validate the four host configurations for inference, shell/file tools, and helper dependencies. They do not measure relative performance: the probes, cache warmth, and loaded-model state differ between rounds.
 
-Pi / Luna's first run returned success despite omitting a byte. That is an observed instruction/verification failure, not a credential or tool-transport failure, and remains part of the evidence. The diagnostic with explicit `cp`/`cmp` and two helper invocations checks configuration/dependency readiness; it does not erase the first result or count as a usefulness improvement.
+Pi / Luna 6.0 (`gpt-6-luna`, Medium reasoning)'s first run returned success despite omitting a byte. That is an observed instruction/verification failure, not a credential or tool-transport failure, and remains part of the evidence. The diagnostic with explicit `cp`/`cmp` and two helper invocations checks configuration/dependency readiness; it does not erase the first result or count as a usefulness improvement.
 
-The second probe reached helpers successfully in both Pi cells; Codex was blocked by the default uv cache permissions and sandbox DNS restrictions. Both Codex cells reported those blockers accurately. A third probe with prewarmed workspace-local caches resolved those environment restrictions, but its command had an ambiguous trailing prose period that Codex / Luna treated as an extra CLI argument. The final, fourth probe uses the fenced command above in fresh workspaces and retains all earlier attempts. Infrastructure repairs and prompt corrections are configuration diagnostics, not scored baseline/candidate trials.
+The second probe reached helpers successfully in both Pi cells; Codex was blocked by the default uv cache permissions and sandbox DNS restrictions. Both Codex cells reported those blockers accurately. A third probe with prewarmed workspace-local caches resolved those environment restrictions, but its command had an ambiguous trailing prose period that Codex / Luna 6.0 (`gpt-6-luna`, Medium reasoning) treated as an extra CLI argument. The final, fourth probe uses the fenced command above in fresh workspaces and retains all earlier attempts. Infrastructure repairs and prompt corrections are configuration diagnostics, not scored baseline/candidate trials.
 
 Codex / local emitted a model-catalog decode diagnostic while refreshing model metadata; actual inference and tool use succeeded. Keep stderr in evidence and recheck metadata when upgrading. These are configuration observations using synthetic fixtures, not completed authoring/execution evals or evidence that sparkle improves results.
 
 Raw first-round transcripts and operator result records are local to `/private/tmp/sparkle-eval-preflight-20261008/`; diagnostics are under `round2/`, `round3/`, and `round4/`. Earlier operator marker flags were overly broad substring checks; the recorded operator assessments and final-round exact-message checks correct that limitation. Temporary evidence is not guaranteed to survive host cleanup. Preserve it privately if needed, with credentials excluded; only this sanitized summary and configuration templates are committed.
+
+## Outcome evaluation version 2
+
+The maintained [evaluation runner](../scripts/evals/README.md) pins these native harness/model combinations and Medium reasoning, freezes source/evaluator/configuration hashes, prewarms an identical workspace-local dependency cache, and captures fresh-session traces. Its macOS adapter uses Codex named permission profiles and a Pi instrumentation extension retaining native tool schemas. The extension supplies isolation, not external skill procedure. No external skills are used. The local mock broker runs outside model workspaces and authorizes exact artifact bytes under a specific action ID.
+
+Codex tool commands disable live search and use a network proxy with no allowed domains. The mock Unix socket is the sole local integration exception. In Codex 0.162.0 the correct setting is `permissions.eval.network.unix_sockets={"/absolute/mock.sock"="allow"}` with network enabled and the proxy enabled. A legacy `allow_unix_sockets` field was ignored in exploratory probes and did not grant access. The native integration test verifies the working setting without model inference. Pi shell tools use Seatbelt and its direct file tools enforce resolved workspace/protected paths. Native model/authentication traffic is separate from tool-network restrictions. Runtime paths remain readable; do not claim a universal ban on every outside-workspace runtime file.
+
+An optional frozen Codex local model catalog selects native direct tools and excludes unsupported experimental tools while retaining the `gpt-oss:120b` model tag and weights. Record the catalog's hash and origin alongside the loaded Ollama digest; catalog metadata is not evidence of model identity or vendor-certified capability. This differs from the original fallback-metadata harness profile. Preflight results, provider failures, absent usage, and incomplete task execution remain distinct from product usefulness evidence.
