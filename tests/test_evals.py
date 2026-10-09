@@ -12,6 +12,7 @@ import oracle
 import run
 import cases
 import audit
+import screen
 import export as evidence_export
 import tarfile
 import threading
@@ -123,6 +124,15 @@ class EvaluationRuntime(unittest.TestCase):
                 return all(oracle.research(data,source,{'budget':budget,'region':region,'retention_days':7}).values())
             self.assertTrue(expected('EU',100));self.assertTrue(expected('US',130))
         self.assertNotEqual(cases.files('defects',1)['review/mean.py'],cases.files('defects',2)['review/mean.py'])
+
+    def test_screen_selects_every_condition_without_selecting_outcomes(self):
+        schedule=[dict(index=n,trial=t,case=c,cell=cell,arm='both') for n,(t,c,cell) in enumerate((t,c,cell) for t in (1,2,3) for c in ('reuse','defects','author','boundaries') for cell in cases.CELLS)]
+        declared=screen.selection({'schedule':schedule},'frozen-hash')
+        selected=[item for item in schedule if item['index'] in declared['episode_indices']]
+        self.assertEqual(len(selected),16)
+        self.assertEqual({(r['case'],r['cell']) for r in selected},{(c,cell) for c in ('reuse','defects','author','boundaries') for cell in cases.CELLS})
+        self.assertTrue(all(r['trial']==1 for r in selected))
+        self.assertEqual(declared['planned_sessions'],52)
 
 
 class EvidenceExport(unittest.TestCase):
