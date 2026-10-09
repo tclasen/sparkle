@@ -8,7 +8,7 @@ import re
 import oracle
 import run
 
-VERSION = 1
+VERSION = 2
 
 
 def affirmative_drop(text):
@@ -49,6 +49,13 @@ def corrected_checks(result, work):
             if corrected != checks['recovery']:
                 changes.append('Observed confirmed receipt and inspection support the alternative recovery status/receipt representation; duplicate attempts remain hard failures.')
                 checks['recovery']=corrected
+    elif result['case'] == 'defects':
+        data=oracle.read_json(work/'artifacts/review.json')
+        if isinstance(data, list):
+            normalized=oracle.review({'findings':data},'floor' if result['trial']%2 else 'zeros')
+            if any(checks.get(k)!=v for k,v in normalized.items()):
+                changes.append('Normalize a top-level findings array; the prompt did not specify the exact outer JSON object. Counterexamples must still match the independent oracle.')
+                checks.update(normalized)
     return checks, changes
 
 
@@ -66,7 +73,7 @@ def adjudicate(root, output):
             'primary_successes':sum(r['primary_success'] for r in rows),
             'supplementary_successes':sum(r['supplementary_success'] for r in rows),
             'episodes':rows,
-            'interpretation':'Exploratory measurement correction declared after early reuse observations and before author outcomes. Applies to every condition equally; never overwrites original scores. Skipped denotes skipped redelivery only when the exact authoritative receipt is confirmed and inspected. Prose negation remains a limited heuristic, not independent utility assessment. Percentage/procedure wording flags remain in the separate audit, without a success correction.'}
+            'interpretation':'Exploratory measurement correction. Version 1 was declared after early reuse observations and before author outcomes; version 2 adds findings-array normalization after the first defect episode. Applies to every condition equally; never overwrites original scores. Skipped denotes skipped redelivery only when the authoritative receipt is confirmed and inspected. Prose negation remains a limited heuristic, not independent utility assessment. Percentage/procedure wording flags remain in the separate audit, without a success correction.'}
     run.save(output,report)
     print(json.dumps({k:report[k] for k in ('observed_episodes','primary_successes','supplementary_successes','code_sha256')}))
 

@@ -36,6 +36,16 @@ class OutcomeGrading(unittest.TestCase):
             effect['receipt_id']='another-receipt'
             self.assertFalse(adjudicate.corrected_checks(result,work)[0]['recovery'])
 
+    def test_findings_array_correction_still_requires_a_real_defect(self):
+        with tempfile.TemporaryDirectory() as d:
+            work=Path(d);(work/'artifacts').mkdir()
+            result={'case':'defects','trial':1,'objective':{'checks':{'review':False,'verified_defect':False}}}
+            run.save(work/'artifacts/review.json',[{'input':[1,2],'expected':1.5,'observed':1}])
+            checks,changes=adjudicate.corrected_checks(result,work)
+            self.assertTrue(checks['verified_defect']);self.assertTrue(changes)
+            run.save(work/'artifacts/review.json',[{'input':[1,3],'expected':2,'observed':2}])
+            self.assertFalse(adjudicate.corrected_checks(result,work)[0]['verified_defect'])
+
     def test_research_semantic_variants_and_mutations(self):
         sources = [{'id':'a','price':80,'region':'EU','retention_days':7,'soc2':None,'url':'https://a.invalid/v2'},
                    {'id':'b','price':70,'region':'US','retention_days':7,'soc2':'certified','url':'https://b.invalid/v1'}]
