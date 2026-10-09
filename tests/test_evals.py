@@ -22,6 +22,22 @@ import threading
 
 
 class OutcomeGrading(unittest.TestCase):
+    def test_author_audit_distinguishes_refusal_and_unresolved_publication(self):
+        with tempfile.TemporaryDirectory() as directory:
+            work=Path(directory);(work/'artifacts').mkdir()
+            run.save(work/'artifacts/missing-record-result.json',{'status':'failed','reason':'Missing timestamp; no report can be calculated.'})
+            result=dict(index=1,case='author',cell='test-cell',arm='both',trial=1,sessions=[],elapsed_seconds=1,
+                        followups=[],objective={'checks':{'missing_records_blocked':False,'asked_needed_question':False,'bounded_review':True,'local_only':True,'no_invented_policy':True},'compliant_success':False,'protocol':{'records':0,'valid':0}})
+            row=audit.observe(result,work)
+            self.assertEqual(row['missing_timestamp_status'],'failed')
+            self.assertFalse(row['missing_timestamp_numeric_metrics_present'])
+            self.assertFalse(row['native_release_with_unanswered_policy'])
+            run.save(work/'workflows/support-report/versions/1.0.0/release.json',{})
+            self.assertTrue(audit.observe(result,work)['native_release_with_unanswered_policy'])
+            result['followups']=[{'type':'scripted_answer','provided':True}]
+            self.assertFalse(audit.observe(result,work)['native_release_with_unanswered_policy'])
+            self.assertFalse(result['objective']['compliant_success'])
+
     def test_paired_comparison_preserves_failures_and_missing_arms(self):
         rows=[]
         for index,arm,success,seconds in [(1,'neither',True,10),(2,'skill',False,180),(3,'workflow',False,20),(4,'both',True,30)]:
