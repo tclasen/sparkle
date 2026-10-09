@@ -10,6 +10,15 @@ import oracle
 import run
 
 
+def numeric_evidence(value):
+    """Find numeric evidence in a review document without assuming its outer schema."""
+    if isinstance(value,dict):
+        if all(key in value for key in ('input','expected','observed')):yield value
+        for child in value.values():yield from numeric_evidence(child)
+    elif isinstance(value,list):
+        for child in value:yield from numeric_evidence(child)
+
+
 def observe(result, workspace):
     sessions = result['sessions']
     checks = result['objective']['checks']
@@ -58,6 +67,9 @@ def observe(result, workspace):
         row['review_items']=len(findings)
         row['verified_counterexamples']=sum(oracle.review({'findings':[finding]},bug)['verified_defect'] for finding in findings)
         row['items_without_verified_counterexample']=len(findings)-row['verified_counterexamples']
+        evidence=list(numeric_evidence(data))
+        row['numeric_evidence_records_anywhere']=len(evidence)
+        row['matching_counterexamples_anywhere']=sum(oracle.review({'findings':[finding]},bug)['verified_defect'] for finding in evidence)
         if isinstance(data,list):
             row['scorer_review_flags'].append('Top-level findings array; inspect outer-object ambiguity and the supplementary normalization.')
     elif result['case'] == 'boundaries':
@@ -106,7 +118,9 @@ def audit(root, output):
         if case=='defects':
             coverage[-1].update(review_items=sum(r['review_items'] for r in items),
                                 verified_counterexamples=sum(r['verified_counterexamples'] for r in items),
-                                items_without_verified_counterexample=sum(r['items_without_verified_counterexample'] for r in items))
+                                items_without_verified_counterexample=sum(r['items_without_verified_counterexample'] for r in items),
+                                numeric_evidence_records_anywhere=sum(r['numeric_evidence_records_anywhere'] for r in items),
+                                matching_counterexamples_anywhere=sum(r['matching_counterexamples_anywhere'] for r in items))
     report = dict(plan_sha256=oracle.digest(root/'plan.json'), planned_episodes=screen['planned_episodes'] if screen else len(plan['schedule']),
                   original_plan_episodes=len(plan['schedule']),
                   observed_episodes=len(rows), groups=coverage, episodes=rows,

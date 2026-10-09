@@ -212,6 +212,10 @@ class EvidenceExport(unittest.TestCase):
             self.assertEqual(row['review_items'],2)
             self.assertEqual(row['verified_counterexamples'],1)
             self.assertEqual(row['items_without_verified_counterexample'],1)
+            run.save(root/'artifacts/review.json',{'defects':[{'example':{'input':[1,2],'expected':1.5,'observed':1}}]})
+            row=audit.observe(result,root)
+            self.assertEqual(row['verified_counterexamples'],0)
+            self.assertEqual(row['matching_counterexamples_anywhere'],1)
 
     def test_export_excludes_authentication_caches_and_symlinks(self):
         with tempfile.TemporaryDirectory() as d:
