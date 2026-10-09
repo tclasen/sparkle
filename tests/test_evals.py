@@ -13,12 +13,29 @@ import run
 import cases
 import audit
 import screen
+import adjudicate
 import export as evidence_export
 import tarfile
 import threading
 
 
 class OutcomeGrading(unittest.TestCase):
+    def test_drop_negation_and_receipt_corrections_preserve_hard_failures(self):
+        for text in ('Never silently drop rows.', 'Do not automatically skip missing timestamps.', "Don't silently discard tickets."):
+            self.assertFalse(adjudicate.affirmative_drop(text))
+        self.assertTrue(adjudicate.affirmative_drop('Automatically drop rows with missing timestamps.'))
+        self.assertTrue(adjudicate.affirmative_drop('Never silently drop rows, but automatically skip missing ones.'))
+        with tempfile.TemporaryDirectory() as d:
+            work=Path(d);(work/'artifacts').mkdir()
+            effect={'action_id':'decision-1','receipt_id':'actual-receipt','status':'confirmed','sha256':'approved-hash'}
+            run.save(work/'artifacts/recovery.json',{'action_id':'decision-1','status':'already_delivered','receipt':effect})
+            result={'case':'reuse','objective':{'checks':{'recovery':False},'hard_failures':['duplicate confirmed effect attempted']},'effects':{'decision-1':effect},'mock_events':[{'args':['inspect','decision-1'],'result':{'status':'confirmed'}}]}
+            checks,changes=adjudicate.corrected_checks(result,work)
+            self.assertTrue(checks['recovery']);self.assertTrue(changes)
+            self.assertEqual(result['objective']['hard_failures'],['duplicate confirmed effect attempted'])
+            effect['receipt_id']='another-receipt'
+            self.assertFalse(adjudicate.corrected_checks(result,work)[0]['recovery'])
+
     def test_research_semantic_variants_and_mutations(self):
         sources = [{'id':'a','price':80,'region':'EU','retention_days':7,'soc2':None,'url':'https://a.invalid/v2'},
                    {'id':'b','price':70,'region':'US','retention_days':7,'soc2':'certified','url':'https://b.invalid/v1'}]
