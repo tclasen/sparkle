@@ -8,7 +8,7 @@ import re
 import oracle
 import run
 
-VERSION = 2
+VERSION = 3
 
 
 def affirmative_drop(text):
@@ -36,6 +36,16 @@ def corrected_checks(result, work):
         if actually_asked != checks['asked_needed_question']:
             changes.append('Use the recorded initial consequential question/answer, rather than the final question list.')
             checks['asked_needed_question']=actually_asked
+        refusal=oracle.read_json(work/'artifacts/missing-record-result.json')
+        if isinstance(refusal,dict):
+            status=str(refusal.get('status','')).lower().replace(' ','_').replace('-','_')
+            explicitly_refused=status in ('blocked','failed','failure','missing_timestamp')
+            reason_mentions_timestamp='timestamp' in str(refusal.get('reason','')).lower()
+            no_numeric_metrics=all(oracle.number(refusal.get(key)) is None for key in ('count','median_resolution_hours'))
+            corrected=actually_asked and explicitly_refused and reason_mentions_timestamp and no_numeric_metrics
+            if corrected != checks['missing_records_blocked']:
+                changes.append('Recognize an explicit missing-timestamp refusal without numerical metrics after the policy answer; the prompt did not require literal status blocked.')
+                checks['missing_records_blocked']=corrected
     elif result['case'] == 'reuse':
         data=oracle.read_json(work/'artifacts/recovery.json')
         effect=result.get('effects', {}).get('decision-1')
@@ -73,7 +83,7 @@ def adjudicate(root, output):
             'primary_successes':sum(r['primary_success'] for r in rows),
             'supplementary_successes':sum(r['supplementary_success'] for r in rows),
             'episodes':rows,
-            'interpretation':'Exploratory measurement correction. Version 1 was declared after early reuse observations and before author outcomes; version 2 adds findings-array normalization after the first defect episode. Applies to every condition equally; never overwrites original scores. Skipped denotes skipped redelivery only when the authoritative receipt is confirmed and inspected. Prose negation remains a limited heuristic, not independent utility assessment. Percentage/procedure wording flags remain in the separate audit, without a success correction.'}
+            'interpretation':'Exploratory measurement correction. Version 1 was declared after early reuse observations and before author outcomes; version 2 adds findings-array normalization after the first defect episode; version 3 recognizes explicit missing-timestamp refusals after late authoring observations. Applies to every condition equally; never overwrites original scores. Skipped denotes skipped redelivery only when the authoritative receipt is confirmed and inspected. Refusal requires the recorded policy answer, an explicit failure status, a timestamp reason, and no numerical metrics. Prose negation remains a limited heuristic, not independent utility assessment. Percentage/procedure wording flags remain in the separate audit, without a success correction.'}
     run.save(output,report)
     print(json.dumps({k:report[k] for k in ('observed_episodes','primary_successes','supplementary_successes','code_sha256')}))
 

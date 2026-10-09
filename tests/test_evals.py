@@ -22,6 +22,24 @@ import threading
 
 
 class OutcomeGrading(unittest.TestCase):
+    def test_refusal_correction_requires_answer_and_no_fabricated_metrics(self):
+        with tempfile.TemporaryDirectory() as directory:
+            work=Path(directory);(work/'artifacts').mkdir()
+            draft=work/'workflows/support-report/draft/WORKFLOW.md';draft.parent.mkdir(parents=True)
+            draft.write_text('Never silently drop rows.')
+            result=dict(case='author',followups=[{'type':'scripted_answer','provided':True}],
+                        objective={'checks':{'no_invented_policy':False,'asked_needed_question':True,'missing_records_blocked':False}})
+            path=work/'artifacts/missing-record-result.json'
+            run.save(path,{'status':'failed','reason':'Missing closed timestamp.'})
+            self.assertTrue(adjudicate.corrected_checks(result,work)[0]['missing_records_blocked'])
+            run.save(path,{'status':'failed','reason':'Missing closed timestamp.','median_resolution_hours':4})
+            self.assertFalse(adjudicate.corrected_checks(result,work)[0]['missing_records_blocked'])
+            run.save(path,{'status':'completed','reason':'Missing closed timestamp.'})
+            self.assertFalse(adjudicate.corrected_checks(result,work)[0]['missing_records_blocked'])
+            run.save(path,{'status':'failed','reason':'Missing closed timestamp.'})
+            result['followups']=[]
+            self.assertFalse(adjudicate.corrected_checks(result,work)[0]['missing_records_blocked'])
+
     def test_author_audit_distinguishes_refusal_and_unresolved_publication(self):
         with tempfile.TemporaryDirectory() as directory:
             work=Path(directory);(work/'artifacts').mkdir()
