@@ -189,6 +189,12 @@ class EvidenceExport(unittest.TestCase):
             row=audit.observe(result,root)
             self.assertTrue(row['local_model_not_loaded_at_episode_start'])
             self.assertEqual(row['local_loaded_digests_after_sessions'],['observed-weights'])
+            result['case']='defects'
+            run.save(root/'artifacts/review.json',[{'input':[1,2],'expected':1.5,'observed':1},{'input':[1,3],'expected':2,'observed':2}])
+            row=audit.observe(result,root)
+            self.assertEqual(row['review_items'],2)
+            self.assertEqual(row['verified_counterexamples'],1)
+            self.assertEqual(row['items_without_verified_counterexample'],1)
 
     def test_export_excludes_authentication_caches_and_symlinks(self):
         with tempfile.TemporaryDirectory() as d:

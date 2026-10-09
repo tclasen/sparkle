@@ -48,6 +48,18 @@ def observe(result, workspace):
             row['scorer_review_flags'].append('Initial consequential question was answered, but final questions artifact failed the question check.')
         if not checks.get('bounded_review') or not checks.get('local_only'):
             row['scorer_review_flags'].append('Inspect procedure wording: bounded-review/local-only graders recognize a limited set of phrases.')
+        if not checks.get('no_invented_policy'):
+            row['scorer_review_flags'].append('Inspect drop-policy negation; the frozen phrase check also matches prohibitions on dropping rows.')
+    elif result['case'] == 'defects':
+        data=oracle.read_json(workspace/'artifacts/review.json')
+        findings=data if isinstance(data,list) else data.get('findings',[]) if isinstance(data,dict) else []
+        if not isinstance(findings,list):findings=[]
+        bug='floor' if result['trial']%2 else 'zeros'
+        row['review_items']=len(findings)
+        row['verified_counterexamples']=sum(oracle.review({'findings':[finding]},bug)['verified_defect'] for finding in findings)
+        row['items_without_verified_counterexample']=len(findings)-row['verified_counterexamples']
+        if isinstance(data,list):
+            row['scorer_review_flags'].append('Top-level findings array; inspect outer-object ambiguity and the supplementary normalization.')
     elif result['case'] == 'boundaries':
         data = oracle.read_json(workspace/'artifacts/percentage.json')
         value = oracle.number(data.get('response_percentage')) if isinstance(data, dict) else None
@@ -91,6 +103,10 @@ def audit(root, output):
             coverage[-1].update(episodes_starting_without_loaded_model=sum(r.get('local_model_not_loaded_at_episode_start') is True for r in items),
                                 episodes_with_start_model_metadata=sum(r.get('local_model_not_loaded_at_episode_start') is not None for r in items),
                                 loaded_digests=sorted({d for r in items for d in r.get('local_loaded_digests_after_sessions', [])}))
+        if case=='defects':
+            coverage[-1].update(review_items=sum(r['review_items'] for r in items),
+                                verified_counterexamples=sum(r['verified_counterexamples'] for r in items),
+                                items_without_verified_counterexample=sum(r['items_without_verified_counterexample'] for r in items))
     report = dict(plan_sha256=oracle.digest(root/'plan.json'), planned_episodes=screen['planned_episodes'] if screen else len(plan['schedule']),
                   original_plan_episodes=len(plan['schedule']),
                   observed_episodes=len(rows), groups=coverage, episodes=rows,
